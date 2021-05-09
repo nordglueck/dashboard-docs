@@ -245,13 +245,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
-    localhost:8000 is not showing the app.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#which-ide-would-you-recommend" class="md-nav__link">
     Which IDE would you recommend?
   </a>
@@ -282,6 +275,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
+    localhost:8000 is not showing the app.
+  </a>
   
 </li>
       
@@ -356,13 +356,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
-    localhost:8000 is not showing the app.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#which-ide-would-you-recommend" class="md-nav__link">
     Which IDE would you recommend?
   </a>
@@ -397,6 +390,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
+    localhost:8000 is not showing the app.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#problems-with-deploying" class="md-nav__link">
     Problems with deploying
   </a>
@@ -417,48 +417,6 @@
                 
                 
                 <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
-<h2 id="localhost8000-is-not-showing-the-app">localhost:8000 is not showing the app.</h2>
-<p>You started Docker but localhost:8000 is not showing the App? There is a couple of things that could be wrong here. </p>
-<ul>
-<li><strong>Front end is not up and running</strong></li>
-</ul>
-<p>First of all, make sure, that the front end is being served. You can achieve
-this by running</p>
-<pre><code>npm install
-</code></pre>
-<p>once and then</p>
-<pre><code>npm run serve
-</code></pre>
-<p>inside the <code>vue_frontend</code> directory of the project. <code>npm run serve</code> will serve the front end and enable hot reloading, which
-means that all changes made to the code will automatically refresh the page in the browser after saving the file.</p>
-<ul>
-<li><strong>Cache is <em>broken</em></strong></li>
-</ul>
-<p>The app is made to make as little requests as necessary. That means, if some JavaScript or CSS file that is needed for the
-page was already loaded into the cache once, the page will most likely not request the same file again unless the file is marked as modified.
-This is one reason, why the webpack configuration, that bundles the front end <code>.vue</code> files to static <code>.js</code> and <code>.css</code> files
-generates a unique hash that is appended to every file. The files will be renewed in the browser after every build process.</p>
-<p>In local development however, the development cycle might lead to a broken cache, i.e. a cache, where files are mistaken to be
-the newest when they aren't. The easiest way to verify if that is the problem you are encountering is to delete the cached files
-or to see if the problem persists in a private window. </p>
-<p>Personal experience showed, that these caching problems in local development rarely occur, when building the project with <code>npm run build</code> after a developing session.</p>
-<ul>
-<li><strong>Serving in the wrong location</strong></li>
-</ul>
-<p>The standard port of local development for Vue.js is <code>:8080</code> whereas the Docker will serve on port <code>:8000</code>.
-Both will work, but <code>localhost:8000</code> is preferable and used throughout the application.</p>
-<p>Depending on your system/machine it is possible, that <code>localhost</code> or <code>0.0.0.0</code> or <code>127.0.0.1</code> is not the IP that your Docker instance is serving the app on.
-Another possibility is, that the ports are not available to your host system or blocked by the firewall. Vue.js will usually automatically turn to another port then
-but in cases might not. </p>
-<p>So for debugging, you might follow these steps:</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/46176584/docker-bind-for-0-0-0-04000-failed-port-is-already-allocated">https://stackoverflow.com/questions/46176584/docker-bind-for-0-0-0-04000-failed-port-is-already-allocated</a></li>
-<li>Check your firewall settings for the ports</li>
-<li>Check the IP/Port of your docker process(es)</li>
-</ul>
-<p>When you encounter another IP than any of the localhost IPs, it is important to whitelist them in the django app (<code>ALLOWED_HOSTS</code>) and also to <strong>exchange all strings containing the localhost URL to your new IP.</strong></p>
-<p>The <code>ALLOWED_HOSTS</code> can e.g. be altered in <code>config/settings/local.py</code>. More information on ALLOWED_HOSTS: <a href="https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts">https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts</a></p>
-<hr />
 <h2 id="which-ide-would-you-recommend">Which IDE would you recommend?</h2>
 <p>I would recommend PyCharm Professional. It is a powerful IDE for Python development but with support for Vue.js
 and comes with rich features regarding project navigation, highlighting, code completion, TODO management, integrated terminal or python console etc.</p>
@@ -526,6 +484,48 @@ The following diagram gives a brief overview over the vuex state-management patt
 <li>Single Page Applications</li>
 <li>WebPack (Bundling files into static assets)</li>
 </ul>
+<hr />
+<h2 id="localhost8000-is-not-showing-the-app">localhost:8000 is not showing the app.</h2>
+<p>You started Docker but localhost:8000 is not showing the App? There is a couple of things that could be wrong here. </p>
+<ul>
+<li><strong>Front end is not up and running</strong></li>
+</ul>
+<p>First of all, make sure, that the front end is being served. You can achieve
+this by running</p>
+<pre><code>npm install
+</code></pre>
+<p>once and then</p>
+<pre><code>npm run serve
+</code></pre>
+<p>inside the <code>vue_frontend</code> directory of the project. <code>npm run serve</code> will serve the front end and enable hot reloading, which
+means that all changes made to the code will automatically refresh the page in the browser after saving the file.</p>
+<ul>
+<li><strong>Cache is <em>broken</em></strong></li>
+</ul>
+<p>The app is made to make as little requests as necessary. That means, if some JavaScript or CSS file that is needed for the
+page was already loaded into the cache once, the page will most likely not request the same file again unless the file is marked as modified.
+This is one reason, why the webpack configuration, that bundles the front end <code>.vue</code> files to static <code>.js</code> and <code>.css</code> files
+generates a unique hash that is appended to every file. The files will be renewed in the browser after every build process.</p>
+<p>In local development however, the development cycle might lead to a broken cache, i.e. a cache, where files are mistaken to be
+the newest when they aren't. The easiest way to verify if that is the problem you are encountering is to delete the cached files
+or to see if the problem persists in a private window. </p>
+<p>Personal experience showed, that these caching problems in local development rarely occur, when building the project with <code>npm run build</code> after a developing session.</p>
+<ul>
+<li><strong>Serving in the wrong location</strong></li>
+</ul>
+<p>The standard port of local development for Vue.js is <code>:8080</code> whereas the Docker will serve on port <code>:8000</code>.
+Both will work, but <code>localhost:8000</code> is preferable and used throughout the application.</p>
+<p>Depending on your system/machine it is possible, that <code>localhost</code> or <code>0.0.0.0</code> or <code>127.0.0.1</code> is not the IP that your Docker instance is serving the app on.
+Another possibility is, that the ports are not available to your host system or blocked by the firewall. Vue.js will usually automatically turn to another port then
+but in cases might not. </p>
+<p>So for debugging, you might follow these steps:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/46176584/docker-bind-for-0-0-0-04000-failed-port-is-already-allocated">https://stackoverflow.com/questions/46176584/docker-bind-for-0-0-0-04000-failed-port-is-already-allocated</a></li>
+<li>Check your firewall settings for the ports</li>
+<li>Check the IP/Port of your docker process(es)</li>
+</ul>
+<p>When you encounter another IP than any of the localhost IPs, it is important to whitelist them in the django app (<code>ALLOWED_HOSTS</code>) and also to <strong>exchange all strings containing the localhost URL to your new IP.</strong></p>
+<p>The <code>ALLOWED_HOSTS</code> can e.g. be altered in <code>config/settings/local.py</code>. More information on ALLOWED_HOSTS: <a href="https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts">https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts</a></p>
 <hr />
 <h2 id="problems-with-deploying">Problems with deploying</h2>
 <p>Coming soon ...</p>

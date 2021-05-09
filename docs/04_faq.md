@@ -62,7 +62,8 @@ To fully understand the files of the back end, one could look at the following t
 * Shell Scripts
 * Markdown (for Documentation purposes mostly)
 * pip (package manager to install python packages)
-
+* JSON
+* Knowledge of the terminal
 
 
 
@@ -93,6 +94,8 @@ To fully understand the files of the front end, one could look at the following 
 * Vuex (state-management)
 * Single Page Applications
 * WebPack (Bundling files into static assets)
+* JSON
+* Developer Tools of your Browser of Choice (Chrome or Firefox are recommended)
 
 ---
 
