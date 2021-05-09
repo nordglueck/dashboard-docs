@@ -221,9 +221,59 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Back end
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Back end
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local" class="md-nav__link">
+    Local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production" class="md-nav__link">
+    Production
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -308,6 +358,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local" class="md-nav__link">
+    Local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production" class="md-nav__link">
+    Production
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -321,6 +406,19 @@
                 
                 <h1 id="back-end">Back end</h1>
 <p>This page shall provide more in-depth information on the structure of the back end and it's most important files.</p>
+<h2 id="structure">Structure</h2>
+<p>The back end is structured in a way, that distinguishes between a local development environment and a production environment.
+Therefore some files such as the Dockerfile (see <a href="/02_installation"><strong>Installation</strong></a>) are available twice. Depending on the environment, the respective files should either be used or are used automatically.
+Files marked with the word <strong>base</strong> such as <code>config/settings/base.py</code> - as the name suggests - serve as a base for both,
+the local and the production environment. </p>
+<h3 id="local">Local</h3>
+<p>...</p>
+<h3 id="production">Production</h3>
+<p>The most important difference between the local and the production environment are the <strong>environment variables</strong>.
+Not only, but mostly sensitive information is stored in environment variables and will not be exported from a local environment
+to a production environment. Therefore these environment variables have to be set in the production environment.
+It is suggested not to hardcode values for such variables into the code for production, but to really set and use environment variables.</p>
+<p>...</p>
                 
               
               

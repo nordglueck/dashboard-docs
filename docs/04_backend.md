@@ -5,7 +5,7 @@ This page shall provide more in-depth information on the structure of the back e
 ## Structure
 
 The back end is structured in a way, that distinguishes between a local development environment and a production environment.
-Therefore some files such as the Dockerfile (see [**Installation**](/02_installation)) are available twice. Depending on the environment, the respective files should either be used or are used automatically.
+Therefore some files such as the Dockerfile (see [**Installation**](dashboard-docs//02_Installation)) are available twice. Depending on the environment, the respective files should either be used or are used automatically.
 Files marked with the word **base** such as ``config/settings/base.py`` - as the name suggests - serve as a base for both,
 the local and the production environment. 
 
