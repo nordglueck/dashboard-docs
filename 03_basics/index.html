@@ -238,6 +238,40 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#model-view-template-mvt" class="md-nav__link">
+    Model-View-Template (MVT)
+  </a>
+  
+    <nav class="md-nav" aria-label="Model-View-Template (MVT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#routing" class="md-nav__link">
     Routing
   </a>
@@ -398,6 +432,40 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#model-view-template-mvt" class="md-nav__link">
+    Model-View-Template (MVT)
+  </a>
+  
+    <nav class="md-nav" aria-label="Model-View-Template (MVT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#routing" class="md-nav__link">
     Routing
   </a>
@@ -486,6 +554,63 @@
                 
                 <h1 id="basics">Basics</h1>
 <h2 id="django">Django</h2>
+<h3 id="model-view-template-mvt">Model-View-Template (MVT)</h3>
+<p>Django is following the Model-View-Template structure, where the Model is for structuring and manipulating the data of the application, the view implements
+the business logic and the templates serves the views to the clients. In this project, the templates are rendering the static files
+provided by the webpack bundling, that are moved into the <code>static</code> folder after executing <code>npm run build</code> inside the <code>vue_frontend</code> directory.</p>
+<h4 id="model">Model</h4>
+<p>The model of the application is to be found in the respective <code>models.py</code> file. See <a href="https://docs.djangoproject.com/en/3.2/topics/db/models">https://docs.djangoproject.com/en/3.2/topics/db/models</a> for documentation on how to create Models and available Fields.
+All of the data of the model instances are saved to a <strong>PostgreSQL</strong> Database. Postgres integrates well with Django and Django even supports some fields exclusively for Postgres. See <a href="https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/">https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/</a></p>
+<h4 id="view">View</h4>
+<p>The view implements the business logic of the application. In the <code>patients/views.py</code>, the REST API endpoints are defined. The most important endpoints that are exposed
+as of the end of the thesis are:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Actions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/patients/</code></td>
+<td>GET, POST</td>
+<td>List view of all patients</td>
+</tr>
+<tr>
+<td><code>/api/patients/id/</code></td>
+<td>GET, PUT, PATCH, DELETE</td>
+<td>Detail view of a single patient</td>
+</tr>
+<tr>
+<td><code>/api/reports/</code></td>
+<td>GET, POST</td>
+<td>List view of all reports</td>
+</tr>
+<tr>
+<td><code>/api/reports/id/</code></td>
+<td>GET, PUT, PATCH, DELETE</td>
+<td>Detail view of a single report</td>
+</tr>
+<tr>
+<td><code>/rest-auth/login/</code></td>
+<td>POST</td>
+<td>Login with username and password</td>
+</tr>
+<tr>
+<td><code>/rest-auth/logout/</code></td>
+<td>POST</td>
+<td>Logout and delete token</td>
+</tr>
+<tr>
+<td><code>/rest-auth/user/</code></td>
+<td>GET</td>
+<td>Retrieve user information</td>
+</tr>
+</tbody>
+</table>
+<h4 id="template">Template</h4>
 <h3 id="routing">Routing</h3>
 <h3 id="rest-api">REST API</h3>
 <h3 id="consumer">Consumer</h3>
