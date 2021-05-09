@@ -1,22 +1,5 @@
 # Frequently Asked Questions
 
-## Which IDE would you recommend?
-
-I would recommend PyCharm Professional. It is a powerful IDE for Python development but with support for Vue.js
-and comes with rich features regarding project navigation, highlighting, code completion, TODO management, integrated terminal or python console etc.
-
-It is developed by JetBrains and free of charge for students.
-
-Great and useful features for a project this size, are:
-
-* Structure view: ``Cmd+7`` (Mac) / ``Alt+7`` (Win)
-* Find file by name: ``Shift+Cmd+O`` (Mac) / ``Ctrl+F12`` (Win)
-* Find in files: ``Shift+Cmd+F`` (Mac) / ``Ctrl+Shift+F`` (Win)
-
-All Shortcuts for Win/Linux: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)
-All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
-
---- 
 
 ## How to approach the project?
 
@@ -98,6 +81,24 @@ To fully understand the files of the front end, one could look at the following 
 * Developer Tools of your Browser of Choice (Chrome or Firefox are recommended)
 
 ---
+
+## Which IDE is recommended?
+
+I would recommend PyCharm Professional. It is a powerful IDE for Python development but with support for Vue.js
+and comes with rich features regarding project navigation, highlighting, code completion, TODO management, integrated terminal or python console etc.
+
+It is developed by JetBrains and free of charge for students.
+
+Great and useful features for a project this size, are:
+
+* Structure view: ``Cmd+7`` (Mac) / ``Alt+7`` (Win)
+* Find file by name: ``Shift+Cmd+O`` (Mac) / ``Ctrl+F12`` (Win)
+* Find in files: ``Shift+Cmd+F`` (Mac) / ``Ctrl+Shift+F`` (Win)
+
+All Shortcuts for Win/Linux: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)
+All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
+
+--- 
 
 ## localhost:8000 is not showing the app.
 
