@@ -18,7 +18,7 @@ All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycha
 
 --- 
 
-## I have got problems understanding the project structure, any tips?
+## How to approach the project?
 
 The general structure of the project is divided into two parts: back end and front end. The back end is made with [Django, a web framework based on python](https://www.djangoproject.com/).
 The front end is made with Vue.js. Vue.js consists of JavaScript, HTML and CSS. Both, Django and Vue.js are fairly easy to learn.
