@@ -1,0 +1,5 @@
+site_name: Dengue Dashboard Docs
+theme:
+  name: material
+plugins:
+  - search
