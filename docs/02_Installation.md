@@ -1,10 +1,12 @@
 # Installation
 
-## 1. Back end: Django 
-<small> For Local Development </small>
+This page serves as an installation guide for local development of the **Dengue Dashboard**. The guide assumes, that the reader
+already cloned a recent repository of the project and navigated to the project root. The shown commands are executed from the command line in the root
+directory if not declared otherwise.
+
+## 1. Back end: Django
 
 #### Getting Up and Running Locally With Docker
-
 
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.

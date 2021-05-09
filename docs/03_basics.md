@@ -1,6 +1,10 @@
 # Basics
 
-## Django
+This page covers the overall basics of the project regarding the back end (Django) and the front end (Vue.js).
+The most important aspects to get started will be covered. More in-depth guides/knowledge for either of the parts is planned
+for a different page (tbd).
+
+## Back end (Django)
 
 ### Model-View-Template (MVT)
 
@@ -91,23 +95,18 @@ To be able to request the endpoints via the given URLs, the created Views have t
 
 ### Consumer
 
-
-
 ### Background Tasks
+
 
 ---
 
-## Vue.js
+## Front end (Vue.js)
 
 ### Routing
 
 ### State-management
 
 ### Components
-
----
-
-## WebSockets
 
 ---
 

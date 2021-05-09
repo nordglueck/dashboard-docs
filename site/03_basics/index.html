@@ -562,7 +562,7 @@ provided by the webpack bundling, that are moved into the <code>static</code> fo
 <p>The model of the application is to be found in the respective <code>models.py</code> file. See <a href="https://docs.djangoproject.com/en/3.2/topics/db/models">https://docs.djangoproject.com/en/3.2/topics/db/models</a> for documentation on how to create Models and available Fields.
 All of the data of the model instances are saved to a <strong>PostgreSQL</strong> Database. Postgres integrates well with Django and Django even supports some fields exclusively for Postgres. See <a href="https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/">https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/</a></p>
 <h4 id="view">View</h4>
-<p>The view implements the business logic of the application. In the <code>patients/views.py</code>, the REST API endpoints are defined. The most important endpoints that are exposed
+<p>The view implements the business logic of the application. In the <code>patients/api/views.py</code>, the REST API endpoints are defined. The most important endpoints that are exposed
 as of the end of the thesis are:</p>
 <table>
 <thead>
@@ -612,7 +612,7 @@ as of the end of the thesis are:</p>
 </table>
 <p>A full documentation of all available endpoints as well as an <strong>interactive demo</strong> of the endpoints can be obtained from the 
 endpoint <code>/swagger</code>. Curl commands can be interactively executed on the page and requests and responses can be analysed.</p>
-<p>The fields, that are to be included (or excluded) in the respective JSON responses are defined in the <code>patients/serializers.py</code> file.</p>
+<p>The fields, that are to be included (or excluded) in the respective JSON responses are defined in the <code>patients/api/serializers.py</code> file.</p>
 <p>With the WebSocket integration, the endpoints for WebSocket requests are defined like so:</p>
 <table>
 <thead>
@@ -648,7 +648,7 @@ endpoint <code>/swagger</code>. Curl commands can be interactively executed on t
 <h4 id="template">Template</h4>
 <h3 id="routing">Routing</h3>
 <p>The following code snippet from the <code>asgi.py</code> file shows
-the <code>ProtocolRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
+the <code>ProtocolTypeRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
 <pre><code class="language-python">application = ProtocolTypeRouter({
     &quot;http&quot;: get_asgi_application(),
     &quot;websocket&quot;: TokenAuthMiddlewareStack(
@@ -664,6 +664,19 @@ the <code>ProtocolRouter</code> that routes the HTTP and WebSocket requests acco
 </code></pre>
 <p>The streams are defined inside the Demultiplexer and connected to their respective consumer (see <a href="#consumer"><strong>Consumer</strong></a>).</p>
 <h3 id="rest-api">REST API</h3>
+<p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
+An endpoint definition consists of several files: </p>
+<ul>
+<li><code>patients/models.py</code></li>
+<li><code>patients/api/serializers.py</code></li>
+<li><code>patients/api/views.py</code></li>
+<li><code>patients/api/urls.py</code></li>
+</ul>
+<p>The files are to be created/updated in the order shown above. The <em>model</em> is the first thing, as it is the base to what will be
+possible to expose via an API endpoint. The <em>serializer</em> defines which fields are to be included or excluded into the serialized JSON response and is based on the model.
+The view is handling the serialized JSON and able to add orderings to the data or filters. Besides the textual JSON output of every response, 
+the Django REST Framework is also serving a browsable API with web pages, where one can create, update and delete model instances inside the browser.
+To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the <code>patients/api/urls.py</code> file.</p>
 <h3 id="consumer">Consumer</h3>
 <h3 id="background-tasks">Background Tasks</h3>
 <hr />
