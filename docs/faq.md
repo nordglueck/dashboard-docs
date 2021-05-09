@@ -99,12 +99,10 @@ To serve the API via **WebSockets**, the [Django Channels REST Framework](https:
 
 #### Vue.js
 
----
-
-## Permission denied
+Coming soon ...
 
 ---
 
 ## Problems with deploying
 
-- env variables
+Coming soon ...
