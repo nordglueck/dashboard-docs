@@ -1,8 +1,7 @@
 # Installation
 
-## Local Development
-
-### 1. Back end: Django
+## 1. Back end: Django 
+<small> For Local Development </small>
 
 #### Getting Up and Running Locally With Docker
 
@@ -84,7 +83,7 @@ For more information on virtual environments, please refer to the Python 3 tutor
 
 ---
 
-### 2. Front end: Vue.js
+## 2. Front end: Vue.js
 
 
 This app integrates with a Vue single page app (SPA) located in ``vue_frontend``.

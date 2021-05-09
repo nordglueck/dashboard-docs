@@ -1,10 +1,11 @@
 # Frequently Asked Questions
 
-## I started Docker but localhost:8000 is not showing the App. What's wrong?
+## localhost:8000 is not showing the app.
 
-There is a couple of things that could be wrong here. 
+You started Docker but localhost:8000 is not showing the App? There is a couple of things that could be wrong here. 
 
-1. **Front end is not up and running**
+
+* **Front end is not up and running**
 
 First of all, make sure, that the front end is being served. You can achieve
 this by running
@@ -18,7 +19,7 @@ once and then
 inside the ``vue_frontend`` directory of the project. ``npm run serve`` will serve the front end and enable hot reloading, which
 means that all changes made to the code will automatically refresh the page in the browser after saving the file.
 
-2. **Cache is _broken_**
+* **Cache is _broken_**
 
 The app is made to make as little requests as necessary. That means, if some JavaScript or CSS file that is needed for the
 page was already loaded into the cache once, the page will most likely not request the same file again unless the file is marked as modified.
@@ -31,7 +32,7 @@ or to see if the problem persists in a private window.
 
 Personal experience showed, that these caching problems in local development rarely occur, when building the project with ``npm run build`` after a developing session.
 
-3. **Serving in the wrong location**
+* **Serving in the wrong location**
 
 The standard port of local development for Vue.js is ``:8080`` whereas the Docker will serve on port ``:8000``.
 Both will work, but ``localhost:8000`` is preferable and used throughout the application.
@@ -70,12 +71,12 @@ All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycha
 
 --- 
 
-## I have got problems navigating the project, any tips?
+## I have got problems understanding the project structure, any tips?
 
 The general structure of the project is divided into two parts: back end and front end. The back end is made with [Django, a web framework based on python](https://www.djangoproject.com/).
 The front end is made with Vue.js. Vue.js consists of JavaScript, HTML and CSS. Both, Django and Vue.js are fairly easy to learn.
 
-#### Django 
+#### Back end / Django 
 
 First of all, the **Django project** itself is providing useful resources to get started with Django: [Django Project](https://www.djangoproject.com/start/) 
 
@@ -97,9 +98,55 @@ the concepts of Django Channels.
 To serve the API via **WebSockets**, the [Django Channels REST Framework](https://github.com/hishnash/djangochannelsrestframework) was used.
 
 
-#### Vue.js
+In general, it is possible and common to serve ``.html`` files from the Django Templates folder. You can write html and specific Django syntax to render pages
+that will be served to the client. For this project however, Vue.js is used to create the files for the front end and display information to the client. The reason for this
+is, that Vue.js is a **reactive** JavaScript framework. It enables automatic updating of the page/DOM in case of updates to the data that is being displayed.
+Furthermore, with a JavaScript framework like this, it is possible to separate the data from it's representation.
 
-Coming soon ...
+The front end is solely developed in the ``vue_frontend`` directory, whilst all of the other folders are connected to the back end. 
+
+Besides Django, the back end also includes other frameworks/technologies that are e.g. used for deployment.
+
+To fully understand the files of the back end, one could look at the following technologies, that are used:
+
+* Python
+* Django (as a web framework based on python)
+* Docker/Dockerfiles
+* Shell Scripts
+* Markdown (for Documentation purposes mostly)
+* pip (package manager to install python packages)
+
+
+
+
+#### Front end / Vue.js
+
+The front end of the application is developed with Vue.js. The main reason besides the separation of content and representation is the reactivity.
+Through state-management it is possible, that the DOM automatically refreshes whenever changes to the represented data is made. This enhances the
+real-time feature of the web-application. Vue has got several other advantages such as that it is light-weighted and incrementally adoptable, thus scalable.
+
+A good starting point for Vue.js is the project website itself. Vue.js is open-source and well-documented. [https://vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)
+
+To connect with the aforementioned WebSocket provided by the Django Channels REST Framework, a [client side implementation](ttps://github.com/theY4Kman/dcrf-client) is used.
+
+The maybe most important part in the front end implementation is the state-management. Vuex is a state-management pattern and library for Vue.js. 
+The documentation for vuex delivers a good explanation of what vuex is and how it works. [https://vuex.vuejs.org/](https://vuex.vuejs.org/)
+The following diagram gives a brief overview over the vuex state-management pattern from the aforementioned website.
+
+![Overview of the vuex state-management pattern from https://vuex.vuejs.org/vuex.png](https://vuex.vuejs.org/vuex.png)
+
+To fully understand the files of the front end, one could look at the following technologies:
+
+* JavaScript
+* HTML
+* CSS
+* Bootstrap (as a CSS framework that is used in the front end template)
+* npm (package manager to install javascript packages)
+* Vue.js 
+* Vuex (state-management)
+* Single Page Applications
+* WebPack (Bundling files into static assets)
+
 
 ---
 

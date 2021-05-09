@@ -69,3 +69,5 @@
 17. Django Channels REST Framework
 [https://github.com/hishnash/djangochannelsrestframework](https://github.com/hishnash/djangochannelsrestframework)
 
+18. WebPack
+[https://webpack.js.org/](https://webpack.js.org/)
