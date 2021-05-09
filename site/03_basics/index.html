@@ -644,6 +644,19 @@ endpoint <code>/swagger</code>. Curl commands can be interactively executed on t
 </tr>
 </tbody>
 </table>
+<p>The endpoints are defined in the <code>asgi.py</code> file of the Project. The following code snippet from the mentioned file shows
+the <code>ProtocolRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
+<pre><code>application = ProtocolTypeRouter ({
+" http ": get_asgi_application () ,
+" websocket ": TokenAuthMiddlewareStack (
+URLRouter (
+[ re_path (r"ˆws/$", AsyncJsonWebsocketDemultiplexer (
+patients = PatientConsumer (). as_asgi () ,
+reports = ReportConsumer (). as_asgi () ,
+history = HistoryConsumer (). as_asgi () ,
+). as_asgi ()), ]
+</code></pre>
+<p>The streams are defined inside the Demultiplexer and  connected to their respected consumer.</p>
 <h4 id="template">Template</h4>
 <h3 id="routing">Routing</h3>
 <h3 id="rest-api">REST API</h3>
