@@ -1,7 +1,6 @@
 site_name: Dengue Dashboard Docs
 theme:
   name: material
+  logo: assets/SVG/logo.svg
 plugins:
   - search
-icon:
-  logo: assets/SVG/logo.svg
