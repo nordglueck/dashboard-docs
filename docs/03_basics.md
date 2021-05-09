@@ -44,6 +44,21 @@ With the WebSocket integration, the endpoints for WebSocket requests are defined
 | ``history``  | HistoryConsumer | HistoricalReport | List, Retrieve, Patch, Update, Delete         |
 
 
+The endpoints are defined in the ``asgi.py`` file of the Project. The following code snippet from the mentioned file shows
+the `ProtocolRouter` that routes the HTTP and WebSocket requests according to their protocol types:
+
+    application = ProtocolTypeRouter ({
+    " http ": get_asgi_application () ,
+    " websocket ": TokenAuthMiddlewareStack (
+    URLRouter (
+    [ re_path (r"ˆws/$", AsyncJsonWebsocketDemultiplexer (
+    patients = PatientConsumer (). as_asgi () ,
+    reports = ReportConsumer (). as_asgi () ,
+    history = HistoryConsumer (). as_asgi () ,
+    ). as_asgi ()), ]
+
+The streams are defined inside the Demultiplexer and  connected to their respected consumer.
+
 
 #### Template
 
