@@ -7,3 +7,4 @@
 * Create About page
 * Create FAQ page
 * Create Installation page
+* Create Resources page
