@@ -245,8 +245,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-started-docker-but-localhost8000-is-not-showing-the-app-whats-wrong" class="md-nav__link">
-    I started Docker but localhost:8000 is not showing the App. What's wrong?
+  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
+    localhost:8000 is not showing the app.
   </a>
   
 </li>
@@ -259,23 +259,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-have-got-problems-navigating-the-project-any-tips" class="md-nav__link">
-    I have got problems navigating the project, any tips?
+  <a href="#i-have-got-problems-understanding-the-project-structure-any-tips" class="md-nav__link">
+    I have got problems understanding the project structure, any tips?
   </a>
   
-    <nav class="md-nav" aria-label="I have got problems navigating the project, any tips?">
+    <nav class="md-nav" aria-label="I have got problems understanding the project structure, any tips?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
-    Django
+  <a href="#back-end-django" class="md-nav__link">
+    Back end / Django
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vuejs" class="md-nav__link">
-    Vue.js
+  <a href="#front-end-vuejs" class="md-nav__link">
+    Front end / Vue.js
   </a>
   
 </li>
@@ -356,8 +356,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#i-started-docker-but-localhost8000-is-not-showing-the-app-whats-wrong" class="md-nav__link">
-    I started Docker but localhost:8000 is not showing the App. What's wrong?
+  <a href="#localhost8000-is-not-showing-the-app" class="md-nav__link">
+    localhost:8000 is not showing the app.
   </a>
   
 </li>
@@ -370,23 +370,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-have-got-problems-navigating-the-project-any-tips" class="md-nav__link">
-    I have got problems navigating the project, any tips?
+  <a href="#i-have-got-problems-understanding-the-project-structure-any-tips" class="md-nav__link">
+    I have got problems understanding the project structure, any tips?
   </a>
   
-    <nav class="md-nav" aria-label="I have got problems navigating the project, any tips?">
+    <nav class="md-nav" aria-label="I have got problems understanding the project structure, any tips?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
-    Django
+  <a href="#back-end-django" class="md-nav__link">
+    Back end / Django
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vuejs" class="md-nav__link">
-    Vue.js
+  <a href="#front-end-vuejs" class="md-nav__link">
+    Front end / Vue.js
   </a>
   
 </li>
@@ -417,11 +417,11 @@
                 
                 
                 <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
-<h2 id="i-started-docker-but-localhost8000-is-not-showing-the-app-whats-wrong">I started Docker but localhost:8000 is not showing the App. What's wrong?</h2>
-<p>There is a couple of things that could be wrong here. </p>
-<ol>
+<h2 id="localhost8000-is-not-showing-the-app">localhost:8000 is not showing the app.</h2>
+<p>You started Docker but localhost:8000 is not showing the App? There is a couple of things that could be wrong here. </p>
+<ul>
 <li><strong>Front end is not up and running</strong></li>
-</ol>
+</ul>
 <p>First of all, make sure, that the front end is being served. You can achieve
 this by running</p>
 <pre><code>npm install
@@ -431,9 +431,9 @@ this by running</p>
 </code></pre>
 <p>inside the <code>vue_frontend</code> directory of the project. <code>npm run serve</code> will serve the front end and enable hot reloading, which
 means that all changes made to the code will automatically refresh the page in the browser after saving the file.</p>
-<ol>
+<ul>
 <li><strong>Cache is <em>broken</em></strong></li>
-</ol>
+</ul>
 <p>The app is made to make as little requests as necessary. That means, if some JavaScript or CSS file that is needed for the
 page was already loaded into the cache once, the page will most likely not request the same file again unless the file is marked as modified.
 This is one reason, why the webpack configuration, that bundles the front end <code>.vue</code> files to static <code>.js</code> and <code>.css</code> files
@@ -442,9 +442,9 @@ generates a unique hash that is appended to every file. The files will be renewe
 the newest when they aren't. The easiest way to verify if that is the problem you are encountering is to delete the cached files
 or to see if the problem persists in a private window. </p>
 <p>Personal experience showed, that these caching problems in local development rarely occur, when building the project with <code>npm run build</code> after a developing session.</p>
-<ol>
+<ul>
 <li><strong>Serving in the wrong location</strong></li>
-</ol>
+</ul>
 <p>The standard port of local development for Vue.js is <code>:8080</code> whereas the Docker will serve on port <code>:8000</code>.
 Both will work, but <code>localhost:8000</code> is preferable and used throughout the application.</p>
 <p>Depending on your system/machine it is possible, that <code>localhost</code> or <code>0.0.0.0</code> or <code>127.0.0.1</code> is not the IP that your Docker instance is serving the app on.
@@ -472,10 +472,10 @@ and comes with rich features regarding project navigation, highlighting, code co
 <p>All Shortcuts for Win/Linux: <a href="https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf">https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf</a>
 All Shortcuts for MacOS: <a href="https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf">https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf</a></p>
 <hr />
-<h2 id="i-have-got-problems-navigating-the-project-any-tips">I have got problems navigating the project, any tips?</h2>
+<h2 id="i-have-got-problems-understanding-the-project-structure-any-tips">I have got problems understanding the project structure, any tips?</h2>
 <p>The general structure of the project is divided into two parts: back end and front end. The back end is made with <a href="https://www.djangoproject.com/">Django, a web framework based on python</a>.
 The front end is made with Vue.js. Vue.js consists of JavaScript, HTML and CSS. Both, Django and Vue.js are fairly easy to learn.</p>
-<h4 id="django">Django</h4>
+<h4 id="back-end-django">Back end / Django</h4>
 <p>First of all, the <strong>Django project</strong> itself is providing useful resources to get started with Django: <a href="https://www.djangoproject.com/start/">Django Project</a> </p>
 <p>For this project, for django a good start would also be the documentation of the <strong>Django REST Framework</strong>, as the back end
 provides an API for different applications. See <a href="https://www.django-rest-framework.org/">Django REST Framework</a></p>
@@ -489,8 +489,43 @@ real-time environment is to be found here: <a href="https://blog.heroku.com/in_d
 It is written by one of the core developers of Django and not only helps to understand the structure of this project, but also visualizes
 the concepts of Django Channels.</p>
 <p>To serve the API via <strong>WebSockets</strong>, the <a href="https://github.com/hishnash/djangochannelsrestframework">Django Channels REST Framework</a> was used.</p>
-<h4 id="vuejs">Vue.js</h4>
-<p>Coming soon ...</p>
+<p>In general, it is possible and common to serve <code>.html</code> files from the Django Templates folder. You can write html and specific Django syntax to render pages
+that will be served to the client. For this project however, Vue.js is used to create the files for the front end and display information to the client. The reason for this
+is, that Vue.js is a <strong>reactive</strong> JavaScript framework. It enables automatic updating of the page/DOM in case of updates to the data that is being displayed.
+Furthermore, with a JavaScript framework like this, it is possible to separate the data from it's representation.</p>
+<p>The front end is solely developed in the <code>vue_frontend</code> directory, whilst all of the other folders are connected to the back end. </p>
+<p>Besides Django, the back end also includes other frameworks/technologies that are e.g. used for deployment.</p>
+<p>To fully understand the files of the back end, one could look at the following technologies, that are used:</p>
+<ul>
+<li>Python</li>
+<li>Django (as a web framework based on python)</li>
+<li>Docker/Dockerfiles</li>
+<li>Shell Scripts</li>
+<li>Markdown (for Documentation purposes mostly)</li>
+<li>pip (package manager to install python packages)</li>
+</ul>
+<h4 id="front-end-vuejs">Front end / Vue.js</h4>
+<p>The front end of the application is developed with Vue.js. The main reason besides the separation of content and representation is the reactivity.
+Through state-management it is possible, that the DOM automatically refreshes whenever changes to the represented data is made. This enhances the
+real-time feature of the web-application. Vue has got several other advantages such as that it is light-weighted and incrementally adoptable, thus scalable.</p>
+<p>A good starting point for Vue.js is the project website itself. Vue.js is open-source and well-documented. <a href="https://vuejs.org/v2/guide/">https://vuejs.org/v2/guide/</a></p>
+<p>To connect with the aforementioned WebSocket provided by the Django Channels REST Framework, a <a href="ttps://github.com/theY4Kman/dcrf-client">client side implementation</a> is used.</p>
+<p>The maybe most important part in the front end implementation is the state-management. Vuex is a state-management pattern and library for Vue.js. 
+The documentation for vuex delivers a good explanation of what vuex is and how it works. <a href="https://vuex.vuejs.org/">https://vuex.vuejs.org/</a>
+The following diagram gives a brief overview over the vuex state-management pattern from the aforementioned website.</p>
+<p><img alt="Overview of the vuex state-management pattern from https://vuex.vuejs.org/vuex.png" src="https://vuex.vuejs.org/vuex.png" /></p>
+<p>To fully understand the files of the front end, one could look at the following technologies:</p>
+<ul>
+<li>JavaScript</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Bootstrap (as a CSS framework that is used in the front end template)</li>
+<li>npm (package manager to install javascript packages)</li>
+<li>Vue.js </li>
+<li>Vuex (state-management)</li>
+<li>Single Page Applications</li>
+<li>WebPack (Bundling files into static assets)</li>
+</ul>
 <hr />
 <h2 id="problems-with-deploying">Problems with deploying</h2>
 <p>Coming soon ...</p>
