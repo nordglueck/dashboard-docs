@@ -1,0 +1,8 @@
+#!/Users/nordglueck/Documents/01_UNI/06_MASTER/01_Semester/dengue-dashboard/public-docs/dashboard-docs.github.io/env/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+from livereload.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
