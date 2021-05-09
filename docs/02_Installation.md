@@ -12,30 +12,6 @@ All of these commands assume you are in the root of your generated project.
 
 See also: [https://github.com/pydanny/cookiecutter-django/](https://github.com/pydanny/cookiecutter-django/)
 
-#### Alternative: Virtual Environment for Python
-
-**Prerequisites**: Installation of Python 3, Pip, Django and a Unix/MacOS or Windows Machine
-
-As an alternative to Docker, the project can be developed in a virtual environment for python.
-To create a virtual environment, decide on a name, e.g. `env_name` and create on like so in a folder above or aside the project folder:
-    
-    python3 -m venv env_name
-
-To activate the virtual environment on Unix or MacOS on a level above the environment folder that was just created:
-
-    source env_name/bin/activate
-
-On Windows:
-
-    env_name\Scripts\activate.bat
-
-With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment:
-
-    pip install requirements/local.txt
-
-
-For more information on virtual environments, please refer to the Python 3 tutorial: [https://docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)
-
 
 #### Prerequisites
 
@@ -79,6 +55,31 @@ To run in a detached (background) mode, just::
 #### (Optionally) Designate your Docker Development Server IP
 
 When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
+
+
+#### Alternative: Virtual Environment for Python
+
+**Prerequisites**: Installation of Python 3, Pip, Django and a Unix/MacOS or Windows Machine
+
+As an alternative to Docker, the project can be developed in a virtual environment for python.
+To create a virtual environment, decide on a name, e.g. `env_name` and create on like so in a folder above or aside the project folder:
+    
+    python3 -m venv env_name
+
+To activate the virtual environment on Unix or MacOS on a level above the environment folder that was just created:
+
+    source env_name/bin/activate
+
+On Windows:
+
+    env_name\Scripts\activate.bat
+
+With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment:
+
+    pip install requirements/local.txt
+
+
+For more information on virtual environments, please refer to the Python 3 tutorial: [https://docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)
 
 
 ---
