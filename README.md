@@ -1,1 +1,1 @@
-# dashboard-docs.github.io
+# dashboard-docs
