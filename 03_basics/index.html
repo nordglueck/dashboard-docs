@@ -568,7 +568,7 @@ as of the end of the thesis are:</p>
 <thead>
 <tr>
 <th>Endpoint</th>
-<th>Actions</th>
+<th>Actions (REST)</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -607,6 +607,40 @@ as of the end of the thesis are:</p>
 <td><code>/rest-auth/user/</code></td>
 <td>GET</td>
 <td>Retrieve user information</td>
+</tr>
+</tbody>
+</table>
+<p>A full documentation of all available endpoints as well as an <strong>interactive demo</strong> of the endpoints can be obtained from the 
+endpoint <code>/swagger</code>. Curl commands can be interactively executed on the page and requests and responses can be analysed.</p>
+<p>The fields, that are to be included (or excluded) in the respective JSON responses are defined in the <code>patients/serializers.py</code> file.</p>
+<p>With the WebSocket integration, the endpoints for WebSocket requests are defined like so:</p>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th>Consumer</th>
+<th>Model</th>
+<th>Actions (REST-like)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>patients</code></td>
+<td>PatientConsumer</td>
+<td>Patient</td>
+<td>List, Retrieve, Create, Patch, Update, Delete</td>
+</tr>
+<tr>
+<td><code>reports</code></td>
+<td>ReportConsumer</td>
+<td>Report</td>
+<td>List, Retrieve, Create, Patch, Update, Delete</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>HistoryConsumer</td>
+<td>HistoricalReport</td>
+<td>List, Retrieve, Patch, Update, Delete</td>
 </tr>
 </tbody>
 </table>
