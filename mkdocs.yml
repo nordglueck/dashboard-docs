@@ -3,3 +3,5 @@ theme:
   name: material
 plugins:
   - search
+  icon:
+    logo: assets/SVG/logo.svg
