@@ -1,0 +1,3 @@
+[mkdocs.themes]
+gitbook = mkdocs_gitbook
+

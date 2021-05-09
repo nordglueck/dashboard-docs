@@ -1,17 +1,7 @@
-# Getting Started
+# About
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The project "Dengue Dashboard" is originally a part of the Bachelor Report of Jennifer Horstmann submitted to the faculty of Mathematics and Computer Science at the University of Bremen for the degree of Bachelor of Science.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The system allows for management and visualizations of all relevant vital data for dengue fever patients as well as other parameters like the fuid balance. It is a
+web app that allows multiple clients to retrieve updates and notications in real-time and therefore supports
+tele-consultation and timely interventions which are crucial in the treatment of dengue fever.
