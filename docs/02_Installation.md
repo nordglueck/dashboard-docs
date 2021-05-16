@@ -30,7 +30,7 @@ See also: [https://github.com/pydanny/cookiecutter-django/](https://github.com/p
 This can take a while, especially the first time you run this particular command on your development system:
 
 ```console
-    docker-compose -f local.yml build
+docker-compose -f local.yml build
 ```
     
 
@@ -45,20 +45,27 @@ This brings up both Django and PostgreSQL. The first time it is run it might tak
 
 Open a terminal at the project root and run the following for local development:
 
-    docker-compose -f local.yml up
+```console
+docker-compose -f local.yml up
+``
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this:
 
-    export COMPOSE_FILE=local.yml
+```console
+export COMPOSE_FILE=local.yml
+```
 
 And then run:
 
-    docker-compose up
+```console
+docker-compose up
+```
 
 To run in a detached (background) mode, just::
 
-    docker-compose up -d
-
+```console
+docker-compose up -d
+```
 
 #### (Optionally) Designate your Docker Development Server IP
 
@@ -71,23 +78,41 @@ When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost',
 
 As an alternative to Docker, the project can be developed in a virtual environment for python.
 To create a virtual environment, decide on a name, e.g. `env_name` and create on like so in a folder above or aside the project folder:
-    
-    python3 -m venv env_name
 
-To activate the virtual environment on Unix or MacOS on a level above the environment folder that was just created:
+```console    
+python3 -m venv env_name
+```
 
+To activate the virtual environment on a level above the environment folder that was just created:
+
+=== Mac OS / Linux
+
+    ```console
     source env_name/bin/activate
+    ```
 
-On Windows:
+=== Windows
 
+    ```console
     env_name\Scripts\activate.bat
+    ```
 
 With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment:
 
-    pip install requirements/local.txt
-
+```console
+pip install requirements/local.txt
+```
 
 For more information on virtual environments, please refer to the Python 3 tutorial: [https://docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)
+
+
+Besides Python and all the requirements (including Django), the following technologies have to be installed as well:
+
+1. npm
+2. redis
+3. postgres
+
+(this section has to be continued...)
 
 
 ---
