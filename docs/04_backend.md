@@ -48,7 +48,7 @@ the local and the production environment.
     ```
 
 
-???+ info "compose"
+??? info "compose"
     ```console
 
     .
@@ -76,7 +76,7 @@ the local and the production environment.
 
     ```
 
-???+ info "config"
+??? info "config"
     ```console
 
     ├── __init__.py
@@ -94,7 +94,7 @@ the local and the production environment.
 
     ```
 
-???+ info "dashboard"
+??? info "dashboard"
 
     ```console
     .
@@ -131,7 +131,7 @@ the local and the production environment.
 
     ```
 
-???+ info "requirements"
+??? info "requirements"
 
     ```console
     .
