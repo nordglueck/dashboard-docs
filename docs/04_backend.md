@@ -49,6 +49,9 @@ the local and the production environment.
 
 
 ??? info "compose"
+
+    Except for the ``.yml`` files, all of the docker configuration is to be found in this directory. As usual, the configurations are separated by environments.
+
     ```console
 
     .
@@ -77,6 +80,11 @@ the local and the production environment.
     ```
 
 ??? info "config"
+
+    The main settings of the software are to be found in the config folder. Whats normally the ``settings.py`` file, lives in the ``settings`` folder and is separated by environment.
+    Because there are settings, that local and production environments have in common, there is also a ``base.py``, that serves as the base. In a local environment, the settings of both the ``base.py`` and the ``local.py`` will be considered.
+
+
     ```console
 
     ├── __init__.py
