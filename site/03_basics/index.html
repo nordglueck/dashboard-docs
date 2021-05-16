@@ -668,19 +668,19 @@ endpoint <code>/swagger</code>. Curl commands can be interactively executed on t
 <h3 id="routing">Routing</h3>
 <p>The following code snippet from the <code>asgi.py</code> file shows
 the <code>ProtocolTypeRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
-<pre><code class="language-python">application = ProtocolTypeRouter({
-    &quot;http&quot;: get_asgi_application(),
-    &quot;websocket&quot;: TokenAuthMiddlewareStack(
-        URLRouter(
-            [re_path(r&quot;^ws/$&quot;, AsyncJsonWebsocketDemultiplexer(
-                patients=PatientConsumer().as_asgi(),
-                reports=ReportConsumer().as_asgi(),
-                history=HistoryConsumer().as_asgi(),
-            ).as_asgi()), ]
-        )
-    ),
-})
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">application</span> <span class="o">=</span> <span class="n">ProtocolTypeRouter</span><span class="p">({</span>
+    <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="n">get_asgi_application</span><span class="p">(),</span>
+    <span class="s2">&quot;websocket&quot;</span><span class="p">:</span> <span class="n">TokenAuthMiddlewareStack</span><span class="p">(</span>
+        <span class="n">URLRouter</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^ws/$&quot;</span><span class="p">,</span> <span class="n">AsyncJsonWebsocketDemultiplexer</span><span class="p">(</span>
+                <span class="n">patients</span><span class="o">=</span><span class="n">PatientConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+                <span class="n">reports</span><span class="o">=</span><span class="n">ReportConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+                <span class="n">history</span><span class="o">=</span><span class="n">HistoryConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">()),</span> <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+<span class="p">})</span>
+</code></pre></div>
 <p>The streams are defined inside the Demultiplexer and connected to their respective consumer (see <a href="#consumer"><strong>Consumer</strong></a>).</p>
 <h3 id="rest-api">REST API</h3>
 <p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
