@@ -460,32 +460,89 @@ the local and the production environment. </p>
 <span class="go">├── requirements</span>
 </code></pre></div>
 <h4 id="compose">compose</h4>
-<div class="admonition info compose">
-<p class="admonition-title">Info</p>
-<div class="highlight"><pre><span></span><code>.
-├── local
-│   ├── django
-│   │   ├── Dockerfile
-│   │   └── start
-│   └── docs
-│       └── Dockerfile
-└── production
-    ├── django
-    │   ├── Dockerfile
-    │   ├── entrypoint
-    │   └── start
-    ├── postgres
-    │   ├── Dockerfile
-    │   └── maintenance
-    │       ├── _sourced
-    │       ├── backup
-    │       ├── backups
-    │       └── restore
-    └── traefik
-        ├── Dockerfile
-        └── traefik.yml
-</code></pre></div>
-</div>
+<p>???+ info "compose"
+    <div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├── local</span>
+<span class="go">│   ├── django</span>
+<span class="go">│   │   ├── Dockerfile</span>
+<span class="go">│   │   └── start</span>
+<span class="go">│   └── docs</span>
+<span class="go">│       └── Dockerfile</span>
+<span class="go">└── production</span>
+<span class="go">    ├── django</span>
+<span class="go">    │   ├── Dockerfile</span>
+<span class="go">    │   ├── entrypoint</span>
+<span class="go">    │   └── start</span>
+<span class="go">    ├── postgres</span>
+<span class="go">    │   ├── Dockerfile</span>
+<span class="go">    │   └── maintenance</span>
+<span class="go">    │       ├── _sourced</span>
+<span class="go">    │       ├── backup</span>
+<span class="go">    │       ├── backups</span>
+<span class="go">    │       └── restore</span>
+<span class="go">    └── traefik</span>
+<span class="go">        ├── Dockerfile</span>
+<span class="go">        └── traefik.yml</span>
+</code></pre></div></p>
+<p>???+ info "config"
+    <div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
+<span class="go">├── api_router.py</span>
+<span class="go">├── asgi.py</span>
+<span class="go">├── middleware.py</span>
+<span class="go">├── settings</span>
+<span class="go">│   ├── __init__.py</span>
+<span class="go">│   ├── base.py</span>
+<span class="go">│   ├── local.py</span>
+<span class="go">│   ├── production.py</span>
+<span class="go">│   └── test.py</span>
+<span class="go">├── urls.py</span>
+<span class="go">└── wsgi.py</span>
+</code></pre></div></p>
+<p>???+ info "dashboard"</p>
+<pre><code>```console
+.
+├── contrib
+│   └── sites
+│       └── migrations
+├── patients
+│   ├── api
+│   └── migrations
+├── static
+│   ├── css
+│   ├── fonts
+│   ├── images
+│   │   └── favicons
+│   ├── js
+│   ├── sass
+│   └── vue
+│       ├── css
+│       ├── fonts
+│       ├── img
+│       └── js
+├── templates
+│   ├── account
+│   ├── pages
+│   ├── users
+│   └── webpack_bundle
+├── users
+│   ├── api
+│   ├── migrations
+│   └── tests
+├── utils
+└── webpack_bundle
+    └── templatetags
+
+```
+</code></pre>
+<p>???+ info "requirements"</p>
+<pre><code>```console
+.
+├── base.txt
+├── local.txt
+└── production.txt
+
+```
+</code></pre>
 <h3 id="local">Local</h3>
 <p>...</p>
 <h3 id="production">Production</h3>
