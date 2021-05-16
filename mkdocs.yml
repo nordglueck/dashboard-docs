@@ -4,3 +4,6 @@ theme:
   logo: assets/SVG/logo.svg
 plugins:
   - search
+markdown_extensions:
+    - pymdownx.tabbed
+    - pymdownx.superfences
