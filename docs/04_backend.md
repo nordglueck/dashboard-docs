@@ -34,8 +34,9 @@ the local and the production environment.
 
 #### compose
 
-!!! info compose
-    ```
+???+ info "compose"
+    ```console
+
     .
     ├── local
     │   ├── django
@@ -58,6 +59,72 @@ the local and the production environment.
         └── traefik
             ├── Dockerfile
             └── traefik.yml
+
+    ```
+
+???+ info "config"
+    ```console
+
+    ├── __init__.py
+    ├── api_router.py
+    ├── asgi.py
+    ├── middleware.py
+    ├── settings
+    │   ├── __init__.py
+    │   ├── base.py
+    │   ├── local.py
+    │   ├── production.py
+    │   └── test.py
+    ├── urls.py
+    └── wsgi.py
+
+    ```
+
+???+ info "dashboard"
+
+    ```console
+    .
+    ├── contrib
+    │   └── sites
+    │       └── migrations
+    ├── patients
+    │   ├── api
+    │   └── migrations
+    ├── static
+    │   ├── css
+    │   ├── fonts
+    │   ├── images
+    │   │   └── favicons
+    │   ├── js
+    │   ├── sass
+    │   └── vue
+    │       ├── css
+    │       ├── fonts
+    │       ├── img
+    │       └── js
+    ├── templates
+    │   ├── account
+    │   ├── pages
+    │   ├── users
+    │   └── webpack_bundle
+    ├── users
+    │   ├── api
+    │   ├── migrations
+    │   └── tests
+    ├── utils
+    └── webpack_bundle
+        └── templatetags
+
+    ```
+
+???+ info "requirements"
+
+    ```console
+    .
+    ├── base.txt
+    ├── local.txt
+    └── production.txt
+
     ```
 
 ### Local
