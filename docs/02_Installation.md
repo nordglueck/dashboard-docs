@@ -47,7 +47,7 @@ Open a terminal at the project root and run the following for local development:
 
 ```console
 docker-compose -f local.yml up
-``
+```
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this:
 
@@ -85,17 +85,19 @@ python3 -m venv env_name
 
 To activate the virtual environment on a level above the environment folder that was just created:
 
-=== Mac OS / Linux
+=== "Mac OS / Linux"
 
     ```console
     source env_name/bin/activate
     ```
 
-=== Windows
+=== "Windows"
 
-    ```console
+    ``` console
     env_name\Scripts\activate.bat
     ```
+
+
 
 With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment:
 
