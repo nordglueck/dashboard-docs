@@ -8,6 +8,10 @@ directory if not declared otherwise.
 
 #### Getting Up and Running Locally With Docker
 
+!!! info
+
+    The project is not required to run in a docker container. All of the processes involved could also be started manually. However, for simplicity and cross-platform development purposes, a docker environment is provided.
+
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
