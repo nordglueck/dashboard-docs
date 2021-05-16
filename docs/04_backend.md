@@ -9,6 +9,57 @@ Therefore some files such as the Dockerfile (see [**Installation**](/dashboard-d
 Files marked with the word **base** such as ``config/settings/base.py`` - as the name suggests - serve as a base for both,
 the local and the production environment. 
 
+```console
+.
+├── compose
+│   ├── local
+│   └── production
+├── config
+│   └── settings
+├── dashboard
+│   ├── contrib
+│   ├── patients
+│   ├── static
+│   ├── templates
+│   ├── users
+│   ├── utils
+│   └── webpack_bundle
+├── docs
+│   ├── _build
+│   └── _source
+├── locale
+├── requirements
+
+```
+
+#### compose
+
+!!! info compose
+    ```
+    .
+    ├── local
+    │   ├── django
+    │   │   ├── Dockerfile
+    │   │   └── start
+    │   └── docs
+    │       └── Dockerfile
+    └── production
+        ├── django
+        │   ├── Dockerfile
+        │   ├── entrypoint
+        │   └── start
+        ├── postgres
+        │   ├── Dockerfile
+        │   └── maintenance
+        │       ├── _sourced
+        │       ├── backup
+        │       ├── backups
+        │       └── restore
+        └── traefik
+            ├── Dockerfile
+            └── traefik.yml
+    ```
+
 ### Local
 
 ...
