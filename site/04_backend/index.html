@@ -460,8 +460,7 @@ the local and the production environment. </p>
 <span class="go">├── requirements</span>
 </code></pre></div>
 <h4 id="compose">compose</h4>
-<p>???+ info "compose"
-    <div class="highlight"><pre><span></span><code><span class="go">.</span>
+<details class="info" open="open"><summary>compose</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
 <span class="go">├── local</span>
 <span class="go">│   ├── django</span>
 <span class="go">│   │   ├── Dockerfile</span>
@@ -483,9 +482,9 @@ the local and the production environment. </p>
 <span class="go">    └── traefik</span>
 <span class="go">        ├── Dockerfile</span>
 <span class="go">        └── traefik.yml</span>
-</code></pre></div></p>
-<p>???+ info "config"
-    <div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
+</code></pre></div>
+</details>
+<details class="info" open="open"><summary>config</summary><div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
 <span class="go">├── api_router.py</span>
 <span class="go">├── asgi.py</span>
 <span class="go">├── middleware.py</span>
@@ -497,52 +496,47 @@ the local and the production environment. </p>
 <span class="go">│   └── test.py</span>
 <span class="go">├── urls.py</span>
 <span class="go">└── wsgi.py</span>
-</code></pre></div></p>
-<p>???+ info "dashboard"</p>
-<pre><code>```console
-.
-├── contrib
-│   └── sites
-│       └── migrations
-├── patients
-│   ├── api
-│   └── migrations
-├── static
-│   ├── css
-│   ├── fonts
-│   ├── images
-│   │   └── favicons
-│   ├── js
-│   ├── sass
-│   └── vue
-│       ├── css
-│       ├── fonts
-│       ├── img
-│       └── js
-├── templates
-│   ├── account
-│   ├── pages
-│   ├── users
-│   └── webpack_bundle
-├── users
-│   ├── api
-│   ├── migrations
-│   └── tests
-├── utils
-└── webpack_bundle
-    └── templatetags
-
-```
-</code></pre>
-<p>???+ info "requirements"</p>
-<pre><code>```console
-.
-├── base.txt
-├── local.txt
-└── production.txt
-
-```
-</code></pre>
+</code></pre></div>
+</details>
+<details class="info" open="open"><summary>dashboard</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├── contrib</span>
+<span class="go">│   └── sites</span>
+<span class="go">│       └── migrations</span>
+<span class="go">├── patients</span>
+<span class="go">│   ├── api</span>
+<span class="go">│   └── migrations</span>
+<span class="go">├── static</span>
+<span class="go">│   ├── css</span>
+<span class="go">│   ├── fonts</span>
+<span class="go">│   ├── images</span>
+<span class="go">│   │   └── favicons</span>
+<span class="go">│   ├── js</span>
+<span class="go">│   ├── sass</span>
+<span class="go">│   └── vue</span>
+<span class="go">│       ├── css</span>
+<span class="go">│       ├── fonts</span>
+<span class="go">│       ├── img</span>
+<span class="go">│       └── js</span>
+<span class="go">├── templates</span>
+<span class="go">│   ├── account</span>
+<span class="go">│   ├── pages</span>
+<span class="go">│   ├── users</span>
+<span class="go">│   └── webpack_bundle</span>
+<span class="go">├── users</span>
+<span class="go">│   ├── api</span>
+<span class="go">│   ├── migrations</span>
+<span class="go">│   └── tests</span>
+<span class="go">├── utils</span>
+<span class="go">└── webpack_bundle</span>
+<span class="go">    └── templatetags</span>
+</code></pre></div>
+</details>
+<details class="info" open="open"><summary>requirements</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├── base.txt</span>
+<span class="go">├── local.txt</span>
+<span class="go">└── production.txt</span>
+</code></pre></div>
+</details>
 <h3 id="local">Local</h3>
 <p>...</p>
 <h3 id="production">Production</h3>
