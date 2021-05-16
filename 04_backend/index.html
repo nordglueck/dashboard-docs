@@ -253,6 +253,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#local" class="md-nav__link">
     Local
   </a>
@@ -380,6 +387,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#local" class="md-nav__link">
     Local
   </a>
@@ -425,6 +439,53 @@
 Therefore some files such as the Dockerfile (see <a href="/dashboard-docs/02_Installation"><strong>Installation</strong></a>) are available twice. Depending on the environment, the respective files should either be used or are used automatically.
 Files marked with the word <strong>base</strong> such as <code>config/settings/base.py</code> - as the name suggests - serve as a base for both,
 the local and the production environment. </p>
+<div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├── compose</span>
+<span class="go">│   ├── local</span>
+<span class="go">│   └── production</span>
+<span class="go">├── config</span>
+<span class="go">│   └── settings</span>
+<span class="go">├── dashboard</span>
+<span class="go">│   ├── contrib</span>
+<span class="go">│   ├── patients</span>
+<span class="go">│   ├── static</span>
+<span class="go">│   ├── templates</span>
+<span class="go">│   ├── users</span>
+<span class="go">│   ├── utils</span>
+<span class="go">│   └── webpack_bundle</span>
+<span class="go">├── docs</span>
+<span class="go">│   ├── _build</span>
+<span class="go">│   └── _source</span>
+<span class="go">├── locale</span>
+<span class="go">├── requirements</span>
+</code></pre></div>
+<h4 id="compose">compose</h4>
+<div class="admonition info compose">
+<p class="admonition-title">Info</p>
+<div class="highlight"><pre><span></span><code>.
+├── local
+│   ├── django
+│   │   ├── Dockerfile
+│   │   └── start
+│   └── docs
+│       └── Dockerfile
+└── production
+    ├── django
+    │   ├── Dockerfile
+    │   ├── entrypoint
+    │   └── start
+    ├── postgres
+    │   ├── Dockerfile
+    │   └── maintenance
+    │       ├── _sourced
+    │       ├── backup
+    │       ├── backups
+    │       └── restore
+    └── traefik
+        ├── Dockerfile
+        └── traefik.yml
+</code></pre></div>
+</div>
 <h3 id="local">Local</h3>
 <p>...</p>
 <h3 id="production">Production</h3>
