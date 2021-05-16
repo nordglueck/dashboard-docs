@@ -253,13 +253,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#compose" class="md-nav__link">
-    compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#local" class="md-nav__link">
     Local
   </a>
@@ -270,6 +263,19 @@
   <a href="#production" class="md-nav__link">
     Production
   </a>
+  
+    <nav class="md-nav" aria-label="Production">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-environment" class="md-nav__link">
+    Configuring the environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -387,13 +393,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#compose" class="md-nav__link">
-    compose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#local" class="md-nav__link">
     Local
   </a>
@@ -404,6 +403,19 @@
   <a href="#production" class="md-nav__link">
     Production
   </a>
+  
+    <nav class="md-nav" aria-label="Production">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-environment" class="md-nav__link">
+    Configuring the environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -440,6 +452,7 @@ Therefore some files such as the Dockerfile (see <a href="/dashboard-docs/02_Ins
 Files marked with the word <strong>base</strong> such as <code>config/settings/base.py</code> - as the name suggests - serve as a base for both,
 the local and the production environment. </p>
 <div class="highlight"><pre><span></span><code><span class="go">.</span>
+<span class="go">├── .envs</span>
 <span class="go">├── compose</span>
 <span class="go">│   ├── local</span>
 <span class="go">│   └── production</span>
@@ -459,7 +472,15 @@ the local and the production environment. </p>
 <span class="go">├── locale</span>
 <span class="go">├── requirements</span>
 </code></pre></div>
-<h4 id="compose">compose</h4>
+<details class="info" open="open"><summary>env files</summary><div class="highlight"><pre><span></span><code><span class="go">    .envs</span>
+<span class="go">    ├── .local</span>
+<span class="go">    │   ├── .django</span>
+<span class="go">    │   └── .postgres</span>
+<span class="go">    └── .production</span>
+<span class="go">        ├── .django</span>
+<span class="go">        └── .postgres</span>
+</code></pre></div>
+</details>
 <details class="info" open="open"><summary>compose</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
 <span class="go">├── local</span>
 <span class="go">│   ├── django</span>
@@ -544,6 +565,19 @@ the local and the production environment. </p>
 Not only, but mostly sensitive information is stored in environment variables and will not be exported from a local environment
 to a production environment. Therefore these environment variables have to be set in the production environment.
 It is suggested not to hardcode values for such variables into the code for production, but to really set and use environment variables.</p>
+<h4 id="configuring-the-environment">Configuring the environment</h4>
+<div class="admonition info">
+<p class="admonition-title">environment variables</p>
+<p>The environment files can be found in the <code>.envs</code> directory like shown before.
+The most important thing for us here now is <code>env_file</code> section enlisting <code>./.envs/.local/.postgres</code>. Generally, the stack's behavior is governed by a number of environment variables (<code>env(s)</code>, for short) residing in <code>envs/</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>PostgreSQL
+<span class="gp"># </span>------------------------------------------------------------------------------
+<span class="go">POSTGRES_HOST=postgres</span>
+<span class="go">POSTGRES_DB=&lt;your project slug&gt;</span>
+<span class="go">POSTGRES_USER=&lt;your postgres user&gt;</span>
+<span class="go">POSTGRES_PASSWORD=&lt;your password&gt;</span>
+</code></pre></div>
+</div>
 <p>...</p>
 <h3 id="test">Test</h3>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C</label><div class="tabbed-content">
