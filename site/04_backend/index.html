@@ -481,7 +481,8 @@ the local and the production environment. </p>
 <span class="go">        └── .postgres</span>
 </code></pre></div>
 </details>
-<details class="info"><summary>compose</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
+<details class="info"><summary>compose</summary><p>Except for the <code>.yml</code> files, all of the docker configuration is to be found in this directory. As usual, the configurations are separated by environments.</p>
+<div class="highlight"><pre><span></span><code><span class="go">.</span>
 <span class="go">├── local</span>
 <span class="go">│   ├── django</span>
 <span class="go">│   │   ├── Dockerfile</span>
@@ -505,7 +506,9 @@ the local and the production environment. </p>
 <span class="go">        └── traefik.yml</span>
 </code></pre></div>
 </details>
-<details class="info"><summary>config</summary><div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
+<details class="info"><summary>config</summary><p>The main settings of the software are to be found in the config folder. Whats normally the <code>settings.py</code> file, lives in the <code>settings</code> folder and is separated by environment.
+Because there are settings, that local and production environments have in common, there is also a <code>base.py</code>, that serves as the base. In a local environment, the settings of both the <code>base.py</code> and the <code>local.py</code> will be considered.</p>
+<div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
 <span class="go">├── api_router.py</span>
 <span class="go">├── asgi.py</span>
 <span class="go">├── middleware.py</span>

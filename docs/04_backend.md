@@ -35,7 +35,12 @@ the local and the production environment.
 
 
 
-???+ info "env files"
+??? info "env files"
+    
+    Environment files are mainly used to store sensitive data such as passwords or secret keys that may cause vulnerabilities if exposed in the code.
+    In local environments some things may be hardcoded, when they are depending on environment variables in production. This is an intended behaviour and should not be changed.
+    See the ``config`` section and information about the settings. Most of the settings that require environment variables are defined there.
+
     ```console
 
         .envs
@@ -79,7 +84,7 @@ the local and the production environment.
 
     ```
 
-??? info "config"
+???+ info "config"
 
     The main settings of the software are to be found in the config folder. Whats normally the ``settings.py`` file, lives in the ``settings`` folder and is separated by environment.
     Because there are settings, that local and production environments have in common, there is also a ``base.py``, that serves as the base. In a local environment, the settings of both the ``base.py`` and the ``local.py`` will be considered.
@@ -141,6 +146,9 @@ the local and the production environment.
 
 ??? info "requirements"
 
+    The requirements follow the logic that was presented in the settings. ``base.txt`` is serving as a base for both local and production environments. Depending on the environment, the respective requirements will be installed additionally.
+    The ``base.txt`` should only include what's needed in both environments. 
+
     ```console
     .
     ├── base.txt
@@ -178,45 +186,3 @@ It is suggested not to hardcode values for such variables into the code for prod
     ```
 
 ...
-
-### Test
-
-=== "C"
-
-    ``` c
-    #include <stdio.h>
-
-    int main(void) {
-      printf("Hello world!\n");
-      return 0;
-    }
-    ```
-
-=== "C++"
-
-    ``` c++
-    #include <iostream>
-
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
-    }
-    ```
-
-
-!!! note
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-
-    ``` python
-    def bubble_sort(items):
-        for i in range(len(items)):
-            for j in range(len(items) - 1 - i):
-                if items[j] > items[j + 1]:
-                    items[j], items[j + 1] = items[j + 1], items[j]
-    ```
-
-    Nunc eu odio eleifend, blandit leo a, volutpat sapien. Phasellus posuere in
-    sem ut cursus. Nullam sit amet tincidunt ipsum, sit amet elementum turpis.
-    Etiam ipsum quam, mattis in purus vitae, lacinia fermentum enim.
