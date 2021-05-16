@@ -29,7 +29,10 @@ See also: [https://github.com/pydanny/cookiecutter-django/](https://github.com/p
 
 This can take a while, especially the first time you run this particular command on your development system:
 
+```console
     docker-compose -f local.yml build
+```
+    
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
