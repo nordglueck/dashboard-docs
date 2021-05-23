@@ -279,13 +279,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -419,13 +412,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -472,7 +458,10 @@ the local and the production environment. </p>
 <span class="go">├── locale</span>
 <span class="go">├── requirements</span>
 </code></pre></div>
-<details class="info" open="open"><summary>env files</summary><div class="highlight"><pre><span></span><code><span class="go">    .envs</span>
+<details class="info"><summary>env files</summary><p>Environment files are mainly used to store sensitive data such as passwords or secret keys that may cause vulnerabilities if exposed in the code.
+In local environments some things may be hardcoded, when they are depending on environment variables in production. This is an intended behaviour and should not be changed.
+See the <code>config</code> section and information about the settings. Most of the settings that require environment variables are defined there.</p>
+<div class="highlight"><pre><span></span><code><span class="go">    .envs</span>
 <span class="go">    ├── .local</span>
 <span class="go">    │   ├── .django</span>
 <span class="go">    │   └── .postgres</span>
@@ -506,7 +495,7 @@ the local and the production environment. </p>
 <span class="go">        └── traefik.yml</span>
 </code></pre></div>
 </details>
-<details class="info"><summary>config</summary><p>The main settings of the software are to be found in the config folder. Whats normally the <code>settings.py</code> file, lives in the <code>settings</code> folder and is separated by environment.
+<details class="info" open="open"><summary>config</summary><p>The main settings of the software are to be found in the config folder. Whats normally the <code>settings.py</code> file, lives in the <code>settings</code> folder and is separated by environment.
 Because there are settings, that local and production environments have in common, there is also a <code>base.py</code>, that serves as the base. In a local environment, the settings of both the <code>base.py</code> and the <code>local.py</code> will be considered.</p>
 <div class="highlight"><pre><span></span><code><span class="go">├── __init__.py</span>
 <span class="go">├── api_router.py</span>
@@ -555,7 +544,9 @@ Because there are settings, that local and production environments have in commo
 <span class="go">    └── templatetags</span>
 </code></pre></div>
 </details>
-<details class="info"><summary>requirements</summary><div class="highlight"><pre><span></span><code><span class="go">.</span>
+<details class="info"><summary>requirements</summary><p>The requirements follow the logic that was presented in the settings. <code>base.txt</code> is serving as a base for both local and production environments. Depending on the environment, the respective requirements will be installed additionally.
+The <code>base.txt</code> should only include what's needed in both environments. </p>
+<div class="highlight"><pre><span></span><code><span class="go">.</span>
 <span class="go">├── base.txt</span>
 <span class="go">├── local.txt</span>
 <span class="go">└── production.txt</span>
@@ -582,41 +573,6 @@ The most important thing for us here now is <code>env_file</code> section enlist
 </code></pre></div>
 </div>
 <p>...</p>
-<h3 id="test">Test</h3>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">C++</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello world!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-massa, nec semper lorem quam in massa.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
-                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-</code></pre></div>
-<p>Nunc eu odio eleifend, blandit leo a, volutpat sapien. Phasellus posuere in
-sem ut cursus. Nullam sit amet tincidunt ipsum, sit amet elementum turpis.
-Etiam ipsum quam, mattis in purus vitae, lacinia fermentum enim.</p>
-</div>
                 
               
               
