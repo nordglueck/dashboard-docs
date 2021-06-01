@@ -264,6 +264,19 @@
     Structure
   </a>
   
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -349,6 +362,19 @@
     Structure
   </a>
   
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -382,7 +408,9 @@
 ├── vue.config.js
 └── webpack-stats.json
 </code></pre></div>
-<details class="info" open="open"><summary>Important files in the root directory</summary><ul>
+<div class="admonition info">
+<p class="admonition-title">Important files in the root directory</p>
+<ul>
 <li><strong>.env</strong> : Environment variables for the front end</li>
 <li><strong>README.md</strong> : Quickstart with commands for development</li>
 <li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
@@ -390,7 +418,36 @@
 <li><strong>src</strong> : Source code of the project</li>
 <li><strong>vue.config.js</strong> : Webpack configuration</li>
 </ul>
-</details>
+</div>
+<h3 id="source-code">Source Code</h3>
+<p>As mentioned in the previous section, the source code of the front end is to be found in the <strong>src</strong> directory. 
+It is a Vue App consisting of multiple <strong>.vue</strong> files that are divided into components or more complex layouts. 
+For the state-management of the app, a <em>store</em> is set up. Everything related to the state-management is to be found inside
+the <strong>store</strong> directory.</p>
+<div class="highlight"><pre><span></span><code>.
+├── App.vue
+├── dashboard
+│   ├── assets
+│   ├── components
+│   ├── directives
+│   ├── entry
+│   │   ├── main.js
+│   │   ├── registerServiceWorker.js
+│   │   └── router.js
+│   ├── layout
+│   ├── plugins
+│   └── views
+└── store
+    ├── modules
+    └── vuex_usage_utils.js
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Getting started with the front end</p>
+<p><strong>main.js</strong> : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.
+<strong>router.js</strong> : Defines the routes for the app and connects components/layouts and names to them.
+<strong>App.vue</strong> : The main structure of the app that is rendered at first.
+<strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</p>
+</div>
                 
               
               
