@@ -66,3 +66,4 @@ the **store** directory.
     - **router.js** : Defines the routes for the app and connects components/layouts and names to them.
     - **App.vue** : The main structure of the app that is rendered at first.
     - **vuex_usage_utils.js** : The store/state-management configurations.
+

@@ -4,6 +4,12 @@ This page covers the overall basics of the project regarding the back end (Djang
 The most important aspects to get started will be covered. More in-depth guides/knowledge for either of the parts is planned
 for a different page (tbd).
 
+## System overview
+
+A brief overview over the system can be obtained from the following diagram:
+
+![](../overview.png)
+
 ## Back end (Django)
 
 ### Model-View-Template (MVT)
