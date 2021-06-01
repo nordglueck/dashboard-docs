@@ -10,7 +10,15 @@ A brief overview over the system can be obtained from the following diagram:
 
 ![](assets/overview.png)
 
-## Back end (Django)
+The following sections are going to offer a first insight into the respective areas:
+
+**Quicklinks**:
+- ![The Back end (Django)](#the-back-end-django)
+- ![The Front end (Vue.js)](#the-front-end-vuejs)
+- ![The Database (Postgresql)](#the-database-postgresql)
+- ![HTTP & WebSockets](#http--websockets)
+
+## The Back end (Django)
 
 ### Model-View-Template (MVT)
 
@@ -112,13 +120,17 @@ To be able to request the endpoints via the given URLs, the created Views have t
 
 ---
 
-## Front end (Vue.js)
+## The Front end (Vue.js)
 
 ### Routing
 
 ### State-management
 
 ### Components
+
+## The Database (Postgresql)
+
+## HTTP & WebSockets
 
 ---
 
