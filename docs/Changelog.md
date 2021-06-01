@@ -7,8 +7,9 @@
 - Add content to **Back end** page
 - Start writing content for **Front end** page
 - Add dark mode
-- Basics : Add MVT diagram and System Overview
+- Basics: Add MVT diagram and System Overview
 - Back end: Add "Getting started" explanations for folders
+- Back end: Restructuring
 
 ### v1.0.1 - May 16, 2021
 
