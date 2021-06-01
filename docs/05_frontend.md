@@ -62,7 +62,7 @@ the **store** directory.
 
 !!! info "Getting started with the front end"
 
-    **main.js** : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.
-    **router.js** : Defines the routes for the app and connects components/layouts and names to them.
-    **App.vue** : The main structure of the app that is rendered at first.
-    **vuex_usage_utils.js** : The store/state-management configurations.
+    - **main.js** : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.
+    - **router.js** : Defines the routes for the app and connects components/layouts and names to them.
+    - **App.vue** : The main structure of the app that is rendered at first.
+    - **vuex_usage_utils.js** : The store/state-management configurations.
