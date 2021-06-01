@@ -236,9 +236,39 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Front end
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Front end
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -308,6 +338,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -321,6 +366,31 @@
                 
                 <h1 id="front-end">Front end</h1>
 <p>This page shall provide more in-depth information on the structure of the front end and it's most important files.</p>
+<h2 id="structure">Structure</h2>
+<p>The main directory of the front end is the <strong>vue_frontend</strong> folder. It's structure presents as follows on the first level:</p>
+<div class="highlight"><pre><span></span><code>.
+├── .env
+├── .browserslistrc
+├── .eslintrc.js
+├── .gitignore
+├── README.md
+├── babel.config.js
+├── node_modules
+├── package-lock.json
+├── package.json
+├── src
+├── vue.config.js
+└── webpack-stats.json
+</code></pre></div>
+<details class="info" open="open"><summary>Important files in the root directory</summary><ul>
+<li><strong>.env</strong> : Environment variables for the front end</li>
+<li><strong>README.md</strong> : Quickstart with commands for development</li>
+<li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
+<li><strong>package.json</strong> : Metadata and dependencies</li>
+<li><strong>src</strong> : Source code of the project</li>
+<li><strong>vue.config.js</strong> : Webpack configuration</li>
+</ul>
+</details>
                 
               
               
