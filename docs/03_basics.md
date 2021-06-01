@@ -8,7 +8,7 @@ for a different page (tbd).
 
 A brief overview over the system can be obtained from the following diagram:
 
-![](../overview.png)
+![](assets/overview.png)
 
 ## Back end (Django)
 
