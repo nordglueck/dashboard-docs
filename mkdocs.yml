@@ -1,7 +1,21 @@
 site_name: Dengue Dashboard Docs
+
 theme:
   name: material
   logo: assets/SVG/logo.svg
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 plugins:
   - search
 markdown_extensions:

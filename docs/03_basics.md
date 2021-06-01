@@ -16,7 +16,13 @@ A brief overview over the system can be obtained from the following diagram:
 
 Django is following the Model-View-Template structure, where the Model is for structuring and manipulating the data of the application, the view implements
 the business logic and the templates serves the views to the clients. In this project, the templates are rendering the static files
-provided by the webpack bundling, that are moved into the ``static`` folder after executing ``npm run build`` inside the ``vue_frontend`` directory.
+provided by the webpack bundling, that are moved into the ``static`` folder inside the back end directory after executing ``npm run build`` inside the ``vue_frontend`` directory.
+
+The principle of Django's MVT architecture is visualized in the following diagram:
+
+![https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp|500x500](https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp)
+Source: https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp
+
 
 #### Model
 
