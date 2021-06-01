@@ -12,11 +12,15 @@ A brief overview over the system can be obtained from the following diagram:
 
 The following sections are going to offer a first insight into the respective areas:
 
+---
 **Quicklinks**:
-- ![The Back end (Django)](#the-back-end-django)
-- ![The Front end (Vue.js)](#the-front-end-vuejs)
-- ![The Database (Postgresql)](#the-database-postgresql)
-- ![HTTP & WebSockets](#http--websockets)
+
+- [The Back end (Django)](#the-back-end-django)
+- [The Front end (Vue.js)](#the-front-end-vuejs)
+- [The Database (Postgresql)](#the-database-postgresql)
+- [HTTP & WebSockets](#http--websockets)  
+
+---
 
 ## The Back end (Django)
 
