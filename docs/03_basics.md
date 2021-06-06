@@ -18,7 +18,6 @@ The following sections are going to offer a first insight into the respective ar
 - [The Back end (Django)](#the-back-end-django)
 - [The Front end (Vue.js)](#the-front-end-vuejs)
 - [The Database (Postgresql)](#the-database-postgresql)
-- [HTTP & WebSockets](#http--websockets)  
 
 ---
 
@@ -93,6 +92,8 @@ The endpoints are defined in the ``asgi.py`` file of the Project. For more infor
 
 #### Template
 
+---
+
 ### Routing
 
 The following code snippet from the ``asgi.py`` file shows
@@ -115,6 +116,7 @@ application = ProtocolTypeRouter({
 
 The streams are defined inside the Demultiplexer and connected to their respective consumer (see [**Consumer**](#consumer)).
 
+---
 
 ### REST API
 
@@ -132,6 +134,7 @@ The view is handling the serialized JSON and able to add orderings to the data o
 the Django REST Framework is also serving a browsable API with web pages, where one can create, update and delete model instances inside the browser.
 To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the ``patients/api/urls.py`` file.
 
+---
 
 ### WebSocket Endpoints
 
@@ -145,6 +148,8 @@ to be modified:
 The consumers define the business logic for the clients connected to the WebSocket.
 In ``asgi.py``, a consumer is being attached to a stream and therefore a URL is being created to which
 the clients may connect from e.g. the front end.
+
+---
 
 ### Consumer
 
@@ -178,18 +183,99 @@ connection to. In our case, a URL for the patient model would look something lik
 wss://example.com/ws/patients/
 ```
 
+---
+
 ### Background Tasks
 
+Background Tasks are used in this application to send notifications via WebSockets at a specific time that is computed based on
+the input data. However, they can generally be used, to build up any kind of work queue. Tasks can be scheduled for specific
+times, may repeat, can be scheduled to be executed n seconds/minutes/hours(..) after a certain event and much more.
+
+In this application, a background task is e.g. scheduled to remind any connected client about an observation of a patient that is due, when it's
+time has come based on the time of the last observation and the monitoring interval.
+
+For more information on background tasks and possibilities, visit the official documentation:
+[https://django-background-tasks.readthedocs.io/en/latest/](https://django-background-tasks.readthedocs.io/en/latest/)
 
 ---
 
 ## The Front end (Vue.js)
 
+
+### Components
+
+Components are reusable instances in Vue.js. Once created, they can be imported and used in the template
+of other components.
+
+A simple example of a component would look like this:
+
+```html
+
+<template>
+<h1>This is an example component!</h1>
+</template>
+
+<script>
+export default {
+  name: 'foo-bar',
+  data(){
+    return{}
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
+```
+
+Components must not, but may consist of all these three sections: 
+
+* Template section: HTML Markup with Vue.js components
+* Script section: "Vue.js logic" -> All the data, methods and lifecycle logic live here
+* Style section: Not mandatory, but possible for e.g. scoped styling for the specific component
+
+With this component created, it can now be used like so in any other template:
+
+```html
+<div id="components-demo">
+    <foo-bar></foo-bar>
+    <h2>Something here..</h2>
+</div>
+
+```
+
+More on components is to be found in the official Vue.js documentation: [https://vuejs.org/v2/guide/components.html](https://vuejs.org/v2/guide/components.html)
+
+---
+
 ### Routing
+To be able to see different views in the browser, it is important, to map created components to routes.
+For example a component ``Foo.vue`` would be mapped to the route ``/foo`` and ``Bar.vue`` might be mapped 
+to ``/bar``. This would look something like this:
+
+```javascript
+const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+```
+
+This will make sure, that the ``Foo`` component will be rendered, when we are navigating to ``www.example.com/foo``.
+
+The router of this application is to be found in ``vue_frontend/src/dashboard/entry/router.js``. In addition to the simple
+mapping of routes and components, it is possible and also sometimes necessary to provide some business logic inside the router.
+For instance it is possible to make sure, that an unauthorized user is being redirected to the ``/login`` route.
+
+More on the vue-router is to be found at the official documentation: [https://router.vuejs.org/guide/](https://router.vuejs.org/guide/)
+
+---
 
 ### State-management
 
-### Components
+
+
 
 ## The Database (Postgresql)
 

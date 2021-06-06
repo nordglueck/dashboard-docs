@@ -319,6 +319,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#websocket-endpoints" class="md-nav__link">
+    WebSocket Endpoints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#consumer" class="md-nav__link">
     Consumer
   </a>
@@ -374,13 +381,6 @@
         <li class="md-nav__item">
   <a href="#the-database-postgresql" class="md-nav__link">
     The Database (Postgresql)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#http-websockets" class="md-nav__link">
-    HTTP &amp; WebSockets
   </a>
   
 </li>
@@ -557,6 +557,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#websocket-endpoints" class="md-nav__link">
+    WebSocket Endpoints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#consumer" class="md-nav__link">
     Consumer
   </a>
@@ -612,13 +619,6 @@
         <li class="md-nav__item">
   <a href="#the-database-postgresql" class="md-nav__link">
     The Database (Postgresql)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#http-websockets" class="md-nav__link">
-    HTTP &amp; WebSockets
   </a>
   
 </li>
@@ -716,6 +716,18 @@ as of the end of the thesis are:</p>
 <p>A full documentation of all available endpoints as well as an <strong>interactive demo</strong> of the endpoints can be obtained from the 
 endpoint <code>/swagger</code>. Curl commands can be interactively executed on the page and requests and responses can be analysed.</p>
 <p>The fields, that are to be included (or excluded) in the respective JSON responses are defined in the <code>patients/api/serializers.py</code> file.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><strong>The front end of this application works with data provided through WebSockets</strong>. The aforementioned REST API
+endpoints are delivered via HTTP and useful for the integration of other services. The communication between the 
+back end and the front end is mostly based on WebSockets however. WebSockets allow for full-duplex communication, meaning
+that both, the back end and the front end can send each other messages whenever they need to. Without the other one
+asking for it. This enables a real-time behaviour in the front end and works well together with the reactivity of 
+Vue.js. </p>
+<p>However there is some data, that doesn't need to be transferred via WebSockets, like the authentication data.
+This data is handled using HTTP REST on both sides. The following diagram illustrates the usage of HTTP and WebSockets:</p>
+<p><img alt="assets/htmlws.png" src="../assets/htmlws.png" /></p>
+</div>
 <p>With the WebSocket integration, the endpoints for WebSocket requests are defined like so:</p>
 <table>
 <thead>
@@ -780,7 +792,41 @@ possible to expose via an API endpoint. The <em>serializer</em> defines which fi
 The view is handling the serialized JSON and able to add orderings to the data or filters. Besides the textual JSON output of every response, 
 the Django REST Framework is also serving a browsable API with web pages, where one can create, update and delete model instances inside the browser.
 To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the <code>patients/api/urls.py</code> file.</p>
+<h3 id="websocket-endpoints">WebSocket Endpoints</h3>
+<p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
+A WebSocket endpoint needs a REST API endpoint as a base. On top of that, two additional files have 
+to be modified:</p>
+<ul>
+<li><code>patients/consumers.py</code></li>
+<li><code>config/asgi.py</code></li>
+</ul>
+<p>The consumers define the business logic for the clients connected to the WebSocket.
+In <code>asgi.py</code>, a consumer is being attached to a stream and therefore a URL is being created to which
+the clients may connect from e.g. the front end.</p>
 <h3 id="consumer">Consumer</h3>
+<p>Consumers are an important part of the definition of WebSocket endpoints in this application. Consumers contain the business logic
+that is relevant for the clients, that are connected to the WebSocket. The behaviour for the connection setup or the disconnecion may
+be defined as well as - and especially - the behaviour for when the client is connected to the WebSocket.</p>
+<ul>
+<li>What kind of messages should be sent to the client?</li>
+<li>What format should the messages have?</li>
+<li>Should the messages be sent to all connected clients or just to specific ones?</li>
+<li>When should the message be sent?</li>
+</ul>
+<p>These are the most relevant questions, but there are many more.</p>
+<p>To summarize, how consumers work as of now (June 2021) in this application:</p>
+<p>Every relevant model, i.e. <code>Patient</code>, <code>Report</code> and <code>ReportHistory</code> has their own consumer. The querysets and serializers
+are set to the ones of the REST API endpoints. In addition, an observer model is implemented to make sure, that every change
+that is made to a model is reflected to <strong>all connected clients</strong>. This holds for all of the mentioned models.
+Because of the set serializers, the messages will display as defined in the REST API configuration. </p>
+<p>For the history model, there is an additionally custom type of message, called <code>notification</code>. Whenever the history model is changed, 
+two computations are made. One is being triggered directly and sending a message to all connected clients, if a certain condition is met.
+Another one is being scheduled as a background task for a specific time. At this specific time, a message of the type <code>notification</code> will then be sent
+to all the clients that are connected at that time.</p>
+<p>For the consumers to work, they have to be connected to streams (see <a href="#routing"><strong>Routing</strong></a>), which form URLs that a client can establish a 
+connection to. In our case, a URL for the patient model would look something like this: </p>
+<div class="highlight"><pre><span></span><code>wss://example.com/ws/patients/
+</code></pre></div>
 <h3 id="background-tasks">Background Tasks</h3>
 <hr />
 <h2 id="the-front-end-vuejs">The Front end (Vue.js)</h2>
@@ -788,7 +834,6 @@ To be able to request the endpoints via the given URLs, the created Views have t
 <h3 id="state-management">State-management</h3>
 <h3 id="components">Components</h3>
 <h2 id="the-database-postgresql">The Database (Postgresql)</h2>
-<h2 id="http-websockets">HTTP &amp; WebSockets</h2>
 <hr />
                 
               
