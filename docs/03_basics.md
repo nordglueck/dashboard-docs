@@ -62,6 +62,22 @@ endpoint ``/swagger``. Curl commands can be interactively executed on the page a
 
 The fields, that are to be included (or excluded) in the respective JSON responses are defined in the ``patients/api/serializers.py`` file.
 
+!!! attention
+
+    **The front end of this application works with data provided through WebSockets**. The aforementioned REST API
+    endpoints are delivered via HTTP and useful for the integration of other services. The communication between the 
+    back end and the front end is mostly based on WebSockets however. WebSockets allow for full-duplex communication, meaning
+    that both, the back end and the front end can send each other messages whenever they need to. Without the other one
+    asking for it. This enables a real-time behaviour in the front end and works well together with the reactivity of 
+    Vue.js. 
+
+    However there is some data, that doesn't need to be transferred via WebSockets, like the authentication data.
+    This data is handled using HTTP REST on both sides. The following diagram illustrates the usage of HTTP and WebSockets:
+
+    ![assets/htmlws.png](assets/htmlws.png)
+
+
+
 With the WebSocket integration, the endpoints for WebSocket requests are defined like so:
 
 
@@ -117,7 +133,50 @@ the Django REST Framework is also serving a browsable API with web pages, where 
 To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the ``patients/api/urls.py`` file.
 
 
+### WebSocket Endpoints
+
+The REST API endpoints are defined as described before (see [**View**](#view)).
+A WebSocket endpoint needs a REST API endpoint as a base. On top of that, two additional files have 
+to be modified:
+
+* ``patients/consumers.py``
+* ``config/asgi.py``
+
+The consumers define the business logic for the clients connected to the WebSocket.
+In ``asgi.py``, a consumer is being attached to a stream and therefore a URL is being created to which
+the clients may connect from e.g. the front end.
+
 ### Consumer
+
+Consumers are an important part of the definition of WebSocket endpoints in this application. Consumers contain the business logic
+that is relevant for the clients, that are connected to the WebSocket. The behaviour for the connection setup or the disconnecion may
+be defined as well as - and especially - the behaviour for when the client is connected to the WebSocket.
+
+* What kind of messages should be sent to the client?
+* What format should the messages have?
+* Should the messages be sent to all connected clients or just to specific ones?
+* When should the message be sent?
+
+These are the most relevant questions, but there are many more.
+
+To summarize, how consumers work as of now (June 2021) in this application:
+
+Every relevant model, i.e. ``Patient``, ``Report`` and ``ReportHistory`` has their own consumer. The querysets and serializers
+are set to the ones of the REST API endpoints. In addition, an observer model is implemented to make sure, that every change
+that is made to a model is reflected to **all connected clients**. This holds for all of the mentioned models.
+Because of the set serializers, the messages will display as defined in the REST API configuration. 
+
+For the history model, there is an additionally custom type of message, called ``notification``. Whenever the history model is changed, 
+two computations are made. One is being triggered directly and sending a message to all connected clients, if a certain condition is met.
+Another one is being scheduled as a background task for a specific time. At this specific time, a message of the type ``notification`` will then be sent
+to all the clients that are connected at that time.
+
+For the consumers to work, they have to be connected to streams (see [**Routing**](#routing)), which form URLs that a client can establish a 
+connection to. In our case, a URL for the patient model would look something like this: 
+
+```
+wss://example.com/ws/patients/
+```
 
 ### Background Tasks
 
@@ -134,7 +193,6 @@ To be able to request the endpoints via the given URLs, the created Views have t
 
 ## The Database (Postgresql)
 
-## HTTP & WebSockets
 
 ---
 
