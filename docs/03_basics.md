@@ -289,7 +289,7 @@ as long as the principles of Vue.js and vuex are kept.
 
 Inside vue components again, it is possible to trigger/dispatch such an action, that then again connects to a back-end API.
 
-More on vuex is to be found on the official documentation: ![https://vuex.vuejs.org/#what-is-a-state-management-pattern](https://vuex.vuejs.org/#what-is-a-state-management-pattern)
+More on vuex is to be found on the official documentation: [https://vuex.vuejs.org/#what-is-a-state-management-pattern](https://vuex.vuejs.org/#what-is-a-state-management-pattern)
 
 
 ## The Database (Postgresql)
