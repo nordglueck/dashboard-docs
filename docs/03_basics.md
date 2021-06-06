@@ -194,6 +194,8 @@ times, may repeat, can be scheduled to be executed n seconds/minutes/hours(..) a
 In this application, a background task is e.g. scheduled to remind any connected client about an observation of a patient that is due, when it's
 time has come based on the time of the last observation and the monitoring interval.
 
+The background tasks of this application can be found in the ``patients/api/vies.py`` file and are decorated with the ``@background`` decorator.
+
 For more information on background tasks and possibilities, visit the official documentation:
 [https://django-background-tasks.readthedocs.io/en/latest/](https://django-background-tasks.readthedocs.io/en/latest/)
 
@@ -291,8 +293,6 @@ Inside vue components again, it is possible to trigger/dispatch such an action, 
 
 More on vuex is to be found on the official documentation: [https://vuex.vuejs.org/#what-is-a-state-management-pattern](https://vuex.vuejs.org/#what-is-a-state-management-pattern)
 
-
-## The Database (Postgresql)
 
 
 ---
