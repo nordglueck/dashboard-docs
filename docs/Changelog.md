@@ -3,7 +3,7 @@
 ## Dengue Dashboard Docs
 
 ### v1.0.2 - June 6, 2021
-- Add content to **Basics** page: WebSockets, HTTP, Consumer, Components, Routing
+- Add content to **Basics** page: WebSockets, HTTP, Consumer, Components, Routing, State-management
 
 ### v1.0.2 - June 1, 2021
 

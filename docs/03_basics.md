@@ -274,7 +274,22 @@ More on the vue-router is to be found at the official documentation: [https://ro
 
 ### State-management
 
+This application uses the state management pattern/library vuex, which is the official supported state management for Vue.js.
+Vuex provides a centralized store for all the data of the application and therefore for all the different components, so that
+the data can be managed centralized. There are rules, ensuring, that the state can only be modified predictably.
 
+The following diagram by Vuex/Vue.js gives an overview of the workflow with vuex: 
+
+![https://vuex.vuejs.org/vuex.png](https://vuex.vuejs.org/vuex.png)
+
+The communication between the front end and therefore the store and the Back-end API only happens through so called _actions_, 
+which are defined in the state-management. Changes will be then commited to _mutations_ which will then mutate the _state_.
+The _state_ is what is rendered inside the components. Whenever a state of some data is changing, the component will be re-rendering,
+as long as the principles of Vue.js and vuex are kept.
+
+Inside vue components again, it is possible to trigger/dispatch such an action, that then again connects to a back-end API.
+
+More on vuex is to be found on the official documentation: ![https://vuex.vuejs.org/#what-is-a-state-management-pattern](https://vuex.vuejs.org/#what-is-a-state-management-pattern)
 
 
 ## The Database (Postgresql)
