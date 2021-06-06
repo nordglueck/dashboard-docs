@@ -353,6 +353,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#routing_1" class="md-nav__link">
     Routing
   </a>
@@ -362,13 +369,6 @@
           <li class="md-nav__item">
   <a href="#state-management" class="md-nav__link">
     State-management
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
   </a>
   
 </li>
@@ -591,6 +591,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#routing_1" class="md-nav__link">
     Routing
   </a>
@@ -600,13 +607,6 @@
           <li class="md-nav__item">
   <a href="#state-management" class="md-nav__link">
     State-management
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
   </a>
   
 </li>
@@ -650,7 +650,6 @@ for a different page (tbd).</p>
 <li><a href="#the-back-end-django">The Back end (Django)</a></li>
 <li><a href="#the-front-end-vuejs">The Front end (Vue.js)</a></li>
 <li><a href="#the-database-postgresql">The Database (Postgresql)</a></li>
-<li><a href="#http--websockets">HTTP &amp; WebSockets</a>  </li>
 </ul>
 <hr />
 <h2 id="the-back-end-django">The Back end (Django)</h2>
@@ -761,6 +760,7 @@ This data is handled using HTTP REST on both sides. The following diagram illust
 </table>
 <p>The endpoints are defined in the <code>asgi.py</code> file of the Project. For more information see <a href="#routing"><strong>Routing</strong></a>.</p>
 <h4 id="template">Template</h4>
+<hr />
 <h3 id="routing">Routing</h3>
 <p>The following code snippet from the <code>asgi.py</code> file shows
 the <code>ProtocolTypeRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
@@ -778,6 +778,7 @@ the <code>ProtocolTypeRouter</code> that routes the HTTP and WebSocket requests 
 <span class="p">})</span>
 </code></pre></div>
 <p>The streams are defined inside the Demultiplexer and connected to their respective consumer (see <a href="#consumer"><strong>Consumer</strong></a>).</p>
+<hr />
 <h3 id="rest-api">REST API</h3>
 <p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
 An endpoint definition consists of several files: </p>
@@ -792,6 +793,7 @@ possible to expose via an API endpoint. The <em>serializer</em> defines which fi
 The view is handling the serialized JSON and able to add orderings to the data or filters. Besides the textual JSON output of every response, 
 the Django REST Framework is also serving a browsable API with web pages, where one can create, update and delete model instances inside the browser.
 To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the <code>patients/api/urls.py</code> file.</p>
+<hr />
 <h3 id="websocket-endpoints">WebSocket Endpoints</h3>
 <p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
 A WebSocket endpoint needs a REST API endpoint as a base. On top of that, two additional files have 
@@ -803,6 +805,7 @@ to be modified:</p>
 <p>The consumers define the business logic for the clients connected to the WebSocket.
 In <code>asgi.py</code>, a consumer is being attached to a stream and therefore a URL is being created to which
 the clients may connect from e.g. the front end.</p>
+<hr />
 <h3 id="consumer">Consumer</h3>
 <p>Consumers are an important part of the definition of WebSocket endpoints in this application. Consumers contain the business logic
 that is relevant for the clients, that are connected to the WebSocket. The behaviour for the connection setup or the disconnecion may
@@ -827,12 +830,68 @@ to all the clients that are connected at that time.</p>
 connection to. In our case, a URL for the patient model would look something like this: </p>
 <div class="highlight"><pre><span></span><code>wss://example.com/ws/patients/
 </code></pre></div>
+<hr />
 <h3 id="background-tasks">Background Tasks</h3>
+<p>Background Tasks are used in this application to send notifications via WebSockets at a specific time that is computed based on
+the input data. However, they can generally be used, to build up any kind of work queue. Tasks can be scheduled for specific
+times, may repeat, can be scheduled to be executed n seconds/minutes/hours(..) after a certain event and much more.</p>
+<p>In this application, a background task is e.g. scheduled to remind any connected client about an observation of a patient that is due, when it's
+time has come based on the time of the last observation and the monitoring interval.</p>
+<p>For more information on background tasks and possibilities, visit the official documentation:
+<a href="https://django-background-tasks.readthedocs.io/en/latest/">https://django-background-tasks.readthedocs.io/en/latest/</a></p>
 <hr />
 <h2 id="the-front-end-vuejs">The Front end (Vue.js)</h2>
-<h3 id="routing_1">Routing</h3>
-<h3 id="state-management">State-management</h3>
 <h3 id="components">Components</h3>
+<p>Components are reusable instances in Vue.js. Once created, they can be imported and used in the template
+of other components.</p>
+<p>A simple example of a component would look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>This is an example component!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;foo-bar&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">(){</span>
+    <span class="k">return</span><span class="p">{}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Components must not, but may consist of all these three sections: </p>
+<ul>
+<li>Template section: HTML Markup with Vue.js components</li>
+<li>Script section: "Vue.js logic" -&gt; All the data, methods and lifecycle logic live here</li>
+<li>Style section: Not mandatory, but possible for e.g. scoped styling for the specific component</li>
+</ul>
+<p>With this component created, it can now be used like so in any other template:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;components-demo&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">foo-bar</span><span class="p">&gt;&lt;/</span><span class="nt">foo-bar</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Something here..<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>More on components is to be found in the official Vue.js documentation: <a href="https://vuejs.org/v2/guide/components.html">https://vuejs.org/v2/guide/components.html</a></p>
+<hr />
+<h3 id="routing_1">Routing</h3>
+<p>To be able to see different views in the browser, it is important, to map created components to routes.
+For example a component <code>Foo.vue</code> would be mapped to the route <code>/foo</code> and <code>Bar.vue</code> might be mapped 
+to <code>/bar</code>. This would look something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Foo</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/bar&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Bar</span> <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>This will make sure, that the <code>Foo</code> component will be rendered, when we are navigating to <code>www.example.com/foo</code>.</p>
+<p>The router of this application is to be found in <code>vue_frontend/src/dashboard/entry/router.js</code>. In addition to the simple
+mapping of routes and components, it is possible and also sometimes necessary to provide some business logic inside the router.
+For instance it is possible to make sure, that an unauthorized user is being redirected to the <code>/login</code> route.</p>
+<p>More on the vue-router is to be found at the official documentation: <a href="https://router.vuejs.org/guide/">https://router.vuejs.org/guide/</a></p>
+<hr />
+<h3 id="state-management">State-management</h3>
 <h2 id="the-database-postgresql">The Database (Postgresql)</h2>
 <hr />
                 
