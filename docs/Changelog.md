@@ -2,6 +2,10 @@
 
 ## Dengue Dashboard Docs
 
+### v1.0.3 - June 7, 2021
+- Restructuring the navigation
+- Add Tutorials/REST API Tutorial
+
 ### v1.0.2 - June 6, 2021
 - Add content to **Basics** page: WebSockets, HTTP, Consumer, Components, Routing, State-management
 

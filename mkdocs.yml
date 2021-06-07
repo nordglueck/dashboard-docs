@@ -1,4 +1,22 @@
 site_name: Dengue Dashboard Docs
+nav:
+  - Home: 'index.md'
+  - 'Getting Started':
+    - 'Installation': '02_Installation.md'
+    - 'Basics' : '03_basics.md'
+  - 'The System':
+    - 'Back End': '04_backend.md'
+    - 'Front End': '05_frontend.md'
+  - 'Tutorials':
+    - 'Back End':
+        - 'New REST API Endpoint': '00_tut_api.md'
+        - 'New WebSocket Endpoint': '00_tut_ws.md'
+    - 'Front End':
+        - 'New Page': '00_tut_page.md'
+        - 'Work with new data from the back end': '00_tut_actions.md'
+  - 'FAQ' : '06_faq.md'
+  - 'Resources' : '07_Resources.md'
+  - 'Changelog' : 'Changelog.md'
 
 theme:
   name: material

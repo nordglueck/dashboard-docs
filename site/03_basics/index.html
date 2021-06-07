@@ -378,13 +378,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-database-postgresql" class="md-nav__link">
-    The Database (Postgresql)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -616,13 +609,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#the-database-postgresql" class="md-nav__link">
-    The Database (Postgresql)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -837,6 +823,7 @@ the input data. However, they can generally be used, to build up any kind of wor
 times, may repeat, can be scheduled to be executed n seconds/minutes/hours(..) after a certain event and much more.</p>
 <p>In this application, a background task is e.g. scheduled to remind any connected client about an observation of a patient that is due, when it's
 time has come based on the time of the last observation and the monitoring interval.</p>
+<p>The background tasks of this application can be found in the <code>patients/api/vies.py</code> file and are decorated with the <code>@background</code> decorator.</p>
 <p>For more information on background tasks and possibilities, visit the official documentation:
 <a href="https://django-background-tasks.readthedocs.io/en/latest/">https://django-background-tasks.readthedocs.io/en/latest/</a></p>
 <hr />
@@ -903,7 +890,6 @@ The <em>state</em> is what is rendered inside the components. Whenever a state o
 as long as the principles of Vue.js and vuex are kept.</p>
 <p>Inside vue components again, it is possible to trigger/dispatch such an action, that then again connects to a back-end API.</p>
 <p>More on vuex is to be found on the official documentation: <a href="https://vuex.vuejs.org/#what-is-a-state-management-pattern">https://vuex.vuejs.org/#what-is-a-state-management-pattern</a></p>
-<h2 id="the-database-postgresql">The Database (Postgresql)</h2>
 <hr />
                 
               
