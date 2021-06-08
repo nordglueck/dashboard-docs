@@ -61,12 +61,12 @@ from djangochannelsrestframework.mixins import (
     DeleteModelMixin,
     CreateModelMixin,
 )
-from djangochannelsrestframework.observer.generics import ObserverModelInstanceMixin
+
 from dashboard.patients.api.serializers import PatientSerializer
 from dashboard.patients.models import Patient
 
 
-class PatientConsumer(ObserverModelInstanceMixin, ListModelMixin, RetrieveModelMixin, PatchModelMixin, UpdateModelMixin,
+class PatientConsumer(ListModelMixin, RetrieveModelMixin, PatchModelMixin, UpdateModelMixin,
                       CreateModelMixin,
                       DeleteModelMixin, GenericAsyncAPIConsumer):
     queryset = Patient.objects.all()
