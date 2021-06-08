@@ -383,9 +383,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          New WebSocket Endpoint
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         New WebSocket Endpoint
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serializer" class="md-nav__link">
+    Serializer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urls" class="md-nav__link">
+    URLs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -518,6 +569,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serializer" class="md-nav__link">
+    Serializer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urls" class="md-nav__link">
+    URLs
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -530,10 +617,102 @@
                 
                 
                 <h1 id="new-websocket-endpoint">New WebSocket Endpoint</h1>
+<p>In this tutorial we create a new websocket endpoint.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>More content coming soon.</p>
 </div>
+<h2 id="model">Model</h2>
+<p>First we have to create a model. In this example a simple patient model.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Patient</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Patient instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+    <span class="n">admission_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">dismissal_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="serializer">Serializer</h2>
+<p>The second step is to serialize the model. To do so, we import the serializer from the <a href="https://www.django-rest-framework.org/">Django Rest Framework</a>
+and create a new Serializer Class, that inherits from the ModelSerializer. The base model for this serializer is the just created patient model.
+In the <code>fields</code> argument we may list all the fields we want to serialize. It is also possible to define <code>__all__</code> or exclude certain fields.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">dashboard.patients.models</span> <span class="kn">import</span> <span class="n">Patient</span>
+
+<span class="k">class</span> <span class="nc">PatientSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Patient</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;admission_date&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;dismissal_date&quot;</span><span class="p">,</span> <span class="s2">&quot;updated_at&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="consumer">Consumer</h2>
+<p>To be able to make the serialized data available to connected clients, a consumer needs to be set up. Clients that are connected
+to the WebSocket are called <em>consumers</em>.
+A fairly minimalistic setup looks something like this. Notice that a couple of <code>Mixins</code> are imported from the <a href="https://github.com/hishnash/djangochannelsrestframework">Django Channels Rest Framework</a>, which provide the basic functionality.
+The serializer is the one we just created and the queryset is the one from the model above. To allow only authenticated users to connect, 
+the <code>permission_classes</code> are set to <code>ìsAuthenticated</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">djangochannelsrestframework</span> <span class="kn">import</span> <span class="n">permissions</span>
+<span class="kn">from</span> <span class="nn">djangochannelsrestframework.generics</span> <span class="kn">import</span> <span class="n">GenericAsyncAPIConsumer</span>
+<span class="kn">from</span> <span class="nn">djangochannelsrestframework.mixins</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ListModelMixin</span><span class="p">,</span>
+    <span class="n">RetrieveModelMixin</span><span class="p">,</span>
+    <span class="n">UpdateModelMixin</span><span class="p">,</span>
+    <span class="n">PatchModelMixin</span><span class="p">,</span>
+    <span class="n">DeleteModelMixin</span><span class="p">,</span>
+    <span class="n">CreateModelMixin</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">djangochannelsrestframework.observer.generics</span> <span class="kn">import</span> <span class="n">ObserverModelInstanceMixin</span>
+<span class="kn">from</span> <span class="nn">dashboard.patients.api.serializers</span> <span class="kn">import</span> <span class="n">PatientSerializer</span>
+<span class="kn">from</span> <span class="nn">dashboard.patients.models</span> <span class="kn">import</span> <span class="n">Patient</span>
+
+
+<span class="k">class</span> <span class="nc">PatientConsumer</span><span class="p">(</span><span class="n">ObserverModelInstanceMixin</span><span class="p">,</span> <span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">PatchModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
+                      <span class="n">CreateModelMixin</span><span class="p">,</span>
+                      <span class="n">DeleteModelMixin</span><span class="p">,</span> <span class="n">GenericAsyncAPIConsumer</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">PatientSerializer</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">,)</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The Mixins that the consumer inherits from, are the actions that the WebSocket will provide. In the listing above you 
+can e.g. see a <code>ListModelMixin</code> which will provide the list action for the consumer.</p>
+</div>
+<h2 id="urls">URLs</h2>
+<p>Finally, we have to define a route for the WebSocket, just like with the REST API. The routes for the WebSockets are called <em>streams</em> and are defined in <code>asgi.py</code>. 
+In this file you will find the <code>ProtocolTypeRouter</code>, that routes HTTP and WebSocket requests accordingly. Here, the starting point for the WebSocket is defined as <code>/ws</code>, 
+whereas we defined the starting point for REST API endpoints as <code>/api</code> (not here). The stream we define here will be the string that follows the <code>/ws/</code>. 
+So in this case, our new route, that is connected to the PatientConsumer that we created in the previous step will be called <em>patients</em>. Notice, that within this definition,
+the <em>patients</em> is not declared with quotation marks. However, the resulting route/URL is <code>www.example.com/ws/patients/</code>.
+But with an important change to the REST API endpoints, because instead of:</p>
+<p><strong>http://</strong><code>www.example.com/api/patients/</code> or <strong>https://</strong><code>www.example.com/api/patients/</code></p>
+<p>we now have a change in protocols and must use:</p>
+<p><strong>ws://</strong><code>ww.example.com/ws/patients/</code> or <strong>wss://</strong><code>ww.example.com/ws/patients/</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">channels.routing</span> <span class="kn">import</span> <span class="n">ProtocolTypeRouter</span><span class="p">,</span> <span class="n">URLRouter</span>
+<span class="kn">from</span> <span class="nn">django.core.asgi</span> <span class="kn">import</span> <span class="n">get_asgi_application</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">re_path</span>
+
+<span class="kn">from</span> <span class="nn">dashboard.patients.consumers</span> <span class="kn">import</span> <span class="n">PatientConsumer</span>
+<span class="kn">from</span> <span class="nn">channelsmultiplexer</span> <span class="kn">import</span> <span class="n">AsyncJsonWebsocketDemultiplexer</span>
+<span class="kn">from</span> <span class="nn">config.middleware</span> <span class="kn">import</span> <span class="n">TokenAuthMiddlewareStack</span>
+
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">ProtocolTypeRouter</span><span class="p">({</span>
+    <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="n">get_asgi_application</span><span class="p">(),</span>
+    <span class="s2">&quot;websocket&quot;</span><span class="p">:</span> <span class="n">TokenAuthMiddlewareStack</span><span class="p">(</span>
+        <span class="n">URLRouter</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^ws/$&quot;</span><span class="p">,</span> <span class="n">AsyncJsonWebsocketDemultiplexer</span><span class="p">(</span>
+                <span class="n">patients</span><span class="o">=</span><span class="n">PatientConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">()),</span> <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+<span class="p">})</span>
+</code></pre></div>
                 
               
               

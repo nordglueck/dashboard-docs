@@ -2,10 +2,6 @@
 
 In this tutorial we create a new websocket endpoint.
 
-!!! attention
-
-    More content coming soon.
-
 ## Model
 
 First we have to create a model. In this example a simple patient model.
