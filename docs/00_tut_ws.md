@@ -21,6 +21,8 @@ class Patient(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
 ```
+**file:** ``dashboard/patients/models.py``
+
 
 ## Serializer
 The second step is to serialize the model. To do so, we import the serializer from the [Django Rest Framework](https://www.django-rest-framework.org/)
@@ -41,7 +43,7 @@ class PatientSerializer(serializers.ModelSerializer):
 
 ```
 
-**file:** ``dashboard/patients/models.py``
+**file:** ``dashboard/patients/api/serializers.py``
 
 ## Consumer
 To be able to make the serialized data available to connected clients, a consumer needs to be set up. Clients that are connected
