@@ -1,5 +1,7 @@
 # New REST API Endpoint
 
+In this tutorial we create a new REST API endpoint.
+
 ## Model
 
 First we have to create a model. In this example a simple patient model.
