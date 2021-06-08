@@ -22,6 +22,8 @@ class Patient(models.Model):
     
 ```
 
+**file:** ``dashboard/patients/models.py``
+
 ## Serializer
 The second step is to serialize the model. To do so, we import the serializer from the [Django Rest Framework](https://www.django-rest-framework.org/)
 and create a new Serializer Class, that inherits from the ModelSerializer. The base model for this serializer is the just created patient model.
@@ -40,6 +42,8 @@ class PatientSerializer(serializers.ModelSerializer):
                   "dismissal_date", "updated_at", "created_at"]
 
 ```
+
+**file:** ``dashboard/patients/api/serializers.py``
 
 ## View
 To be able to see the serialized data, search through it and refer to the endpoint via a link, a view needs to be set up.
@@ -69,6 +73,8 @@ class PatientViewSet(ModelViewSet):
 
 
 ````
+
+**file:** ``dashboard/patients/api/views.py``
 
 !!! info
 
@@ -110,6 +116,8 @@ urlpatterns = [
 ]
 
 ```
+
+**file:** ``dashboard/patients/api/urls.py``
 
 ## Results
 

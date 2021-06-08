@@ -41,6 +41,8 @@ class PatientSerializer(serializers.ModelSerializer):
 
 ```
 
+**file:** ``dashboard/patients/models.py``
+
 ## Consumer
 To be able to make the serialized data available to connected clients, a consumer needs to be set up. Clients that are connected
 to the WebSocket are called _consumers_.
@@ -74,6 +76,8 @@ class PatientConsumer(ListModelMixin, RetrieveModelMixin, PatchModelMixin, Updat
     permission_classes = (permissions.IsAuthenticated,)
 
 ````
+
+**file:** ``dashboard/patients/consumers.py``
 
 !!! info
 
@@ -119,3 +123,5 @@ application = ProtocolTypeRouter({
 })
 
 ```
+
+**file:** ``config/asgi.py``

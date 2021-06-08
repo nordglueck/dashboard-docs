@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../assets/termynal.css">
+    
     
       
     
@@ -818,16 +820,18 @@ container for the local environment here, the requirements <code>base.txt</code>
 </code></pre></div>
 <p>Together with <strong>django</strong> some other processes, including <strong>redis</strong> (cache) and <strong>postgres</strong> (database) will be started.</p>
 <p>After starting the docker container, the console output would look something like the following:</p>
-<div class="highlight"><pre><span></span><code><span class="go">redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections</span>
-<span class="go">postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC</span>
-<span class="go">postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections</span>
-<span class="go">django      | PostgreSQL is available</span>
-<span class="go">django      | Operations to perform:</span>
-<span class="go">django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users</span>
-<span class="go">django      | Running migrations:</span>
-<span class="go">django      |   No migrations to apply.</span>
-<span class="go">django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)</span>
-</code></pre></div>
+<div id="termynal" data-termynal data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+    <span data-ty="input">redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections</span>
+    <span data-ty="input">postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC</span>
+    <span data-ty="input">postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections</span>
+    <span data-ty="input">django      | PostgreSQL is available</span>
+    <span data-ty="input">django      | Operations to perform:</span>
+    <span data-ty="input">django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users</span>
+    <span data-ty="input">django      | Running migrations:</span>
+    <span data-ty="input">django      |   No migrations to apply.</span>
+    <span data-ty="input">django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)</span>
+</div>
+
 <p>The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
 the <a href="/05_frontend"><strong>Front End</strong></a> page. </p>
 <p>After the docker container is up and running, additional commands (like <code>makemigrations</code> e.g.), inside the container can be execuded using the <code>exec</code>
@@ -925,6 +929,10 @@ The most important thing for us here now is <code>env_file</code> section enlist
     
     
       <script src="../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="../assets/termynal.js"></script>
+      
+        <script src="../assets/custom.js"></script>
       
     
   </body>
