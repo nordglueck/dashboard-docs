@@ -648,6 +648,7 @@ In the <code>fields</code> argument we may list all the fields we want to serial
         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;admission_date&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;dismissal_date&quot;</span><span class="p">,</span> <span class="s2">&quot;updated_at&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>dashboard/patients/models.py</code></p>
 <h2 id="consumer">Consumer</h2>
 <p>To be able to make the serialized data available to connected clients, a consumer needs to be set up. Clients that are connected
 to the WebSocket are called <em>consumers</em>.
@@ -676,6 +677,7 @@ the <code>permission_classes</code> are set to <code>ìsAuthenticated</code>.</p
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">PatientSerializer</span>
     <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">,)</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>dashboard/patients/consumers.py</code></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The Mixins that the consumer inherits from, are the actions that the WebSocket will provide. In the listing above you 
@@ -711,6 +713,7 @@ But with an important change to the REST API endpoints, because instead of:</p>
     <span class="p">),</span>
 <span class="p">})</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>config/asgi.py</code></p>
                 
               
               

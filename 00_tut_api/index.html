@@ -689,6 +689,7 @@
     <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>dashboard/patients/models.py</code></p>
 <h2 id="serializer">Serializer</h2>
 <p>The second step is to serialize the model. To do so, we import the serializer from the <a href="https://www.django-rest-framework.org/">Django Rest Framework</a>
 and create a new Serializer Class, that inherits from the ModelSerializer. The base model for this serializer is the just created patient model.
@@ -702,6 +703,7 @@ In the <code>fields</code> argument we may list all the fields we want to serial
         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;admission_date&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;dismissal_date&quot;</span><span class="p">,</span> <span class="s2">&quot;updated_at&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>dashboard/patients/api/serializers.py</code></p>
 <h2 id="view">View</h2>
 <p>To be able to see the serialized data, search through it and refer to the endpoint via a link, a view needs to be set up.
 A fairly minimalistic setup looks something like this. The <code>ModelViewSet</code> is imported from the Django Rest Framework and the Base
@@ -725,6 +727,7 @@ right beneath the <code>serializer_class</code> and leaving out the method <code
         <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-admission_date&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">queryset</span>
 </code></pre></div></p>
+<p><strong>file:</strong> <code>dashboard/patients/api/views.py</code></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>If you take a look at the Definition of <code>ModelViewSet</code>:</p>
@@ -758,6 +761,7 @@ So in this case, our new route, that is connected to the PatientViewSet that we 
     <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">router</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
 <span class="p">]</span>
 </code></pre></div>
+<p><strong>file:</strong> <code>dashboard/patients/api/urls.py</code></p>
 <h2 id="results">Results</h2>
 <h3 id="browsable-api">Browsable API</h3>
 <p><code>/api/patients/</code></p>
