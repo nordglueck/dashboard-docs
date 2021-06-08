@@ -622,7 +622,7 @@
 <p>In this tutorial we create a new websocket endpoint.</p>
 <h2 id="model">Model</h2>
 <p>First we have to create a model. In this example a simple patient model.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
 <span class="k">class</span> <span class="nc">Patient</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -635,6 +635,7 @@
     <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+<strong>file:</strong> <code>dashboard/patients/models.py</code></p>
 <h2 id="serializer">Serializer</h2>
 <p>The second step is to serialize the model. To do so, we import the serializer from the <a href="https://www.django-rest-framework.org/">Django Rest Framework</a>
 and create a new Serializer Class, that inherits from the ModelSerializer. The base model for this serializer is the just created patient model.
@@ -648,7 +649,7 @@ In the <code>fields</code> argument we may list all the fields we want to serial
         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;admission_date&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;dismissal_date&quot;</span><span class="p">,</span> <span class="s2">&quot;updated_at&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span><span class="p">]</span>
 </code></pre></div>
-<p><strong>file:</strong> <code>dashboard/patients/models.py</code></p>
+<p><strong>file:</strong> <code>dashboard/patients/api/serializers.py</code></p>
 <h2 id="consumer">Consumer</h2>
 <p>To be able to make the serialized data available to connected clients, a consumer needs to be set up. Clients that are connected
 to the WebSocket are called <em>consumers</em>.
