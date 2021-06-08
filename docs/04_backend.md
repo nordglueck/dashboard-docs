@@ -203,19 +203,18 @@ Together with **django** some other processes, including **redis** (cache) and *
 
 After starting the docker container, the console output would look something like the following:
 
-```console
 
-redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections
-postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC
-postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections
-django      | PostgreSQL is available
-django      | Operations to perform:
-django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users
-django      | Running migrations:
-django      |   No migrations to apply.
-django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-
-```
+<div id="termynal" data-termynal data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+    <span data-ty="input">redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections</span>
+    <span data-ty="input">postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC</span>
+    <span data-ty="input">postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections</span>
+    <span data-ty="input">django      | PostgreSQL is available</span>
+    <span data-ty="input">django      | Operations to perform:</span>
+    <span data-ty="input">django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users</span>
+    <span data-ty="input">django      | Running migrations:</span>
+    <span data-ty="input">django      |   No migrations to apply.</span>
+    <span data-ty="input">django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)</span>
+</div>
 
 The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
 the [**Front End**](/05_frontend) page. 

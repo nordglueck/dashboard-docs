@@ -43,3 +43,8 @@ markdown_extensions:
     - admonition
     - pymdownx.superfences
     - pymdownx.details
+extra_css:
+  - assets/termynal.css
+extra_javascript:
+  - assets/termynal.js
+  - assets/custom.js
