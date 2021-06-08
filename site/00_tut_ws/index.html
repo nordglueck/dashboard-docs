@@ -662,12 +662,12 @@ the <code>permission_classes</code> are set to <code>ìsAuthenticated</code>.</p
     <span class="n">DeleteModelMixin</span><span class="p">,</span>
     <span class="n">CreateModelMixin</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">djangochannelsrestframework.observer.generics</span> <span class="kn">import</span> <span class="n">ObserverModelInstanceMixin</span>
+
 <span class="kn">from</span> <span class="nn">dashboard.patients.api.serializers</span> <span class="kn">import</span> <span class="n">PatientSerializer</span>
 <span class="kn">from</span> <span class="nn">dashboard.patients.models</span> <span class="kn">import</span> <span class="n">Patient</span>
 
 
-<span class="k">class</span> <span class="nc">PatientConsumer</span><span class="p">(</span><span class="n">ObserverModelInstanceMixin</span><span class="p">,</span> <span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">PatchModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
+<span class="k">class</span> <span class="nc">PatientConsumer</span><span class="p">(</span><span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">PatchModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
                       <span class="n">CreateModelMixin</span><span class="p">,</span>
                       <span class="n">DeleteModelMixin</span><span class="p">,</span> <span class="n">GenericAsyncAPIConsumer</span><span class="p">):</span>
     <span class="n">queryset</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>

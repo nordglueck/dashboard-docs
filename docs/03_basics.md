@@ -17,7 +17,6 @@ The following sections are going to offer a first insight into the respective ar
 
 - [The Back end (Django)](#the-back-end-django)
 - [The Front end (Vue.js)](#the-front-end-vuejs)
-- [The Database (Postgresql)](#the-database-postgresql)
 
 ---
 
