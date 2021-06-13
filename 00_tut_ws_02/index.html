@@ -14,7 +14,7 @@
     
     
       
-        <title>Front End - Dengue Dashboard Docs</title>
+        <title>Send messages via WebSocket to clients - Dengue Dashboard Docs</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#front-end" class="md-skip">
+        <a href="#send-messages-via-websocket-to-clients" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Front End
+              Send messages via WebSocket to clients
             
           </span>
         </div>
@@ -262,14 +262,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         The System
@@ -297,64 +295,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Front End
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05_frontend/" class="md-nav__link">
         Front End
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -371,12 +316,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Tutorials
@@ -392,12 +339,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
       
       <label class="md-nav__link" for="__nav_4_1">
         Back End
@@ -437,11 +386,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../00_tut_ws_02/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Send messages via WebSocket to clients
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Send messages via WebSocket to clients
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -580,22 +569,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -612,69 +588,63 @@
               
                 
                 
-                <h1 id="front-end">Front end</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
-</div>
-<p>This page shall provide more in-depth information on the structure of the front end and it's most important files.</p>
-<h2 id="structure">Structure</h2>
-<p>The main directory of the front end is the <strong>vue_frontend</strong> folder. It's structure presents as follows on the first level:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .env
-├── .browserslistrc
-├── .eslintrc.js
-├── .gitignore
-├── README.md
-├── babel.config.js
-├── node_modules
-├── package-lock.json
-├── package.json
-├── src
-├── vue.config.js
-└── webpack-stats.json
+                <h1 id="send-messages-via-websocket-to-clients">Send messages via WebSocket to clients</h1>
+<p>In this tutorial we are going to notify each of the clients connected to the WebSocket
+about changes to the endpoint that was created in the last tutorial.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Everything covered in the <a href="../00_tut_ws/">last Tutorial</a>.</p>
+<h1 id="observer">Observer</h1>
+<p>To be able to track changes in any instance of the <code>Patient</code> model, it is necessary, to implement an
+<em>observer</em> in the <code>PatientConsumer</code> that was created in the previous tutorial. The first change is to add the
+<code>ObserverModelInstanceMixin</code> from the <a href="https://github.com/hishnash/djangochannelsrestframework">Django Channels Rest Framework</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PatientConsumer</span><span class="p">(</span><span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">PatchModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
+                      <span class="n">CreateModelMixin</span><span class="p">,</span>
+                      <span class="n">DeleteModelMixin</span><span class="p">,</span> <span class="n">GenericAsyncAPIConsumer</span><span class="p">,</span> <span class="n">ObserverModelInstanceMixin</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">PatientSerializer</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">,)</span>
+</code></pre></div>
+<p>In a second step we are going to add our own custom Observer for this special model class that will be called <code>`PatientConsumerObserver</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PatientConsumer</span><span class="p">(</span><span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">PatchModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span>
+                      <span class="n">CreateModelMixin</span><span class="p">,</span>
+                      <span class="n">DeleteModelMixin</span><span class="p">,</span> <span class="n">GenericAsyncAPIConsumer</span><span class="p">,</span> <span class="n">ObserverModelInstanceMixin</span><span class="p">,</span><span class="n">PatientConsumerObserver</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Patient</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">PatientSerializer</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">,)</span>
+</code></pre></div>
+<h3 id="patientconsumerobserver">PatientConsumerObserver</h3>
+<p>A minimal setup for the <code>PatientConsumerObserver</code> may look something like this: </p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PatientConsumerObserver</span><span class="p">(</span><span class="n">AsyncAPIConsumer</span><span class="p">):</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">patient_change</span><span class="o">.</span><span class="n">subscribe</span><span class="p">()</span>
+
+    <span class="nd">@model_observer</span><span class="p">(</span><span class="n">Patient</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">patient_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Observes changes of the patient model instances.</span>
+<span class="sd">        :param message: The request/message from the consumer</span>
+<span class="sd">        :param kwargs: Optional keyword arguments</span>
+<span class="sd">        :return: Information about the change event via websocket messages in json format to the consumer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_json</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="nd">@patient_change</span><span class="o">.</span><span class="n">serializer</span>
+    <span class="k">def</span> <span class="nf">patient_serializer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Serializes the patient instance to be sent in json format to the consumer.</span>
+<span class="sd">        :param instance: The patient instance</span>
+<span class="sd">        :param action: Create, update, patch, list, delete</span>
+<span class="sd">        :param kwargs: Optional keyword arguments</span>
+<span class="sd">        :return: The serialized history instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PatientSerializer</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Important files in the root directory</p>
-<ul>
-<li><strong>.env</strong> : Environment variables for the front end</li>
-<li><strong>README.md</strong> : Quickstart with commands for development</li>
-<li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
-<li><strong>package.json</strong> : Metadata and dependencies</li>
-<li><strong>src</strong> : Source code of the project</li>
-<li><strong>vue.config.js</strong> : Webpack configuration</li>
-</ul>
-</div>
-<h3 id="source-code">Source Code</h3>
-<p>As mentioned in the previous section, the source code of the front end is to be found in the <strong>src</strong> directory. 
-It is a Vue App consisting of multiple <strong>.vue</strong> files that are divided into components or more complex layouts. 
-For the state-management of the app, a <em>store</em> is set up. Everything related to the state-management is to be found inside
-the <strong>store</strong> directory.</p>
-<div class="highlight"><pre><span></span><code>.
-├── App.vue
-├── dashboard
-│   ├── assets
-│   ├── components
-│   ├── directives
-│   ├── entry
-│   │   ├── main.js
-│   │   ├── registerServiceWorker.js
-│   │   └── router.js
-│   ├── layout
-│   ├── plugins
-│   └── views
-└── store
-    ├── modules
-    └── vuex_usage_utils.js
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Getting started with the front end</p>
-<ul>
-<li><strong>main.js</strong> : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.</li>
-<li><strong>router.js</strong> : Defines the routes for the app and connects components/layouts and names to them.</li>
-<li><strong>App.vue</strong> : The main structure of the app that is rendered at first.</li>
-<li><strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</li>
-</ul>
+<p class="admonition-title">Info</p>
+<p>All of the methods allow for the implementation of custom logic. However the <code>accept</code> method should
+somehow lead to the WebSocket accepting the request from a client to connect to the WebSocket stream.</p>
+<p>Sidenote: A customized disconnect method is also possible.</p>
 </div>
                 
               
@@ -694,7 +664,7 @@ the <strong>store</strong> directory.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../04_backend/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../00_tut_ws/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -703,19 +673,19 @@ the <strong>store</strong> directory.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Back End
+              New WebSocket Endpoint
             </div>
           </div>
         </a>
       
       
-        <a href="../00_tut_api/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../00_tut_page/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              New REST API Endpoint
+              New Page
             </div>
           </div>
           <div class="md-footer__button md-icon">
