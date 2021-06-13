@@ -2,6 +2,9 @@
 
 ## Dengue Dashboard Docs
 
+### v1.0.3 - June 13, 2021
+- Add back end consumer observer tutorial
+
 ### v1.0.3 - June 8, 2021
 - Add Tutorials/WebSocket Tutorial
 
