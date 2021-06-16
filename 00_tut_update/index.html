@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-a-new-report-via-websocket" class="md-skip">
+        <a href="#update-report-via-websocket" class="md-skip">
           Skip to content
         </a>
       
@@ -479,8 +479,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edit-a-report" class="md-nav__link">
-    Edit a report
+  <a href="#update-a-report" class="md-nav__link">
+    Update a report
   </a>
   
 </li>
@@ -631,8 +631,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edit-a-report" class="md-nav__link">
-    Edit a report
+  <a href="#update-a-report" class="md-nav__link">
+    Update a report
   </a>
   
 </li>
@@ -650,14 +650,15 @@
               
                 
                 
-                <h1 id="create-a-new-report-via-websocket">Create a new report via WebSocket</h1>
-<p>In this tutorial we are going to create a report using WebSockets.</p>
+                <h1 id="update-report-via-websocket">Update report via WebSocket</h1>
+<p>In this tutorial we are going to update a report using WebSockets.
+For this matter the specific history entry has to be updated.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Established WebSocket connection</li>
 <li>State-management is set-up</li>
 </ul>
-<h2 id="edit-a-report">Edit a report</h2>
+<h2 id="update-a-report">Update a report</h2>
 <p>To interact with the data the WebSocket endpoints provide, the dcrf-client is used. It provides methods to e.g. patch a report. All we have to do is to connect to the WebSocket and pass the
 endpoint, in this case <em>history</em>, together with a JSON Object that contains the data for the report as parameters to the <code>patch</code> method. In addition to that, a primary key is needed to identify the right report. For an overview of available methods refer to the repository or the source code directly: <a href="https://github.com/theY4Kman/dcrf-client">https://github.com/theY4Kman/dcrf-client</a> </p>
 <p>In the <code>actions</code> of a store module of the application, we will have the following code:</p>
