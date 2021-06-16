@@ -1,6 +1,7 @@
-# Create a new report via WebSocket
+# Update report via WebSocket
 
-In this tutorial we are going to create a report using WebSockets.
+In this tutorial we are going to update a report using WebSockets.
+For this matter the specific history entry has to be updated.
 
 
 ## Prerequisites
@@ -9,7 +10,7 @@ In this tutorial we are going to create a report using WebSockets.
 - State-management is set-up
 
 
-## Edit a report
+## Update a report
 
 To interact with the data the WebSocket endpoints provide, the dcrf-client is used. It provides methods to e.g. patch a report. All we have to do is to connect to the WebSocket and pass the
 endpoint, in this case _history_, together with a JSON Object that contains the data for the report as parameters to the ``patch`` method. In addition to that, a primary key is needed to identify the right report. For an overview of available methods refer to the repository or the source code directly: [https://github.com/theY4Kman/dcrf-client](https://github.com/theY4Kman/dcrf-client) 
