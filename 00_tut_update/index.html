@@ -479,8 +479,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retrieve-a-list-of-reports" class="md-nav__link">
-    Retrieve a list of reports
+  <a href="#edit-a-report" class="md-nav__link">
+    Edit a report
   </a>
   
 </li>
@@ -631,8 +631,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retrieve-a-list-of-reports" class="md-nav__link">
-    Retrieve a list of reports
+  <a href="#edit-a-report" class="md-nav__link">
+    Edit a report
   </a>
   
 </li>
@@ -657,33 +657,30 @@
 <li>Established WebSocket connection</li>
 <li>State-management is set-up</li>
 </ul>
-<h2 id="retrieve-a-list-of-reports">Retrieve a list of reports</h2>
+<h2 id="edit-a-report">Edit a report</h2>
 <p>To interact with the data the WebSocket endpoints provide, the dcrf-client is used. It provides methods to e.g. patch a report. All we have to do is to connect to the WebSocket and pass the
-endpoint, in this case <em>reports</em>, together with a JSON Object that contains the data for the report as parameters to the <code>patch</code> method. In addition to that, a primary key is needed to identify the right report. For an overview of available methods refer to the repository or the source code directly: <a href="https://github.com/theY4Kman/dcrf-client">https://github.com/theY4Kman/dcrf-client</a> </p>
+endpoint, in this case <em>history</em>, together with a JSON Object that contains the data for the report as parameters to the <code>patch</code> method. In addition to that, a primary key is needed to identify the right report. For an overview of available methods refer to the repository or the source code directly: <a href="https://github.com/theY4Kman/dcrf-client">https://github.com/theY4Kman/dcrf-client</a> </p>
 <p>In the <code>actions</code> of a store module of the application, we will have the following code:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nx">updateReport</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
-
+<div class="highlight"><pre><span></span><code>    <span class="nx">editReport</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">rootState</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">client</span><span class="p">;</span>
 
         <span class="nx">context</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">&#39;formatJson&#39;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">jsonObj</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-
-            <span class="nx">client</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">&quot;reports&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">jsonObj</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">report</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;UPDATE_REPORT_DATA&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">report</span><span class="p">]);</span>
+            <span class="nx">client</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">&quot;history&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">jsonObj</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
                 <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;NEW_NOTIFICATION&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span> <span class="p">{</span><span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
             <span class="p">})</span>
             <span class="p">;</span>
         <span class="p">});</span>
+
     <span class="p">},</span>
 </code></pre></div>
 <p><code>client</code> is a variable containing the established WebSocket connection. The patch method returns a response
-or an error, which may be handled as needed. In this case, the response triggers a mutation that alters the state
-containing the current report data. In case of an error, the error triggers a mutation that updates the global notifications.</p>
+or an error, which may be handled as needed. In case of an error, the error triggers a mutation that updates the global notifications.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The <code>context.dispatch('formatJson', payload)</code> part in the listing above will call a function that formats the parameter called <code>payload</code>
 that is given to the <code>createReport</code> function into a JSON Object. It then returns this Object. The response is then passed into the
-next function that is <code>client.patch("reports", payload.id, jsonObj)</code>. </p>
+next function that is <code>client.patch("history", payload.id, jsonObj)</code>. </p>
 <p>You may also just pass a JSON Object as a payload and leave the <code>formatJson</code> out. </p>
 </div>
                 
