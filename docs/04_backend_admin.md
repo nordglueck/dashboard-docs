@@ -4,7 +4,7 @@ The Django Admin page is an admin page built-in into django. It provides user ma
 enables for managing the model instances.
 
 <figure>
-  <img src="/assets/django_admin.png"  />
+  <img src="../assets/django_admin.png"  />
   <figcaption>Django Admin Dashboard</figcaption>
 </figure>
 
