@@ -14,18 +14,18 @@ The main directory of the front end is the **vue_frontend** folder. It's structu
 
 ```
 .
-├── .env
-├── .browserslistrc
-├── .eslintrc.js
-├── .gitignore
-├── README.md
-├── babel.config.js
-├── node_modules
-├── package-lock.json
-├── package.json
-├── src
-├── vue.config.js
-└── webpack-stats.json
+├── .env                    # environment variables, e.g. secret information
+├── .browserslistrc         # info about supported browsers
+├── .eslintrc.js            # linting configuration
+├── .gitignore              # files to be ignored by VCS
+├── README.md               # little guide to get started
+├── babel.config.js         # babel configurations
+├── node_modules            # directory with all installed node dependencies (created by "npm install")
+├── package-lock.json       # file with the exact versions of all dependencies so that a product is 100% reproducible even after updates
+├── package.json            # metadata and dependencies
+├── src                     # directory with the source code of the front end
+├── vue.config.js           # webpack configuration
+└── webpack-stats.json      # webpack info
 
 ```
 

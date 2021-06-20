@@ -6,6 +6,10 @@
 
 This page shall provide more in-depth information on the structure of the back end and it's most important files.
 
+
+
+
+
 ## Structure
 
 The back end is structured in a way, that distinguishes between a local development environment and a production environment.
@@ -15,29 +19,29 @@ the local and the production environment.
 
 ```console
 .
-├── .envs
-├── compose
-│   ├── local
-│   └── production
-├── config
-│   └── settings
+├── .envs               # environment variables, e.g. secret information
+├── compose             # contains the Dockerfiles
+│   ├── local           # - files for local development
+│   └── production      # - files for production
+├── config              # back end configuration
+│   └── settings        # django settings, grouped by local and production
 ├── dashboard
-│   ├── contrib
-│   ├── patients
-│   ├── static
-│   ├── templates
-│   ├── users
-│   ├── utils
-│   └── webpack_bundle
-├── docs
+│   ├── contrib         # by cookiecutter
+│   ├── patients        # app directory containing the model and API
+│   ├── static          # containing the static files from the front end
+│   ├── templates       # html templates to render static files, 404 templates etc.
+│   ├── users           # app directory containing user model (by cookiecutter)
+│   ├── utils           # by cookiecutter
+│   └── webpack_bundle  #
+├── docs                # sphinx documentation (deprecated due to this one)
 │   ├── _build
 │   └── _source
-├── locale
-├── requirements
+├── locale              #output folder for translations
+├── requirements        #requirements grouped by local and production 
 
 ```
 
-!!! info "Getting started"
+!!! attention "Getting started"
     
     The most important folders, to get started with the back end are the following:
 
@@ -171,84 +175,3 @@ In the following, each of the different sections of the back end will be explain
     └── production.txt
 
     ```
-
-### Local
-
-This section goes more into detail on how to develop the backend locally. While the installation is covered on the installation page, this 
-section also provides details on which settings one might configure for their specific environment.
-
-#### Local development
-
-As explained on the installation page, there are two different ``docker-compose`` files for each of the environment. For local development, the docker container is built
-and started by executing the following two commands in the root directory of the project.
-
-```console
-
-docker-compose local.yml -f build
-
-```
-
-This first command builds the docker container and installs all of the necessary requirements for the back end. Because we are building the
-container for the local environment here, the requirements ``base.txt`` and ``local.txt`` will be installed. 
-
-The following command starts the docker container.
-
-```console
-
-docker-compose local.yml -f up
-
-```
-
-Together with **django** some other processes, including **redis** (cache) and **postgres** (database) will be started.
-
-After starting the docker container, the console output would look something like the following:
-
-
-<div id="termynal" data-termynal data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-    <span data-ty="input">redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections</span>
-    <span data-ty="input">postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC</span>
-    <span data-ty="input">postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections</span>
-    <span data-ty="input">django      | PostgreSQL is available</span>
-    <span data-ty="input">django      | Operations to perform:</span>
-    <span data-ty="input">django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users</span>
-    <span data-ty="input">django      | Running migrations:</span>
-    <span data-ty="input">django      |   No migrations to apply.</span>
-    <span data-ty="input">django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)</span>
-</div>
-
-The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
-the [**Front End**](/05_frontend) page. 
-
-After the docker container is up and running, additional commands (like ``makemigrations`` e.g.), inside the container can be execuded using the ``exec``
-command:
-
-```console
-
-docker-compose -f local.yml exec django python manage.py makemigrations
-
-```
-
-### Production
-
-The most important difference between the local and the production environment are the **environment variables**.
-Not only, but mostly sensitive information is stored in environment variables and will not be exported from a local environment
-to a production environment. Therefore these environment variables have to be set in the production environment.
-It is suggested not to hardcode values for such variables into the code for production, but to really set and use environment variables.
-
-#### Configuring the environment
-
-!!! info "environment variables"
-
-    The environment files can be found in the ``.envs`` directory like shown before.
-    The most important thing for us here now is ``env_file`` section enlisting ``./.envs/.local/.postgres``. Generally, the stack's behavior is governed by a number of environment variables (`env(s)`, for short) residing in ``envs/``.
-    
-    ```console
-    # PostgreSQL
-    # ------------------------------------------------------------------------------
-    POSTGRES_HOST=postgres
-    POSTGRES_DB=<your project slug>
-    POSTGRES_USER=<your postgres user>
-    POSTGRES_PASSWORD=<your password>
-    ```
-
-...

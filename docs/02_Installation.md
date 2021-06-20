@@ -67,54 +67,98 @@ To run in a detached (background) mode, just::
 docker-compose up -d
 ```
 
-#### (Optionally) Designate your Docker Development Server IP
+??? info "(Optionally) Designate your Docker Development Server IP"
 
-When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
+    When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
+---
 
-#### Alternative: Virtual Environment for Python
+??? info "Alternative: Virtual Environment for Python"
 
-**Prerequisites**: Installation of Python 3, Pip, Django and a Unix/MacOS or Windows Machine
+    **Prerequisites**: 
+    - Installation of:
+      - Python 3 
+      - pip
+      - nodejs 
+      - npm/yarn
+      - redis
+      - postgres 
+      - a Unix/MacOS or Windows Machine
+    
+    As an alternative to Docker, the project can be developed in a **virtual environment for python**.
+    To create a virtual environment, decide on a name, e.g. `env_name` and create on like so in a folder above or aside the project folder:
+    
+    ```console    
+    python3 -m venv env_name
+    ```
+    
+    To activate the virtual environment on a level above the environment folder that was just created:
+    
+    === "Mac OS / Linux"
+    
+        ```console
+        source env_name/bin/activate
+        ```
+    
+    === "Windows"
+    
+        ``` console
+        env_name\Scripts\activate.bat
+        ```
+    
+    ### Back end
+    
+    With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment. To do so, 
+    you need to go to the root directory of the project and execute the following command:
+    
+    ```console
+    pip install requirements/local.txt
+    ```
 
-As an alternative to Docker, the project can be developed in a virtual environment for python.
-To create a virtual environment, decide on a name, e.g. `env_name` and create on like so in a folder above or aside the project folder:
-
-```console    
-python3 -m venv env_name
-```
-
-To activate the virtual environment on a level above the environment folder that was just created:
-
-=== "Mac OS / Linux"
+    After the installation is complete, the following command will start the server:
 
     ```console
-    source env_name/bin/activate
+    python manage.py runserver
     ```
 
-=== "Windows"
+    The following commands are the same as in docker but without the docker specific prefix:
 
-    ``` console
-    env_name\Scripts\activate.bat
+    ```console
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py createsuperuser
     ```
 
+    ### Front End
+    
+    Change to the **vue_frontend** directory. To initialize the frontend, from the ``vue_frontend`` directory, run:
+
+        npm install
+
+    To serve the Vue frontend in hot-reloading development mode **together with the back end**:
+
+        npm run serve
+
+    And to build for deployment:
+
+        npm run build
 
 
-With the virtual environment at hand (and activated), the requirements for the projects can now be installed manually only to this environment:
+    ### Additional Configurations
 
-```console
-pip install requirements/local.txt
-```
+    When starting the server you may be prompted to provide right credentials for the database or redis.
+    To find out, how to cofigure each of them for your OS, please refer to the specific documentations and provide
+    the right credentials.
 
-For more information on virtual environments, please refer to the Python 3 tutorial: [https://docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)
+    **NOTE:** This approach is common when building django projects, however it is not tested for this specific project.
+    Due to the scope of the project, it is highly reccomended to use the docker environment.
+
+    For more information on virtual environments, please refer to the Python 3 tutorial: [https://docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)
 
 
-Besides Python and all the requirements (including Django), the following technologies have to be installed as well:
+    
+    
 
-1. npm
-2. redis
-3. postgres
-
-(this section has to be continued...)
 
 
 ---
@@ -148,7 +192,15 @@ As with any shell command that we wish to run in our container, this is done usi
     docker-compose -f local.yml run --rm django python manage.py migrate
     docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-Here, ``django`` is the target service we are executing the commands against.
+Here, ``django`` is the target service we are executing the commands against. The ``run`` command is starting a new container that is
+being deleted after run due to the ``--rm`` flag.
+
+To achieve the same but in an already running container, you can use commands like:
+
+    docker-compose -f local.yml exec django python manage.py migrate
+    docker-compose -f local.yml exec --rm django python manage.py createsuperuser
+
+``exec`` will use the existing container and run the given command in it.
 
 
-More on Docker and local development can be found in "LOCAL_DEV.rst".
+More on Docker and local development can be found in ```LOCAL_DEV.rst```.

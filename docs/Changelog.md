@@ -2,6 +2,20 @@
 
 ## Dengue Dashboard Docs
 
+### v1.0.4 - June 20, 2021
+- Add info and sample images to index
+- Add functions and structure description to front end
+- Add functions and structure description to back end
+- Restructure and add content to installation
+- Add content to basics
+- Add new page basics/back end
+- Add new page basics/front end
+- Add new page back end/api documentation
+- Add new page back end/django admin
+- Add new page front end/local development
+- Add new page front end/production
+- Restructure "The System" -> "Deeper Dive"
+
 ### v1.0.3 - June 16, 2021
 - Add crud tutorials
 

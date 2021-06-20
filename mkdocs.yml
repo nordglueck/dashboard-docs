@@ -3,10 +3,21 @@ nav:
   - Home: 'index.md'
   - 'Getting Started':
     - 'Installation': '02_Installation.md'
-    - 'Basics' : '03_basics.md'
-  - 'The System':
-    - 'Back End': '04_backend.md'
-    - 'Front End': '05_frontend.md'
+    - 'Basics' :
+      - 'General' : '03_basics.md'
+      - 'Back end (Django)': '03_basics_backend.md'
+      - 'Front end (Vue.js)': '03_basics_frontend.md'
+  - 'Deeper dive':
+    - 'Back End':
+      - 'Project Structure': '04_backend.md'
+      - 'Local development': '04_backend_local.md'
+      - 'Production': '04_backend_production.md'
+      - 'API Documentation': '04_backend_apidocs.md'
+      - 'Django Admin': '04_backend_admin.md'
+    - 'Front End':
+        - 'Project Structure': '05_frontend.md'
+        - 'Local development': '05_frontend_local.md'
+        - 'Production': '05_frontend_production.md'
   - 'Tutorials':
     - 'Back End':
         - 'New REST API Endpoint': '00_tut_api.md'
@@ -50,6 +61,7 @@ markdown_extensions:
     - pymdownx.details
 extra_css:
   - assets/termynal.css
+  - assets/styling.css
 extra_javascript:
   - assets/termynal.js
   - assets/custom.js
