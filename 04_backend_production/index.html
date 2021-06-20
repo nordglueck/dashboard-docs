@@ -14,7 +14,7 @@
     
     
       
-        <title>Project Structure - Dengue Dashboard Docs</title>
+        <title>Production - Dengue Dashboard Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#front-end" class="md-skip">
+        <a href="#configuring-the-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Structure
+              Production
             
           </span>
         </div>
@@ -338,12 +338,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
       
       <label class="md-nav__link" for="__nav_3_1">
         Back End
@@ -383,11 +385,47 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../04_backend_production/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Production
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Production
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-environment" class="md-nav__link">
+    Configuring the environment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -425,14 +463,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       <label class="md-nav__link" for="__nav_3_2">
         Front End
@@ -448,64 +484,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Project Structure
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05_frontend/" class="md-nav__link">
         Project Structure
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -799,8 +782,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -809,22 +790,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
+  <a href="#configuring-the-environment" class="md-nav__link">
+    Configuring the environment
   </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -841,70 +809,26 @@
               
                 
                 
-                <h1 id="front-end">Front end</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
-</div>
-<p>This page shall provide more in-depth information on the structure of the front end and it's most important files.</p>
-<h2 id="structure">Structure</h2>
-<p>The main directory of the front end is the <strong>vue_frontend</strong> folder. It's structure presents as follows on the first level:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .env                    # environment variables, e.g. secret information
-├── .browserslistrc         # info about supported browsers
-├── .eslintrc.js            # linting configuration
-├── .gitignore              # files to be ignored by VCS
-├── README.md               # little guide to get started
-├── babel.config.js         # babel configurations
-├── node_modules            # directory with all installed node dependencies (created by &quot;npm install&quot;)
-├── package-lock.json       # file with the exact versions of all dependencies so that a product is 100% reproducible even after updates
-├── package.json            # metadata and dependencies
-├── src                     # directory with the source code of the front end
-├── vue.config.js           # webpack configuration
-└── webpack-stats.json      # webpack info
-</code></pre></div>
+                  <h1>Production</h1>
+                
+                <p>The most important difference between the local and the production environment are the <strong>environment variables</strong>.
+Not only, but mostly sensitive information is stored in environment variables and will not be exported from a local environment
+to a production environment. Therefore these environment variables have to be set in the production environment.
+It is suggested not to hardcode values for such variables into the code for production, but to really set and use environment variables.</p>
+<h4 id="configuring-the-environment">Configuring the environment</h4>
 <div class="admonition info">
-<p class="admonition-title">Important files in the root directory</p>
-<ul>
-<li><strong>.env</strong> : Environment variables for the front end</li>
-<li><strong>README.md</strong> : Quickstart with commands for development</li>
-<li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
-<li><strong>package.json</strong> : Metadata and dependencies</li>
-<li><strong>src</strong> : Source code of the project</li>
-<li><strong>vue.config.js</strong> : Webpack configuration</li>
-</ul>
-</div>
-<h3 id="source-code">Source Code</h3>
-<p>As mentioned in the previous section, the source code of the front end is to be found in the <strong>src</strong> directory. 
-It is a Vue App consisting of multiple <strong>.vue</strong> files that are divided into components or more complex layouts. 
-For the state-management of the app, a <em>store</em> is set up. Everything related to the state-management is to be found inside
-the <strong>store</strong> directory.</p>
-<div class="highlight"><pre><span></span><code>.
-├── App.vue
-├── dashboard
-│   ├── assets
-│   ├── components
-│   ├── directives
-│   ├── entry
-│   │   ├── main.js
-│   │   ├── registerServiceWorker.js
-│   │   └── router.js
-│   ├── layout
-│   ├── plugins
-│   └── views
-└── store
-    ├── modules
-    └── vuex_usage_utils.js
+<p class="admonition-title">environment variables</p>
+<p>The environment files can be found in the <code>.envs</code> directory like shown before.
+The most important thing for us here now is <code>env_file</code> section enlisting <code>./.envs/.local/.postgres</code>. Generally, the stack's behavior is governed by a number of environment variables (<code>env(s)</code>, for short) residing in <code>envs/</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>PostgreSQL
+<span class="gp"># </span>------------------------------------------------------------------------------
+<span class="go">POSTGRES_HOST=postgres</span>
+<span class="go">POSTGRES_DB=&lt;your project slug&gt;</span>
+<span class="go">POSTGRES_USER=&lt;your postgres user&gt;</span>
+<span class="go">POSTGRES_PASSWORD=&lt;your password&gt;</span>
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Getting started with the front end</p>
-<ul>
-<li><strong>main.js</strong> : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.</li>
-<li><strong>router.js</strong> : Defines the routes for the app and connects components/layouts and names to them.</li>
-<li><strong>App.vue</strong> : The main structure of the app that is rendered at first.</li>
-<li><strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</li>
-</ul>
 </div>
+<p>...</p>
                 
               
               
@@ -923,7 +847,7 @@ the <strong>store</strong> directory.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../04_backend_admin/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../04_backend_local/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -932,19 +856,19 @@ the <strong>store</strong> directory.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Django Admin
+              Local development
             </div>
           </div>
         </a>
       
       
-        <a href="../05_frontend_local/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../04_backend_apidocs/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Local development
+              API Documentation
             </div>
           </div>
           <div class="md-footer__button md-icon">
