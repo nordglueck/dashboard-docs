@@ -5,12 +5,12 @@ each endpoint can be obtained.
 The browsable API can be found at ``/api/``
 
 <figure>
-  <img src="/assets/api_root.png"  />
+  <img src="assets/api_root.png"  />
   <figcaption>API root at <strong>/api/</strong> with all available endpoints</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/api_screenshots.png"  />
+  <img src="assets/api_screenshots.png"  />
   <figcaption>Example of <strong>/api/patients/</strong> with HTML Form to post data.</figcaption>
 </figure>
 
@@ -25,21 +25,21 @@ not have insight or knowledge about the back-end model implementations. The mode
 
 
 <figure>
-  <img src="/assets/swagger1.png"  />
+  <img src="assets/swagger1.png"  />
   <figcaption><strong>/swagger/</strong> documentation with a list of all endpoints grouped by models</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/swagger2.png"  />
+  <img src="assets/swagger2.png"  />
   <figcaption>Example of <strong>/api/patients/</strong> GET endpoint with additional information.</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/swagger3.png"  />
+  <img src="assets/swagger3.png"  />
   <figcaption>Example of <strong>/api/patients/</strong> GET endpoint with interactive mode (GET request and response).</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/swagger_models.png"  />
+  <img src="assets/swagger_models.png"  />
   <figcaption>Model definition at the bottom of the API documentation.</figcaption>
 </figure>

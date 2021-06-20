@@ -14,7 +14,7 @@
     
     
       
-        <title>Project Structure - Dengue Dashboard Docs</title>
+        <title>Back end (Django) - Dengue Dashboard Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#front-end" class="md-skip">
+        <a href="#model-view-template-mvt" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Structure
+              Back end (Django)
             
           </span>
         </div>
@@ -210,12 +210,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         Getting Started
@@ -243,12 +245,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       <label class="md-nav__link" for="__nav_2_2">
         Basics
@@ -276,11 +280,109 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../03_basics_backend/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Back end (Django)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Back end (Django)
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-view-template-mvt" class="md-nav__link">
+    Model-View-Template (MVT)
+  </a>
+  
+    <nav class="md-nav" aria-label="Model-View-Template (MVT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    Routing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket-endpoints" class="md-nav__link">
+    WebSocket Endpoints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-tasks" class="md-nav__link">
+    Background Tasks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -315,14 +417,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Deeper dive
@@ -425,14 +525,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       <label class="md-nav__link" for="__nav_3_2">
         Front End
@@ -448,64 +546,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Project Structure
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05_frontend/" class="md-nav__link">
         Project Structure
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -799,8 +844,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -809,22 +852,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
+  <a href="#model-view-template-mvt" class="md-nav__link">
+    Model-View-Template (MVT)
   </a>
   
-    <nav class="md-nav" aria-label="Structure">
+    <nav class="md-nav" aria-label="Model-View-Template (MVT)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    Template
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    Routing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#websocket-endpoints" class="md-nav__link">
+    WebSocket Endpoints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-tasks" class="md-nav__link">
+    Background Tasks
+  </a>
   
 </li>
       
@@ -841,70 +933,199 @@
               
                 
                 
-                <h1 id="front-end">Front end</h1>
+                  <h1>Back end (Django)</h1>
+                
+                <h3 id="model-view-template-mvt">Model-View-Template (MVT)</h3>
+<p>Django is following the Model-View-Template structure, where the Model is for structuring and manipulating the data of the application, the view implements
+the business logic and the templates serves the views to the clients. In this project, the templates are rendering the static files
+provided by the webpack bundling, that are moved into the <code>static</code> folder inside the back end directory after executing <code>npm run build</code> inside the <code>vue_frontend</code> directory.</p>
+<p>The principle of Django's MVT architecture is visualized in the following diagram:</p>
+<p><img src="https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp" width=450px><br>
+<small>Source: https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp</small></p>
+<h4 id="model">Model</h4>
+<p>The model of the application is to be found in the respective <code>models.py</code> file. See <a href="https://docs.djangoproject.com/en/3.2/topics/db/models">https://docs.djangoproject.com/en/3.2/topics/db/models</a> for documentation on how to create Models and available Fields.
+All of the data of the model instances are saved to a <strong>PostgreSQL</strong> Database. Postgres integrates well with Django and Django even supports some fields exclusively for Postgres. See <a href="https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/">https://docs.djangoproject.com/en/3.2/ref/contrib/postgres/</a></p>
+<h4 id="view">View</h4>
+<p>The view implements the business logic of the application. In the <code>patients/api/views.py</code>, the REST API endpoints are defined. The most important endpoints that are exposed
+as of the end of the thesis are:</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Actions (REST)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/patients/</code></td>
+<td>GET, POST</td>
+<td>List view of all patients</td>
+</tr>
+<tr>
+<td><code>/api/patients/id/</code></td>
+<td>GET, PUT, PATCH, DELETE</td>
+<td>Detail view of a single patient</td>
+</tr>
+<tr>
+<td><code>/api/reports/</code></td>
+<td>GET, POST</td>
+<td>List view of all reports</td>
+</tr>
+<tr>
+<td><code>/api/reports/id/</code></td>
+<td>GET, PUT, PATCH, DELETE</td>
+<td>Detail view of a single report</td>
+</tr>
+<tr>
+<td><code>/rest-auth/login/</code></td>
+<td>POST</td>
+<td>Login with username and password</td>
+</tr>
+<tr>
+<td><code>/rest-auth/logout/</code></td>
+<td>POST</td>
+<td>Logout and delete token</td>
+</tr>
+<tr>
+<td><code>/rest-auth/user/</code></td>
+<td>GET</td>
+<td>Retrieve user information</td>
+</tr>
+</tbody>
+</table>
+<p>A full documentation of all available endpoints as well as an <strong>interactive demo</strong> of the endpoints can be obtained from the 
+endpoint <code>/swagger</code>. Curl commands can be interactively executed on the page and requests and responses can be analysed.</p>
+<p>The fields, that are to be included (or excluded) in the respective JSON responses are defined in the <code>patients/api/serializers.py</code> file.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
+<p><strong>The front end of this application works with data provided through WebSockets</strong>. The aforementioned REST API
+endpoints are delivered via HTTP and useful for the integration of other services. The communication between the 
+back end and the front end is mostly based on WebSockets however. WebSockets allow for full-duplex communication, meaning
+that both, the back end and the front end can send each other messages whenever they need to. Without the other one
+asking for it. This enables a real-time behaviour in the front end and works well together with the reactivity of 
+Vue.js. </p>
+<p>However there is some data, that doesn't need to be transferred via WebSockets, like the authentication data.
+This data is handled using HTTP REST on both sides. The following diagram illustrates the usage of HTTP and WebSockets:</p>
+<p><img alt="assets/htmlws.png" src="../assets/htmlws.png" /></p>
 </div>
-<p>This page shall provide more in-depth information on the structure of the front end and it's most important files.</p>
-<h2 id="structure">Structure</h2>
-<p>The main directory of the front end is the <strong>vue_frontend</strong> folder. It's structure presents as follows on the first level:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .env                    # environment variables, e.g. secret information
-├── .browserslistrc         # info about supported browsers
-├── .eslintrc.js            # linting configuration
-├── .gitignore              # files to be ignored by VCS
-├── README.md               # little guide to get started
-├── babel.config.js         # babel configurations
-├── node_modules            # directory with all installed node dependencies (created by &quot;npm install&quot;)
-├── package-lock.json       # file with the exact versions of all dependencies so that a product is 100% reproducible even after updates
-├── package.json            # metadata and dependencies
-├── src                     # directory with the source code of the front end
-├── vue.config.js           # webpack configuration
-└── webpack-stats.json      # webpack info
+<p>With the WebSocket integration, the endpoints for WebSocket requests are defined like so:</p>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th>Consumer</th>
+<th>Model</th>
+<th>Actions (REST-like)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>patients</code></td>
+<td>PatientConsumer</td>
+<td>Patient</td>
+<td>List, Retrieve, Create, Patch, Update, Delete</td>
+</tr>
+<tr>
+<td><code>reports</code></td>
+<td>ReportConsumer</td>
+<td>Report</td>
+<td>List, Retrieve, Create, Patch, Update, Delete</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>HistoryConsumer</td>
+<td>HistoricalReport</td>
+<td>List, Retrieve, Patch, Update, Delete</td>
+</tr>
+</tbody>
+</table>
+<p>The endpoints are defined in the <code>asgi.py</code> file of the Project. For more information see <a href="#routing"><strong>Routing</strong></a>.</p>
+<h4 id="template">Template</h4>
+<p>Django provides the option to create custom templates, i.e. write own HTML and extend it with special syntax, Django Template Language (DTL).
+These templates are, what the user is seeing in the browser. However it is also possible to define, which assets should be dynamically loaded into the page, like
+e.g. CSS and JS files, which is the case in this project.</p>
+<hr />
+<h3 id="routing">Routing</h3>
+<p>The following code snippet from the <code>asgi.py</code> file shows
+the <code>ProtocolTypeRouter</code> that routes the HTTP and WebSocket requests according to their protocol types:</p>
+<div class="highlight"><pre><span></span><code><span class="n">application</span> <span class="o">=</span> <span class="n">ProtocolTypeRouter</span><span class="p">({</span>
+    <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="n">get_asgi_application</span><span class="p">(),</span>
+    <span class="s2">&quot;websocket&quot;</span><span class="p">:</span> <span class="n">TokenAuthMiddlewareStack</span><span class="p">(</span>
+        <span class="n">URLRouter</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^ws/$&quot;</span><span class="p">,</span> <span class="n">AsyncJsonWebsocketDemultiplexer</span><span class="p">(</span>
+                <span class="n">patients</span><span class="o">=</span><span class="n">PatientConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+                <span class="n">reports</span><span class="o">=</span><span class="n">ReportConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+                <span class="n">history</span><span class="o">=</span><span class="n">HistoryConsumer</span><span class="p">()</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">(),</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">as_asgi</span><span class="p">()),</span> <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+<span class="p">})</span>
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Important files in the root directory</p>
+<p>The streams are defined inside the Demultiplexer and connected to their respective consumer (see <a href="#consumer"><strong>Consumer</strong></a>).</p>
+<hr />
+<h3 id="rest-api">REST API</h3>
+<p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
+An endpoint definition consists of several files: </p>
 <ul>
-<li><strong>.env</strong> : Environment variables for the front end</li>
-<li><strong>README.md</strong> : Quickstart with commands for development</li>
-<li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
-<li><strong>package.json</strong> : Metadata and dependencies</li>
-<li><strong>src</strong> : Source code of the project</li>
-<li><strong>vue.config.js</strong> : Webpack configuration</li>
+<li><code>patients/models.py</code></li>
+<li><code>patients/api/serializers.py</code></li>
+<li><code>patients/api/views.py</code></li>
+<li><code>patients/api/urls.py</code></li>
 </ul>
-</div>
-<h3 id="source-code">Source Code</h3>
-<p>As mentioned in the previous section, the source code of the front end is to be found in the <strong>src</strong> directory. 
-It is a Vue App consisting of multiple <strong>.vue</strong> files that are divided into components or more complex layouts. 
-For the state-management of the app, a <em>store</em> is set up. Everything related to the state-management is to be found inside
-the <strong>store</strong> directory.</p>
-<div class="highlight"><pre><span></span><code>.
-├── App.vue
-├── dashboard
-│   ├── assets
-│   ├── components
-│   ├── directives
-│   ├── entry
-│   │   ├── main.js
-│   │   ├── registerServiceWorker.js
-│   │   └── router.js
-│   ├── layout
-│   ├── plugins
-│   └── views
-└── store
-    ├── modules
-    └── vuex_usage_utils.js
+<p>The files are to be created/updated in the order shown above. The <em>model</em> is the first thing, as it is the base to what will be
+possible to expose via an API endpoint. The <em>serializer</em> defines which fields are to be included or excluded into the serialized JSON response and is based on the model.
+The view is handling the serialized JSON and able to add orderings to the data or filters. Besides the textual JSON output of every response, 
+the Django REST Framework is also serving a browsable API with web pages, where one can create, update and delete model instances inside the browser.
+To be able to request the endpoints via the given URLs, the created Views have to be registered and named in the <code>patients/api/urls.py</code> file.</p>
+<hr />
+<h3 id="websocket-endpoints">WebSocket Endpoints</h3>
+<p>The REST API endpoints are defined as described before (see <a href="#view"><strong>View</strong></a>).
+A WebSocket endpoint needs a REST API endpoint as a base. On top of that, two additional files have 
+to be modified:</p>
+<ul>
+<li><code>patients/consumers.py</code></li>
+<li><code>config/asgi.py</code></li>
+</ul>
+<p>The consumers define the business logic for the clients connected to the WebSocket.
+In <code>asgi.py</code>, a consumer is being attached to a stream and therefore a URL is being created to which
+the clients may connect from e.g. the front end.</p>
+<hr />
+<h3 id="consumer">Consumer</h3>
+<p>Consumers are an important part of the definition of WebSocket endpoints in this application. Consumers contain the business logic
+that is relevant for the clients, that are connected to the WebSocket. The behaviour for the connection setup or the disconnecion may
+be defined as well as - and especially - the behaviour for when the client is connected to the WebSocket.</p>
+<ul>
+<li>What kind of messages should be sent to the client?</li>
+<li>What format should the messages have?</li>
+<li>Should the messages be sent to all connected clients or just to specific ones?</li>
+<li>When should the message be sent?</li>
+</ul>
+<p>These are the most relevant questions, but there are many more.</p>
+<p>To summarize, how consumers work as of now (June 2021) in this application:</p>
+<p>Every relevant model, i.e. <code>Patient</code>, <code>Report</code> and <code>ReportHistory</code> has their own consumer. The querysets and serializers
+are set to the ones of the REST API endpoints. In addition, an observer model is implemented to make sure, that every change
+that is made to a model is reflected to <strong>all connected clients</strong>. This holds for all of the mentioned models.
+Because of the set serializers, the messages will display as defined in the REST API configuration. </p>
+<p>For the history model, there is an additionally custom type of message, called <code>notification</code>. Whenever the history model is changed, 
+two computations are made. One is being triggered directly and sending a message to all connected clients, if a certain condition is met.
+Another one is being scheduled as a background task for a specific time. At this specific time, a message of the type <code>notification</code> will then be sent
+to all the clients that are connected at that time.</p>
+<p>For the consumers to work, they have to be connected to streams (see <a href="#routing"><strong>Routing</strong></a>), which form URLs that a client can establish a 
+connection to. In our case, a URL for the patient model would look something like this: </p>
+<div class="highlight"><pre><span></span><code>wss://example.com/ws/patients/
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Getting started with the front end</p>
-<ul>
-<li><strong>main.js</strong> : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.</li>
-<li><strong>router.js</strong> : Defines the routes for the app and connects components/layouts and names to them.</li>
-<li><strong>App.vue</strong> : The main structure of the app that is rendered at first.</li>
-<li><strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</li>
-</ul>
-</div>
+<hr />
+<h3 id="background-tasks">Background Tasks</h3>
+<p>Background Tasks are used in this application to send notifications via WebSockets at a specific time that is computed based on
+the input data. However, they can generally be used, to build up any kind of work queue. Tasks can be scheduled for specific
+times, may repeat, can be scheduled to be executed n seconds/minutes/hours(..) after a certain event and much more.</p>
+<p>In this application, a background task is e.g. scheduled to remind any connected client about an observation of a patient that is due, when it's
+time has come based on the time of the last observation and the monitoring interval.</p>
+<p>The background tasks of this application can be found in the <code>patients/api/vies.py</code> file and are decorated with the <code>@background</code> decorator.</p>
+<p>For more information on background tasks and possibilities, visit the official documentation:
+<a href="https://django-background-tasks.readthedocs.io/en/latest/">https://django-background-tasks.readthedocs.io/en/latest/</a></p>
+<hr />
                 
               
               
@@ -923,7 +1144,7 @@ the <strong>store</strong> directory.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../04_backend_admin/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../03_basics/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -932,19 +1153,19 @@ the <strong>store</strong> directory.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Django Admin
+              General
             </div>
           </div>
         </a>
       
       
-        <a href="../05_frontend_local/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../03_basics_frontend/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Local development
+              Front end (Vue.js)
             </div>
           </div>
           <div class="md-footer__button md-icon">

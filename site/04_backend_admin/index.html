@@ -14,7 +14,7 @@
     
     
       
-        <title>Project Structure - Dengue Dashboard Docs</title>
+        <title>Django Admin - Dengue Dashboard Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#front-end" class="md-skip">
+        <a href="#django-admin" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Structure
+              Django Admin
             
           </span>
         </div>
@@ -338,12 +338,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
       
       <label class="md-nav__link" for="__nav_3_1">
         Back End
@@ -407,11 +409,54 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../04_backend_admin/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Django Admin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Django Admin
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#django-admin" class="md-nav__link">
+    Django Admin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -425,14 +470,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       <label class="md-nav__link" for="__nav_3_2">
         Front End
@@ -448,64 +491,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Project Structure
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05_frontend/" class="md-nav__link">
         Project Structure
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -799,8 +789,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -809,22 +797,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
+  <a href="#django-admin" class="md-nav__link">
+    Django Admin
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
   
 </li>
       
@@ -841,70 +823,28 @@
               
                 
                 
-                <h1 id="front-end">Front end</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
-</div>
-<p>This page shall provide more in-depth information on the structure of the front end and it's most important files.</p>
-<h2 id="structure">Structure</h2>
-<p>The main directory of the front end is the <strong>vue_frontend</strong> folder. It's structure presents as follows on the first level:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .env                    # environment variables, e.g. secret information
-├── .browserslistrc         # info about supported browsers
-├── .eslintrc.js            # linting configuration
-├── .gitignore              # files to be ignored by VCS
-├── README.md               # little guide to get started
-├── babel.config.js         # babel configurations
-├── node_modules            # directory with all installed node dependencies (created by &quot;npm install&quot;)
-├── package-lock.json       # file with the exact versions of all dependencies so that a product is 100% reproducible even after updates
-├── package.json            # metadata and dependencies
-├── src                     # directory with the source code of the front end
-├── vue.config.js           # webpack configuration
-└── webpack-stats.json      # webpack info
+                  <h1>Django Admin</h1>
+                
+                <h2 id="django-admin">Django Admin</h2>
+<p>The Django Admin page is an admin page built-in into django. It provides user management options and, if configurd, 
+enables for managing the model instances.</p>
+<figure>
+  <img src="/assets/django_admin.png"  />
+  <figcaption>Django Admin Dashboard</figcaption>
+</figure>
+
+<h2 id="customization">Customization</h2>
+<p>To include custom apps and their respective models in the admin page, 
+a file called <code>admin.py</code> has to be added to the root folder of the <strong>app</strong>.
+In our case, the app is <em>patients</em>. A file, adding the <em>patient</em> and the <em>report</em> model
+looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">simple_history.admin</span> <span class="kn">import</span> <span class="n">SimpleHistoryAdmin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Patient</span><span class="p">,</span> <span class="n">Report</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Patient</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Report</span><span class="p">,</span> <span class="n">SimpleHistoryAdmin</span><span class="p">)</span>
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Important files in the root directory</p>
-<ul>
-<li><strong>.env</strong> : Environment variables for the front end</li>
-<li><strong>README.md</strong> : Quickstart with commands for development</li>
-<li><strong>node_modules</strong> : Auto-generated folder by running <code>npm install</code> that inherits all dependencies</li>
-<li><strong>package.json</strong> : Metadata and dependencies</li>
-<li><strong>src</strong> : Source code of the project</li>
-<li><strong>vue.config.js</strong> : Webpack configuration</li>
-</ul>
-</div>
-<h3 id="source-code">Source Code</h3>
-<p>As mentioned in the previous section, the source code of the front end is to be found in the <strong>src</strong> directory. 
-It is a Vue App consisting of multiple <strong>.vue</strong> files that are divided into components or more complex layouts. 
-For the state-management of the app, a <em>store</em> is set up. Everything related to the state-management is to be found inside
-the <strong>store</strong> directory.</p>
-<div class="highlight"><pre><span></span><code>.
-├── App.vue
-├── dashboard
-│   ├── assets
-│   ├── components
-│   ├── directives
-│   ├── entry
-│   │   ├── main.js
-│   │   ├── registerServiceWorker.js
-│   │   └── router.js
-│   ├── layout
-│   ├── plugins
-│   └── views
-└── store
-    ├── modules
-    └── vuex_usage_utils.js
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Getting started with the front end</p>
-<ul>
-<li><strong>main.js</strong> : Entrypoint for the app. Connects the store, the router, the App and everything that is needed.</li>
-<li><strong>router.js</strong> : Defines the routes for the app and connects components/layouts and names to them.</li>
-<li><strong>App.vue</strong> : The main structure of the app that is rendered at first.</li>
-<li><strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</li>
-</ul>
-</div>
                 
               
               
@@ -923,7 +863,7 @@ the <strong>store</strong> directory.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../04_backend_admin/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../04_backend_apidocs/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -932,19 +872,19 @@ the <strong>store</strong> directory.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Django Admin
+              API Documentation
             </div>
           </div>
         </a>
       
       
-        <a href="../05_frontend_local/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../05_frontend/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Local development
+              Project Structure
             </div>
           </div>
           <div class="md-footer__button md-icon">
