@@ -4,6 +4,10 @@
 
 ### v1.0.5 - September 2021
 
+- Add FAQs
+- Add new front end tutorials
+
+
 ### v1.0.4 - June 20, 2021
 - Add info and sample images to index
 - Add functions and structure description to front end

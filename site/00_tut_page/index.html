@@ -830,12 +830,50 @@
                 
                 
                 <h1 id="create-a-new-page">Create a new page</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
-</div>
+<p>In this tutorial we are going to create a new page inside the Web App.</p>
 <h2 id="create-a-component">Create a component</h2>
+<p>First of all we start by creating a new Component that we wish to display when navigating to our new page.
+We do so by creating a new file called <code>NewPageComponent.vue</code>. For the simplicity of this tutorial, the only contents
+of the page should be a headline, welcoming us, and a little lorem ipsum text. We add this to the component as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hey, nice to have you on this page!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;NewPageComponent&quot;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
 <h2 id="create-a-route">Create a route</h2>
+<p>Now that we have a component we want to display as a new page, we can define the name of the page and the URL-slug that the
+page is connected to. To do so we have to find the <code>router.js</code> file in <code>vue_frontend/src/dashboard/entry/</code> and add a route at the end of the list of routes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">...</span>
+
+                <span class="p">{</span>
+                    <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/patients/:id&quot;</span><span class="p">,</span>
+                    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;patient report&quot;</span><span class="p">,</span>
+                    <span class="nx">props</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-patients&quot; */</span> <span class="s2">&quot;../views/SinglePatient.vue&quot;</span><span class="p">),</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/mynewpage&quot;</span><span class="p">,</span>
+                    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;new page component&quot;</span><span class="p">,</span>
+                    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-newpage&quot; */</span> <span class="s2">&quot;../views/NewPageComponent.vue&quot;</span><span class="p">),</span>  <span class="c1">// the source depends on the source of your file!</span>
+                <span class="p">},</span>
+
+<span class="p">...</span>
+</code></pre></div>
+<p>This change might lead to errors in the Hot Refresh mechanisms, so that it is useful to restart the system. Then you should be able to navigate to 
+<code>localhost:8000/mynewpage</code>. After these changes you can use the relative path <code>/mynewpage</code> inside the navigation, sidebar or in links to refer to this newly
+created page.</p>
                 
               
               

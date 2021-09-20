@@ -37,19 +37,19 @@ page is connected to. To do so we have to find the ``router.js`` file in ``vue_f
 
 ...
 
-                {
-                    path: "/patients/:id",
-                    name: "patient report",
-                    props: true,
-                    component: () =>
-                        import(/* webpackChunkName: "chunk-patients" */ "../views/SinglePatient.vue"),
-                },
-                {
-                    path: "/mynewpage",
-                    name: "new page component",
-                    component: () =>
-                        import(/* webpackChunkName: "chunk-newpage" */ "../views/NewPageComponent.vue"),  // the source depends on the source of your file!
-                },
+    {
+        path: "/patients/:id",
+            name: "patient report",
+        props: true,
+        component: () =>
+        import(/* webpackChunkName: "chunk-patients" */ "../views/SinglePatient.vue"),
+    },
+    {
+        path: "/mynewpage",
+            name: "new page component",
+        component: () =>
+        import(/* webpackChunkName: "chunk-newpage" */ "../views/NewPageComponent.vue"),  // the source depends on the source of your file!
+    },
 
 ...
 
