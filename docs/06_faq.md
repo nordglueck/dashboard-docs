@@ -228,11 +228,8 @@ Windows is the least recommended Operation System. It seems to be well known, th
 This could lead to problems if you e.g. use something like VirtualBox on your Windows machine and want to install/use Docker (using Hyper-V) as well. 
 
 Further information on this: 
-https://www.mt-ag.com/blog/ki-werkstatt/koexistenz-von-hyper-v-und-virtualbox-fur-den-einsatz-von-docker/
+[https://www.mt-ag.com/blog/ki-werkstatt/koexistenz-von-hyper-v-und-virtualbox-fur-den-einsatz-von-docker/](https://www.mt-ag.com/blog/ki-werkstatt/koexistenz-von-hyper-v-und-virtualbox-fur-den-einsatz-von-docker/)
 
 
 ---
 
-## Problems with deploying
-
-Coming soon ...
