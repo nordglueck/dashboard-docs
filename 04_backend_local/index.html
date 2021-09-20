@@ -839,7 +839,7 @@ container for the local environment here, the requirements <code>base.txt</code>
 
 <p>The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
 the <a href="/05_frontend"><strong>Front End</strong></a> page. </p>
-<p>After the docker container is up and running, additional commands (like <code>makemigrations</code> e.g.), inside the container can be execuded using the <code>exec</code>
+<p>After the docker container is up and running, additional commands (like <code>makemigrations</code> e.g.), inside the container can be executed using the <code>exec</code>
 command:</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker-compose -f local.yml exec django python manage.py makemigrations</span>
 </code></pre></div>
