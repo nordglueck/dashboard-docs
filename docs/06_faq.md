@@ -84,7 +84,8 @@ To fully understand the files of the front end, one could look at the following 
 
 ## Which IDE is recommended?
 
-I would recommend PyCharm Professional. It is a powerful IDE for Python development but with support for Vue.js
+_Front end_  
+I would recommend **PyCharm Professional** together with the Vue.js PlugIn. It is a powerful IDE for Python development but with support for Vue.js
 and comes with rich features regarding project navigation, highlighting, code completion, TODO management, integrated terminal or python console etc.
 
 It is developed by JetBrains and free of charge for students.
@@ -98,7 +99,75 @@ Great and useful features for a project this size, are:
 All Shortcuts for Win/Linux: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)
 All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
 
+As an Alternative to PyCharm I would recommend **Virtual Studio Code** with Plugins for Vue.js.
+
+_Back end_  
+
+I would recommend **PyCharm Professional**. It is a powerful IDE for Python development but with support for Vue.js
+and comes with rich features regarding project navigation, highlighting, code completion, TODO management, integrated terminal or python console etc.
+
+It is developed by JetBrains and free of charge for students.
+
+Great and useful features for a project this size, are:
+
+* Structure view: ``Cmd+7`` (Mac) / ``Alt+7`` (Win)
+* Find file by name: ``Shift+Cmd+O`` (Mac) / ``Ctrl+F12`` (Win)
+* Find in files: ``Shift+Cmd+F`` (Mac) / ``Ctrl+Shift+F`` (Win)
+
+All Shortcuts for Win/Linux: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)
+All Shortcuts for MacOS: [https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
+
+As an alternative, **Virtual Studio Code** will work, but needs Plugins to feel like an IDE.
+
 --- 
+
+### Which programs are recommended?
+
+_Front end_
+
+- **Operating Systems:**
+    - macOs, Linux, Windows (mind the problems)
+- **IDEs**:
+    - PyCharm Professional, Visual Studio Code
+- **Browser**:
+    - Brave, Chrome, Firefox (Chromium-based Browsers with Vue.js Plugin)
+- **Misc:**
+    - Docker, npm
+    
+
+_Back end_
+
+- **Operating Systems:**
+    - macOs, Linux, Windows (mind the problems)
+- **IDEs**:
+    - PyCharm Professional, Visual Studio Code
+- **Programs:**
+    - DBeaver
+- **Browser**:
+    - Brave, Chrome, Firefox (Chromium-based Browsers with Vue.js Plugin)
+- **Misc:**
+    - Docker
+
+---
+
+## What are the programming languages/technologies that are used?
+
+_Front end_
+
+- HTML, CSS, JS
+- Vue.js
+- Bootstrap
+- JSON
+
+
+_Back end_
+
+- Python
+- Django
+- PostgreSQL
+- Shell
+- Docker
+- JSON
 
 ## localhost:8000 is not showing the app.
 
@@ -150,6 +219,17 @@ So for debugging, you might follow these steps:
 When you encounter another IP than any of the localhost IPs, it is important to whitelist them in the django app (``ALLOWED_HOSTS``) and also to **exchange all strings containing the localhost URL to your new IP.**
 
 The ``ALLOWED_HOSTS`` can e.g. be altered in ```config/settings/local.py```. More information on ALLOWED_HOSTS: [https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts](https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts)
+
+---
+
+## I've got problems with Docker on Windows...
+
+Windows is the least recommended Operation System. It seems to be well known, that there are problems when Hyper-V and VirtualBox coexist in a Windows installation.
+This could lead to problems if you e.g. use something like VirtualBox on your Windows machine and want to install/use Docker (using Hyper-V) as well. 
+
+Further information on this: 
+https://www.mt-ag.com/blog/ki-werkstatt/koexistenz-von-hyper-v-und-virtualbox-fur-den-einsatz-von-docker/
+
 
 ---
 

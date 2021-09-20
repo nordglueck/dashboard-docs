@@ -43,7 +43,7 @@ After starting the docker container, the console output would look something lik
 The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
 the [**Front End**](/05_frontend) page. 
 
-After the docker container is up and running, additional commands (like ``makemigrations`` e.g.), inside the container can be execuded using the ``exec``
+After the docker container is up and running, additional commands (like ``makemigrations`` e.g.), inside the container can be executed using the ``exec``
 command:
 
 ```console
