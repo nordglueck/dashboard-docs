@@ -52,7 +52,40 @@ docker-compose -f local.yml exec django python manage.py makemigrations
 
 ```
 
+### Modelling
 
-!!! attention "More content coming soon"
+As the back end is the place for modeling the data structure of the system, it is important to know two commands, that will be
+needed quite frequently. After adding new fields to a model, updating any field, adding a new model or changing about anything regarding the models
+of the system, the database needs to know about the changes. The commands (in this particular order) are:
 
-    - test websockets
+```console
+
+python manage.py makemigrations
+python manage.py migrate
+
+```
+
+The first command will show the changes that can be written to the database with the second command.
+Every execution of the commands generates a migration file, which will be stored in a ``migrations`` folder near the models itself.
+The migrations contain the history of the models and are kind of like a _git_ for models in Django. It is important to keep them and not exclude them
+in VCS (git), so that other developer's histories are complete when making migrations and so that everyone is able to work on the same layout of the database.
+
+
+### WebSockets
+
+The back end is providing the WebSocket communication and can handle incoming request, send responses, accept or quit connections and so on.
+Once the system is running, the terminal output will show the state of the system, which will state, if it is accepting WebSockets (already) and if
+there are Consumers connected to the WebSocket. As soon as some Consumer (client at the front end) connects to the WebSocket, the terminal will output this.
+
+Hence, debugging the states of a WebSocket communication (request, accept, close etc.) can be easily done via ``print`` statements to the console in the respective functions.
+Other ways include WebSocket testing with programs like the newer versions of postman or using the devtools in a browser, which is described in [the front end section.](05_frontend_local.md).
+
+The easiest way to fake a consumer however would be to just use the in-built console inside a browser:
+
+1. Make sure you are on a HTTPS page (HTTP might not work for some browsers)
+2. Open the devtools
+3. Navigate to the Console tab
+4. Establish a new WebSocket connection to your desired WebSocket like so: ``let ws = new WebSocket("ws://yourdomain.com/streamname");``
+
+This sends a regular pure JavaScript WebSocket request to your server which should lead to an output on your terminal. 
+Note, that this simple request should just get you started and might not lead to an established connection, as there may be restrictions in place.
