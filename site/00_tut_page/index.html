@@ -855,19 +855,19 @@ of the page should be a headline, welcoming us, and a little lorem ipsum text. W
 page is connected to. To do so we have to find the <code>router.js</code> file in <code>vue_frontend/src/dashboard/entry/</code> and add a route at the end of the list of routes:</p>
 <div class="highlight"><pre><span></span><code><span class="p">...</span>
 
-                <span class="p">{</span>
-                    <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/patients/:id&quot;</span><span class="p">,</span>
-                    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;patient report&quot;</span><span class="p">,</span>
-                    <span class="nx">props</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
-                        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-patients&quot; */</span> <span class="s2">&quot;../views/SinglePatient.vue&quot;</span><span class="p">),</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/mynewpage&quot;</span><span class="p">,</span>
-                    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;new page component&quot;</span><span class="p">,</span>
-                    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
-                        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-newpage&quot; */</span> <span class="s2">&quot;../views/NewPageComponent.vue&quot;</span><span class="p">),</span>  <span class="c1">// the source depends on the source of your file!</span>
-                <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/patients/:id&quot;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;patient report&quot;</span><span class="p">,</span>
+        <span class="nx">props</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-patients&quot; */</span> <span class="s2">&quot;../views/SinglePatient.vue&quot;</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&quot;/mynewpage&quot;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;new page component&quot;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+        <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &quot;chunk-newpage&quot; */</span> <span class="s2">&quot;../views/NewPageComponent.vue&quot;</span><span class="p">),</span>  <span class="c1">// the source depends on the source of your file!</span>
+    <span class="p">},</span>
 
 <span class="p">...</span>
 </code></pre></div>

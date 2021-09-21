@@ -6,8 +6,8 @@ provided by the webpack bundling, that are moved into the ``static`` folder insi
 
 The principle of Django's MVT architecture is visualized in the following diagram:
 
-<img src="https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp" width=450px><br>
-<small>Source: https://cdn.askpython.com/wp-content/uploads/2020/08/image-23.png.webp</small>
+<img src="https://www.javatpoint.com/django/images/django-mvt-based-control-flow.png" width=450px><br>
+<small>Source: https://www.javatpoint.com/django/images/django-mvt-based-control-flow.png</small>
 
 
 #### Model

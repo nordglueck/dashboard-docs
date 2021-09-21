@@ -72,3 +72,33 @@ the **store** directory.
     - **App.vue** : The main structure of the app that is rendered at first.
     - **vuex_usage_utils.js** : The store/state-management configurations.
 
+
+#### The store
+
+The data of the application is managed inside the **store** folder. The ``vuex_usage_utils.js`` file describes the modules, 
+the connections, what is stored in the browser cache and what not etc. And inside the **modules** folder there are and can be
+logically structured subfolders and files containing business logic for the datahandling itself. In the case of this application
+this is the communication between the front end and the back end and some necessary operations on the data that the front end has to do.
+
+The substructure of the **modules** folder might present itself like so :
+
+```
+.
+├── modules
+│   ├── auth                # authentication-related logic
+│   │   ├── csrf_token.js   # helper file
+│   │   └── index.js
+│   ├── dengue              # DD/DHF-related logic
+│   │   └── dengue.js
+│   ├── notifications       # notification-related logic
+│   │   └── index.js
+│   ├── patients            # patient-related logic
+│   │   └── patient.js
+│   ├── reports             # report-related logic
+│   │   └── reports.js
+│   └── socket              # socket-related logic
+│       └── index.js
+└── vuex_usage_utils.js     # management file
+
+
+```
