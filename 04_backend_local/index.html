@@ -909,6 +909,10 @@ Other ways include WebSocket testing with programs like the newer versions of po
 </ol>
 <p>This sends a regular pure JavaScript WebSocket request to your server which should lead to an output on your terminal. 
 Note, that this simple request should just get you started and might not lead to an established connection, as there may be restrictions in place.</p>
+<p>For more about the fundamentals of WebSockets, see <a href="https://javascript.info/websocket">https://javascript.info/websocket</a>.
+But please note, the WebSocket communication is implemented on top of the Django Rest Framework, to get along well with DRF,
+which provides a REST API that can be used for services, that don't require or can't handle WebSockets (real-time updates/communication).</p>
+<p>Therefore it is not recommended to mix different approaches into the existing one.</p>
                 
               
               
