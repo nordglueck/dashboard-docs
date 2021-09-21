@@ -6,6 +6,10 @@
 
 - Add FAQs
 - Add new front end tutorials
+- Add content deeper dive/front end/local development
+- Add content deeper dive/front end/project structure
+- Fix broken links/pictures
+- Add back end basics content
 
 
 ### v1.0.4 - June 20, 2021
