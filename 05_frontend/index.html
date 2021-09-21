@@ -495,6 +495,19 @@
     Source Code
   </a>
   
+    <nav class="md-nav" aria-label="Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-store" class="md-nav__link">
+    The store
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -821,6 +834,19 @@
     Source Code
   </a>
   
+    <nav class="md-nav" aria-label="Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-store" class="md-nav__link">
+    The store
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -905,6 +931,29 @@ the <strong>store</strong> directory.</p>
 <li><strong>vuex_usage_utils.js</strong> : The store/state-management configurations.</li>
 </ul>
 </div>
+<h4 id="the-store">The store</h4>
+<p>The data of the application is managed inside the <strong>store</strong> folder. The <code>vuex_usage_utils.js</code> file describes the modules, 
+the connections, what is stored in the browser cache and what not etc. And inside the <strong>modules</strong> folder there are and can be
+logically structured subfolders and files containing business logic for the datahandling itself. In the case of this application
+this is the communication between the front end and the back end and some necessary operations on the data that the front end has to do.</p>
+<p>The substructure of the <strong>modules</strong> folder might present itself like so :</p>
+<div class="highlight"><pre><span></span><code>.
+├── modules
+│   ├── auth                # authentication-related logic
+│   │   ├── csrf_token.js   # helper file
+│   │   └── index.js
+│   ├── dengue              # DD/DHF-related logic
+│   │   └── dengue.js
+│   ├── notifications       # notification-related logic
+│   │   └── index.js
+│   ├── patients            # patient-related logic
+│   │   └── patient.js
+│   ├── reports             # report-related logic
+│   │   └── reports.js
+│   └── socket              # socket-related logic
+│       └── index.js
+└── vuex_usage_utils.js     # management file
+</code></pre></div>
                 
               
               
