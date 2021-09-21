@@ -11,6 +11,8 @@
 - Fix broken links/pictures
 - Add back end basics content
 - Add new page and content deeper dive/back end/postgresql
+- Add WebSocket information to deeper dive/back end/local development
+- Add WebSocket information to deeper dive/front end/local development
 
 
 ### v1.0.4 - June 20, 2021
