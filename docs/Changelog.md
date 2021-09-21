@@ -10,6 +10,7 @@
 - Add content deeper dive/front end/project structure
 - Fix broken links/pictures
 - Add back end basics content
+- Add new page and content deeper dive/back end/postgresql
 
 
 ### v1.0.4 - June 20, 2021
