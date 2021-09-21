@@ -12,6 +12,7 @@ nav:
       - 'Project Structure': '04_backend.md'
       - 'Local development': '04_backend_local.md'
       - 'Production': '04_backend_production.md'
+      - 'PostgreSQL': '04_backend_postgres.md'
       - 'API Documentation': '04_backend_apidocs.md'
       - 'Django Admin': '04_backend_admin.md'
     - 'Front End':
