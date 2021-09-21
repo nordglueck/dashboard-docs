@@ -63,3 +63,18 @@ In addition to that it is possible to track the vuex flow, i.e. the triggering e
 <br>
 source: [https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 
+
+### Debug/track WebSocket messages
+
+Via the devtools in every modern browser it is possible to track the websocket messages that are being exchanged between the back end and the front end.
+However, one needs to pay respect to some peculiarities. The following shows, how debugging/tracking WebSocket messages in general works.
+
+- Open the devtools of the browser
+- Navigate to the **Network** tab
+- Inside the Network tab choose **WS** (WebSockets) 
+- **Navigate to the page you want to inspect the WebSocket communication on or reload the page you are on**
+- Outgoing messages are marked with an arrow pointing upwards, whereas incoming messages are marked with an arrow pointing downwards
+
+
+<img src="assets/stream_in.png" width=48%>
+<img src="assets/stream_out.png" width=48%>
