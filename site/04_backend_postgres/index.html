@@ -14,7 +14,7 @@
     
     
       
-        <title>Local development - Dengue Dashboard Docs</title>
+        <title>PostgreSQL - Dengue Dashboard Docs</title>
       
     
     
@@ -66,11 +66,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#local-development" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Local development
+              PostgreSQL
             
           </span>
         </div>
@@ -373,47 +368,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Local development
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../04_backend_local/" class="md-nav__link">
         Local development
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#local-development" class="md-nav__link">
-    Local development
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -433,11 +392,19 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../04_backend_postgres/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         PostgreSQL
       </a>
+      
     </li>
   
 
@@ -785,82 +752,15 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#local-development" class="md-nav__link">
-    Local development
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Local development</h1>
+                  <h1>PostgreSQL</h1>
                 
-                <p>This section goes more into detail on how to develop the backend locally. While the installation is covered on the installation page, this 
-section also provides details on which settings one might configure for their specific environment.</p>
-<h4 id="local-development">Local development</h4>
-<p>As explained on the installation page, there are two different <code>docker-compose</code> files for each of the environment. For local development, the docker container is built
-and started by executing the following two commands in the root directory of the project.</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker-compose local.yml -f build</span>
-</code></pre></div>
-<p>This first command builds the docker container and installs all of the necessary requirements for the back end. Because we are building the
-container for the local environment here, the requirements <code>base.txt</code> and <code>local.txt</code> will be installed. </p>
-<p>The following command starts the docker container.</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker-compose local.yml -f up</span>
-</code></pre></div>
-<p>Together with <strong>django</strong> some other processes, including <strong>redis</strong> (cache) and <strong>postgres</strong> (database) will be started.</p>
-<p>After starting the docker container, the console output would look something like the following:</p>
-<div id="termynal" data-termynal data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-    <span data-ty="input">redis       | 1:M 19 May 2021 13:09:00.119 * Ready to accept connections</span>
-    <span data-ty="input">postgres    | 2021-05-19 13:09:01.875 UTC [26] LOG:  database system was shut down at 2021-05-11 19:27:08 UTC</span>
-    <span data-ty="input">postgres    | 2021-05-19 13:09:01.895 UTC [1] LOG:  database system is ready to accept connections</span>
-    <span data-ty="input">django      | PostgreSQL is available</span>
-    <span data-ty="input">django      | Operations to perform:</span>
-    <span data-ty="input">django      |   Apply all migrations: admin, auth, authtoken, background_task, contenttypes, patients, sessions, sites, users</span>
-    <span data-ty="input">django      | Running migrations:</span>
-    <span data-ty="input">django      |   No migrations to apply.</span>
-    <span data-ty="input">django      | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)</span>
-</div>
-
-<p>The last line of the output shows the URL of the application. However, to fully be able to develop locally, pay attention to
-the <a href="/05_frontend"><strong>Front End</strong></a> page. </p>
-<p>After the docker container is up and running, additional commands (like <code>makemigrations</code> e.g.), inside the container can be executed using the <code>exec</code>
-command:</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker-compose -f local.yml exec django python manage.py makemigrations</span>
-</code></pre></div>
-<div class="admonition attention">
-<p class="admonition-title">More content coming soon</p>
-<ul>
-<li>test websockets</li>
-</ul>
-</div>
+                <p>https://tomcam.github.io/postgres/</p>
                 
               
               
@@ -879,7 +779,7 @@ command:</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../04_backend/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../04_backend_production/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -888,19 +788,19 @@ command:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Project Structure
+              Production
             </div>
           </div>
         </a>
       
       
-        <a href="../04_backend_production/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../04_backend_apidocs/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Production
+              API Documentation
             </div>
           </div>
           <div class="md-footer__button md-icon">
