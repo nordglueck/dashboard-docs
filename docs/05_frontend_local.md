@@ -1,12 +1,3 @@
-!!! attention "More content coming soon"
-   
-    - local commands
-    - hot-reloading
-    - vuex plugin
-    - trouble shooting
-    - debugging, network tab/websockets
-
-
 This section goes more into detail on how to develop the front end locally. 
 While the installation is covered on the installation page, 
 this section also provides details on which settings one might configure for their specific environment.
@@ -77,8 +68,8 @@ However, one needs to pay respect to some peculiarities. The following shows, ho
 
 
 
-<img src="../assets/stream_out.png" width=48%><br>
+<img src="../assets/stream_out.png"><br>
 Outgoing message from front end to back end. Request to list all patients.
 
-<img src="../assets/stream_in.png" width=48%>
+<img src="../assets/stream_in.png">
 Incoming message from back end to front end. Response with a list of all patients. It is possible to unfold single parts of the response such as single patients and retrieve more information.
