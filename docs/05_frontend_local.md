@@ -76,5 +76,5 @@ However, one needs to pay respect to some peculiarities. The following shows, ho
 - Outgoing messages are marked with an arrow pointing upwards, whereas incoming messages are marked with an arrow pointing downwards
 
 
-<img src="assets/stream_in.png" width=48%>
-<img src="assets/stream_out.png" width=48%>
+<img src="../assets/stream_in.png" width=48%>
+<img src="../assets/stream_out.png" width=48%>
