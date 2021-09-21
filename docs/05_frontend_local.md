@@ -76,5 +76,9 @@ However, one needs to pay respect to some peculiarities. The following shows, ho
 - Outgoing messages are marked with an arrow pointing upwards, whereas incoming messages are marked with an arrow pointing downwards
 
 
+
+<img src="../assets/stream_out.png" width=48%><br>
+Outgoing message from front end to back end. Request to list all patients.
+
 <img src="../assets/stream_in.png" width=48%>
-<img src="../assets/stream_out.png" width=48%>
+Incoming message from back end to front end. Response with a list of all patients. It is possible to unfold single parts of the response such as single patients and retrieve more information.
