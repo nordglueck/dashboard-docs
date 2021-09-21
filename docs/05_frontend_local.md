@@ -59,7 +59,7 @@ handy as well.
 The Vue.js devtools provide functionality such as browsing through the different components and observing different states of data objects.
 In addition to that it is possible to track the vuex flow, i.e. the triggering events, the mutations and the states before and after a mutation was made.
 
-<img src="https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png" width=48%>
+<img src="https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png" width=87%>
 <br>
-source: https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png
+source: [https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 

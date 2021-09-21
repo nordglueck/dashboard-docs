@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hot-reloading" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -464,9 +469,44 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Local development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Local development
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hot-reloading" class="md-nav__link">
+    Hot reloading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vuejs-plugin" class="md-nav__link">
+    Vue.js Plugin
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -740,6 +780,43 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hot-reloading" class="md-nav__link">
+    Hot reloading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vuejs-plugin" class="md-nav__link">
+    Vue.js Plugin
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -758,6 +835,41 @@
 <li>debugging, network tab/websockets</li>
 </ul>
 </div>
+<p>This section goes more into detail on how to develop the front end locally. 
+While the installation is covered on the installation page, 
+this section also provides details on which settings one might configure for their specific environment.</p>
+<p>After the installation of all npm modules, the most important command to get things running in a local environment is:</p>
+<div class="highlight"><pre><span></span><code><span class="go">npm run serve</span>
+</code></pre></div>
+<p>This will serve the Vue.js App locally. Keep in mind that you should have the Docker container with the backend running
+locally as well to be able to exchange data. The terminal is going to give some output similar to this:</p>
+<div class="highlight"><pre><span></span><code><span class="go"> DONE  Compiled successfully in 6342ms                                                                                                                                                   11:57:49 AM</span>
+
+
+<span class="go">  App running at:</span>
+<span class="go">  - Local:   http://localhost:8080/ </span>
+<span class="go">  - Network: http://localhost:8080/</span>
+
+<span class="go">  Note that the development build is not optimized.</span>
+<span class="go">  To create a production build, run npm run build.</span>
+</code></pre></div>
+<p>However, due to the configurations, you should be able to reach the page at <code>http://localhost:8000</code>, which is recommended,
+as everything else (such as the Django Admin panel, the API Docs etc.) are also operating on this port.</p>
+<h3 id="hot-reloading">Hot reloading</h3>
+<p>Developing in Vue.js and serving the web app as shown before should enable you to see changes made to the app immediately
+without restarting anything. This is called hot reloading and might be familiar when someone is experienced in flutter or something
+like that. However, this system has it's flaws and might not work as expected from time to time. This may be due to several
+reasons. A good idea in this case is to 1. try and quit the process and restart <code>npm run serve</code> or in a harder case 2. quit the process, 
+delete all caches and restart <code>npm run serve</code> or as a last option 3. quit the process, delete all caches, run <code>npm run build</code> and then 
+restart <code>npm run serve</code>.</p>
+<h3 id="vuejs-plugin">Vue.js Plugin</h3>
+<p>Besides the Hot Reload functionality, that makes developing in Vue.js very comfortable, the Vue.js Plugin for Chromium-based browsers comes in very
+handy as well. </p>
+<p>The Vue.js devtools provide functionality such as browsing through the different components and observing different states of data objects.
+In addition to that it is possible to track the vuex flow, i.e. the triggering events, the mutations and the states before and after a mutation was made.</p>
+<p><img src="https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png" width=48%>
+<br>
+source: https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png</p>
                 
               
               
