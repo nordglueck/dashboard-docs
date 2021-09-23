@@ -14,6 +14,7 @@
 - Add WebSocket information to deeper dive/back end/local development
 - Add WebSocket information to deeper dive/front end/local development
 - Add tutorial to handle data from the back end in the front end
+- Add content to front end production
 
 
 ### v1.0.4 - June 20, 2021

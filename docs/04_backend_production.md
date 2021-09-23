@@ -19,4 +19,3 @@ It is suggested not to hardcode values for such variables into the code for prod
     POSTGRES_PASSWORD=<your password>
     ```
 
-...

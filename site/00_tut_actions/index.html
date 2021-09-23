@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#work-with-new-data-from-the-back-end" class="md-skip">
+        <a href="#prerequisites" class="md-skip">
           Skip to content
         </a>
       
@@ -684,12 +684,80 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Work with new data from the back end
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Work with new data from the back end
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#establish-a-connection-to-the-websocket" class="md-nav__link">
+    Establish a connection to the WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-patient-module" class="md-nav__link">
+    Create a patient module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-all-available-patients" class="md-nav__link">
+    List all available patients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-patient-data" class="md-nav__link">
+    Update patient data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-the-patient-data-accessible" class="md-nav__link">
+    Make the patient data accessible
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result" class="md-nav__link">
+    Final result
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -768,8 +836,63 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#establish-a-connection-to-the-websocket" class="md-nav__link">
+    Establish a connection to the WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-patient-module" class="md-nav__link">
+    Create a patient module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-all-available-patients" class="md-nav__link">
+    List all available patients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-patient-data" class="md-nav__link">
+    Update patient data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-the-patient-data-accessible" class="md-nav__link">
+    Make the patient data accessible
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result" class="md-nav__link">
+    Final result
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -782,11 +905,185 @@
               
                 
                 
-                <h1 id="work-with-new-data-from-the-back-end">Work with new data from the back end</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>More content coming soon.</p>
-</div>
+                  <h1>Work with new data from the back end</h1>
+                
+                <p>In this tutorial we will handle data that is provided by the back end via WebSockets.<br />
+We are going to use the endpoint created in the respective <a href="../00_tut_ws/">back end tutorial</a></p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A general understanding of how vuex works. States, actions and mutations should be familiar.</li>
+<li>A working WebSocket stream to import data from and send data to.</li>
+<li>A set-up store with submodules like described <a href="../05_frontend/#the-store">here</a>.</li>
+</ul>
+<h2 id="establish-a-connection-to-the-websocket">Establish a connection to the WebSocket</h2>
+<p>At first it is necessary to establish a connection to the WebSocket. In contrast to HTTP REST communication this connection remains
+established until one of the communication partners closes it. Therefore each side can send data via the WebSocket at any time. </p>
+<p>To establish the connection, we use a package called <code>dcrf-client</code>, which is the client-side implementation of the Django Channels Rest Framework, which
+is used in the back end implementation to provide the WebSocket itself. The <code>connect</code> method takes one parameter of the address of the WebSocket.
+In our case it will be a WebSocket on localhost and therefore <code>"ws://localhost:8000/ws/"</code>. The information about the socket and the established connection is then saved
+to a variable called <code>client</code>. As this information is important, because the connection remains open and therefore important, we save it to the global
+state via a <em>commit</em>, which triggers a mutation, that does exactly that.</p>
+<p>Some additional sugar, to have easily accessible information about whether the system is connected to the WebSocket or not is implemented in the following lines.
+Every WebSocket has EventListeners like <code>onopen</code>. If the WebSocket is open, i.e. the system is connected, a mutation is triggered and sets a respective variable to true.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">dcrf</span> <span class="k">from</span> <span class="s2">&quot;dcrf-client&quot;</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">connected</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nx">client</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+
+    <span class="p">...</span>
+<span class="p">};</span>
+
+<span class="p">...</span>
+
+<span class="nx">setup</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">state</span><span class="p">.</span><span class="nx">is_online</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">dcrf</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">&quot;ws://localhost:8000/ws/&quot;</span><span class="p">);</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;SET_CLIENT&quot;</span><span class="p">,</span> <span class="nx">client</span><span class="p">);</span>
+            <span class="nx">state</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">transport</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;CONNECTED&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+            <span class="p">};</span>
+        <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div>
+<h2 id="create-a-patient-module">Create a patient module</h2>
+<p>In <code>src/store/modules/patients/patients.js</code> there should be the following structure. If the folder and file doesn't exist, feel
+free to generate them. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">mutations</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">patientModule</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">,</span>
+    <span class="nx">mutations</span><span class="p">,</span>
+    <span class="nx">actions</span><span class="p">,</span>
+    <span class="nx">getters</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">patientModule</span><span class="p">;</span>
+</code></pre></div>
+<p>To register the module to the global vuex state, we have to import it in <code>src/store/vuex_usage_utils.js</code> like in the following snippet.</p>
+<div class="highlight"><pre><span></span><code><span class="p">...</span>
+
+<span class="k">import</span> <span class="nx">patients</span> <span class="k">from</span> <span class="s2">&quot;./modules/patients/patient.js&quot;</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">let</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+    <span class="nx">modules</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">auth</span><span class="p">,</span>
+        <span class="nx">patients</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// persist the state, excluding the socket (important!)</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">createPersistedState</span><span class="p">({</span>
+        <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span><span class="s1">&#39;patients&#39;</span><span class="p">],</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;vuex&#39;</span><span class="p">,</span>
+        <span class="nx">reducer</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//clear the state that is persisted in the local storage when the user is logged out</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">logged_in</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="p">{}</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="p">{</span><span class="nx">patients</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">patients</span><span class="p">}</span>
+        <span class="p">},</span>
+    <span class="p">})],</span>
+
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="list-all-available-patients">List all available patients</h2>
+<p>Back in <code>src/store/modules/patients/patients.js</code> we can now define actions to handle our data. In this example we want to list
+all available patients. An action to do so might be called <em>loadPatients</em>. </p>
+<p>First, we get hold of the client object we created in the first step. As this object is not part of the state of this file, we have
+to access it by using the rootState like in the snippet below. On the <code>client</code> (open socket) we can now use methods provided by the <code>dcrf-client</code>.
+To list all patients we use the <em>list</em> function and pass the stream of which we want to list the objects off as an argument. 
+The response of this is handled directly and commited to the state. Error-handling is also important here and should lead to another commit, like
+shown below.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nx">loadPatients</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">rootState</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">client</span><span class="p">;</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;patients&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;UPDATE_PATIENT_DATA&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+        <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;NEW_NOTIFICATION&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span> <span class="p">{</span><span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+</code></pre></div>
+<h2 id="update-patient-data">Update patient data</h2>
+<p>The data retrieved in the previous step leads to a commit to <code>UPDATE_PATIENT_DATA</code>, which itself is a mutation. Mutations are able
+changing the state and this principle should be taken care of to provide nice and clean state-management. In our case the response of our
+<code>list</code> request is being passed to the <code>UPDATE_PATIENT_DATA</code> mutation. Inside the mutation, the patientData object of the state is
+simply completely replaced with the new input.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">patientData</span><span class="o">:</span> <span class="p">[],</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">mutations</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">UPDATE_PATIENT_DATA</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">;</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="make-the-patient-data-accessible">Make the patient data accessible</h2>
+<p>In order to access the data from within components in Vue, we have to provide getters for our state variables. In our case we can just
+name the getter as the variable and map the variable to it. But it is also possible to write more complex getter functions that provide filters, for example to filter patients by name or ID.
+An example for a filter by ID is shown in the lines below.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">getters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">patientData</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span><span class="p">,</span>
+
+    <span class="nx">getPatientById</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">patient</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">patient</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">),</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="final-result">Final result</h2>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">patientData</span><span class="o">:</span> <span class="p">[],</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">mutations</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">UPDATE_PATIENT_DATA</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">;</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// loads all available patient data</span>
+    <span class="nx">loadPatients</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">rootState</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">client</span><span class="p">;</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;patients&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;UPDATE_PATIENT_DATA&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+        <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;NEW_NOTIFICATION&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span> <span class="p">{</span><span class="nx">root</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">getters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">patientData</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span><span class="p">,</span>
+    <span class="nx">getPatientById</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">patientData</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">patient</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">patient</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">patientModule</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">,</span>
+    <span class="nx">mutations</span><span class="p">,</span>
+    <span class="nx">actions</span><span class="p">,</span>
+    <span class="nx">getters</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">patientModule</span><span class="p">;</span>
+</code></pre></div>
                 
               
               
