@@ -760,12 +760,13 @@
                 
                   <h1>Production</h1>
                 
-                <div class="admonition attention">
-<p class="admonition-title">More content coming soon</p>
-<ul>
-<li>webpack</li>
-</ul>
-</div>
+                <p>Once the system should be run in production, the source files have to be bundled. The command to do so is:</p>
+<div class="highlight"><pre><span></span><code><span class="go">npm run build</span>
+</code></pre></div>
+<p>It might take a while to build the files, but eventually they will be placed in the <code>dashboard/static/vue</code> folder in the back end
+where these static files can then be served and interpreted from browsers, as they now contain only HTML, CSS and JS.</p>
+<p>Configurations for this process can be made in the <code>vue.config.js</code> file at the root of the <code>vue_frontend</code> folder.
+It is necessary to keep the static files in VCS for production.</p>
                 
               
               
